@@ -1,17 +1,27 @@
-# Xiaomi IR Remote Sensors
+# Sensor entities for Xiaomi IR Remote status
 - platform: template
   sensors:
-    xiaomi_connection_status:
+    xiaomi_ir_device_status:
       friendly_name: "Xiaomi Device Status"
-      value_template: "Connected"
-      icon_template: "mdi:check-circle"
-      
-    xiaomi_last_command:
+      value_template: >-
+        {% if is_state('input_text.xiaomi_ir_host', 'unavailable') %}
+          Disconnected
+        {% else %}
+          Connected
+        {% endif %}
+      icon_template: >-
+        {% if is_state('input_text.xiaomi_ir_host', 'unavailable') %}
+          mdi:lan-disconnect
+        {% else %}
+          mdi:lan-connect
+        {% endif %}
+
+    xiaomi_ir_last_command:
       friendly_name: "Last IR Command"
-      value_template: "None"
-      icon_template: "mdi:remote"
-      
-    xiaomi_command_count:
+      value_template: "{{ states('input_text.xiaomi_ir_last_command') }}"
+      icon: mdi:remote
+
+    xiaomi_ir_commands_sent:
       friendly_name: "Commands Sent"
-      value_template: "0"
-      icon_template: "mdi:counter"
+      value_template: "{{ states('input_text.xiaomi_ir_commands_sent') | int }}"
+      icon: mdi:counter
