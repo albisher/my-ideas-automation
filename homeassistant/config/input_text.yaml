@@ -5,3 +5,13 @@ xiaomi_ir_host:
   min: 7
   max: 15
   pattern: "^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$"
+
+xiaomi_ir_last_command:
+  name: "Last IR Command"
+  initial: "None"
+  max: 50
+
+xiaomi_ir_commands_sent:
+  name: "Commands Sent"
+  initial: "0"
+  max: 10

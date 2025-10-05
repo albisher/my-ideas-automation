@@ -1,0 +1,7 @@
+# REST commands for Xiaomi IR Remote
+send_ir_command:
+  url: "http://localhost:8123/api/services/python_script/xiaomi_ir_send_command"
+  method: POST
+  headers:
+    Content-Type: "application/json"
+  payload: '{"command": "{{ command }}"}'

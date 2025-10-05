@@ -1,28 +1,6 @@
-# Xiaomi IR Remote Scripts
-# These scripts send IR commands directly to the Xiaomi device without authentication
+# Xiaomi IR Remote Scripts - Production Solution
+# These scripts send IR commands directly to the Xiaomi device
 
-xiaomi_ir_turn_on:
-  alias: "Xiaomi IR Turn On"
-  sequence:
-    - service: shell_command.send_ir_command
-      data:
-        command: "hisense_tv_power"
-
-xiaomi_ir_turn_off:
-  alias: "Xiaomi IR Turn Off"
-  sequence:
-    - service: shell_command.send_ir_command
-      data:
-        command: "hisense_tv_power"
-
-xiaomi_ir_send_command:
-  alias: "Xiaomi IR Send Command"
-  sequence:
-    - service: shell_command.send_ir_command
-      data:
-        command: "{{ command }}"
-
-# Individual IR command scripts
 xiaomi_ir_power:
   alias: "Xiaomi IR Power"
   sequence:
@@ -114,7 +92,13 @@ xiaomi_ir_right:
       data:
         command: "hisense_tv_right"
 
-# Additional utility scripts
+xiaomi_ir_mute:
+  alias: "Xiaomi IR Mute"
+  sequence:
+    - service: shell_command.send_ir_command
+      data:
+        command: "hisense_tv_mute"
+
 xiaomi_ir_test_all:
   alias: "Xiaomi IR Test All Commands"
   sequence:
@@ -133,22 +117,3 @@ xiaomi_ir_test_all:
     - service: shell_command.send_ir_command
       data:
         command: "hisense_tv_menu"
-
-xiaomi_ir_setup_mode:
-  alias: "Xiaomi IR Setup Mode"
-  sequence:
-    - service: shell_command.send_ir_command
-      data:
-        command: "hisense_tv_menu"
-    - delay: "00:00:02"
-    - service: shell_command.send_ir_command
-      data:
-        command: "hisense_tv_ok"
-    - delay: "00:00:01"
-    - service: shell_command.send_ir_command
-      data:
-        command: "hisense_tv_down"
-    - delay: "00:00:01"
-    - service: shell_command.send_ir_command
-      data:
-        command: "hisense_tv_ok"
