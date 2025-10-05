@@ -20,14 +20,17 @@ discovery:
   enable:
     - tapo
     - zeroconf
-    - google_cast
     - xiaomi_miio
 
 # Zeroconf for Tapo device discovery
 zeroconf:
 
-# Google Cast integration for Google Home devices
-google_cast:
+# Google Cast integration disabled - using IR commands instead
+# google_cast:
+#   media_player:
+#     - host: 192.168.68.62
+#   known_hosts:
+#     - 192.168.68.62
 
 # Xiaomi IR Remote for TV control (using scripts - no token required)
 # The remote functionality is provided through scripts and automations

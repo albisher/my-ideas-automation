@@ -1,0 +1,9 @@
+{
+  "status": "monitoring",
+  "phone_ip": "192.168.68.65",
+  "xiaomi_ip": "192.168.68.68",
+  "total_commands_captured": 0,
+  "last_update": "2025-10-05T15:00:16.517444",
+  "commands": {},
+  "command_patterns": {}
+}

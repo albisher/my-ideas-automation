@@ -25,6 +25,17 @@
         "name": "myHome",
         "system_generated": false,
         "local_only": false
+      },
+      {
+        "id": "e4518b9cddbd409aac51311a0d63b1a1",
+        "group_ids": [
+          "system-admin"
+        ],
+        "is_owner": false,
+        "is_active": true,
+        "name": "Home Assistant Cast",
+        "system_generated": true,
+        "local_only": false
       }
     ],
     "groups": [
@@ -115,9 +126,9 @@
         "access_token_expiration": 1800.0,
         "token": "0e82378f201088661f23585231a50fe2517e6ee61d512046c0ed7815cf262015311c688bb54290e90cce0ad6dd4467d3c140f6d9dd790d3ccb330c79d9abd4d4",
         "jwt_key": "cfe31cb47966348ceed198e485d72a56049340d1dffe8bb1ac7ee0b28800e50f38488845dbcd1d1ae57a69bec8a79ccfee36a669d15f70b959a1a855d60a81c4",
-        "last_used_at": "2025-10-05T10:31:16.020954+00:00",
+        "last_used_at": "2025-10-05T12:56:11.040032+00:00",
         "last_used_ip": "172.67.68.90",
-        "expire_at": 1767436276.020954,
+        "expire_at": 1767444971.040032,
         "credential_id": "6949e55aa4fe4098a537ae75c14c87f8",
         "version": "2025.9.4"
       },
@@ -153,6 +164,23 @@
         "last_used_ip": "172.67.68.90",
         "expire_at": 1767300458.391637,
         "credential_id": "6949e55aa4fe4098a537ae75c14c87f8",
+        "version": "2025.9.4"
+      },
+      {
+        "id": "beac8e1adf624a1a912dd735b0ce216b",
+        "user_id": "e4518b9cddbd409aac51311a0d63b1a1",
+        "client_id": null,
+        "client_name": null,
+        "client_icon": null,
+        "token_type": "system",
+        "created_at": "2025-10-05T12:48:51.460423+00:00",
+        "access_token_expiration": 1800.0,
+        "token": "411bfa7618de59e2974180b1c882b84b5d7f7666393d6c6fccf72718a5178c81685d02a1d9f2bd650bc6338d8d1485916df7ddc533150c2376925fe66404d14f",
+        "jwt_key": "3508954ca9ea14fcfc898db697a1c9ec8c6288d1829d5dd7b2e663e786f9a0d0916c0d184bcba6e21ce3afba761807d5722773f6b0d8a5e22fbb50e25475f7cf",
+        "last_used_at": null,
+        "last_used_ip": null,
+        "expire_at": null,
+        "credential_id": null,
         "version": "2025.9.4"
       }
     ]

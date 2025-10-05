@@ -4,156 +4,226 @@
   "key": "core.restore_state",
   "data": [
     {
-      "state": {"entity_id":"conversation.home_assistant","state":"unknown","attributes":{"friendly_name":"Home Assistant","supported_features":1},"last_changed":"2025-10-05T10:32:08.108937+00:00","last_reported":"2025-10-05T10:32:08.108937+00:00","last_updated":"2025-10-05T10:32:08.108937+00:00","context":{"id":"01K6SYVH5CMZFD9N1ZKSB6BBYB","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"conversation.home_assistant","state":"unknown","attributes":{"friendly_name":"Home Assistant","supported_features":1},"last_changed":"2025-10-05T13:08:08.422259+00:00","last_reported":"2025-10-05T13:08:08.422259+00:00","last_updated":"2025-10-05T13:08:08.422259+00:00","context":{"id":"01K6T7S636Z26TW7252893YMQN","parent_id":null,"user_id":null}},
       "extra_data": null,
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"event.backup_automatic_backup","state":"unknown","attributes":{"event_types":["completed","failed","in_progress"],"event_type":null,"friendly_name":"Backup Automatic backup"},"last_changed":"2025-10-05T10:32:08.141310+00:00","last_reported":"2025-10-05T10:32:08.141310+00:00","last_updated":"2025-10-05T10:32:08.141310+00:00","context":{"id":"01K6SYVH6D07797D6T8PDRZYAX","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"event.backup_automatic_backup","state":"unknown","attributes":{"event_types":["completed","failed","in_progress"],"event_type":null,"friendly_name":"Backup Automatic backup"},"last_changed":"2025-10-05T13:08:08.437097+00:00","last_reported":"2025-10-05T13:08:08.437097+00:00","last_updated":"2025-10-05T13:08:08.437097+00:00","context":{"id":"01K6T7S63NT2JTRWNC237CMSA0","parent_id":null,"user_id":null}},
       "extra_data": {
         "last_event_type": null,
         "last_event_attributes": null
       },
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"script.xiaomi_ir_turn_on","state":"off","attributes":{"last_triggered":null,"mode":"single","current":0,"friendly_name":"Xiaomi IR Turn On"},"last_changed":"2025-10-05T10:32:08.588035+00:00","last_reported":"2025-10-05T10:32:08.588035+00:00","last_updated":"2025-10-05T10:32:08.588035+00:00","context":{"id":"01K6SYVHMC8EPVB364ABBT85CW","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"script.xiaomi_ir_power","state":"off","attributes":{"last_triggered":"2025-10-05T12:24:58.501151+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR Power"},"last_changed":"2025-10-05T13:08:08.651960+00:00","last_reported":"2025-10-05T13:08:08.651960+00:00","last_updated":"2025-10-05T13:08:08.651960+00:00","context":{"id":"01K6T7S6AB289X3RKDSY8TRGKR","parent_id":null,"user_id":null}},
       "extra_data": null,
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"script.xiaomi_ir_turn_off","state":"off","attributes":{"last_triggered":null,"mode":"single","current":0,"friendly_name":"Xiaomi IR Turn Off"},"last_changed":"2025-10-05T10:32:08.588077+00:00","last_reported":"2025-10-05T10:32:08.588077+00:00","last_updated":"2025-10-05T10:32:08.588077+00:00","context":{"id":"01K6SYVHMC23FBTK8ZFCBYNH6T","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"script.xiaomi_ir_volume_up","state":"off","attributes":{"last_triggered":"2025-10-05T10:26:47.764922+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR Volume Up"},"last_changed":"2025-10-05T13:08:08.652007+00:00","last_reported":"2025-10-05T13:08:08.652007+00:00","last_updated":"2025-10-05T13:08:08.652007+00:00","context":{"id":"01K6T7S6ACKA7Y8JVJKSAZKHDZ","parent_id":null,"user_id":null}},
       "extra_data": null,
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"script.xiaomi_ir_send_command","state":"off","attributes":{"last_triggered":null,"mode":"single","current":0,"friendly_name":"Xiaomi IR Send Command"},"last_changed":"2025-10-05T10:32:08.588101+00:00","last_reported":"2025-10-05T10:32:08.588101+00:00","last_updated":"2025-10-05T10:32:08.588101+00:00","context":{"id":"01K6SYVHMC1MD13K3863G9691Q","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"script.xiaomi_ir_volume_down","state":"off","attributes":{"last_triggered":"2025-10-05T11:17:21.724362+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR Volume Down"},"last_changed":"2025-10-05T13:08:08.652035+00:00","last_reported":"2025-10-05T13:08:08.652035+00:00","last_updated":"2025-10-05T13:08:08.652035+00:00","context":{"id":"01K6T7S6ACWKP645AB7E7ZN1FT","parent_id":null,"user_id":null}},
       "extra_data": null,
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"script.xiaomi_ir_power","state":"off","attributes":{"last_triggered":null,"mode":"single","current":0,"friendly_name":"Xiaomi IR Power"},"last_changed":"2025-10-05T10:32:08.588121+00:00","last_reported":"2025-10-05T10:32:08.588121+00:00","last_updated":"2025-10-05T10:32:08.588121+00:00","context":{"id":"01K6SYVHMCP81CNNG8VJM8HWVG","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"script.xiaomi_ir_channel_up","state":"off","attributes":{"last_triggered":"2025-10-05T11:26:17.193235+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR Channel Up"},"last_changed":"2025-10-05T13:08:08.652057+00:00","last_reported":"2025-10-05T13:08:08.652057+00:00","last_updated":"2025-10-05T13:08:08.652057+00:00","context":{"id":"01K6T7S6AC9JW1YMMFQPGMDERF","parent_id":null,"user_id":null}},
       "extra_data": null,
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"script.xiaomi_ir_volume_up","state":"off","attributes":{"last_triggered":"2025-10-05T10:26:47.764922+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR Volume Up"},"last_changed":"2025-10-05T10:32:08.588143+00:00","last_reported":"2025-10-05T10:32:08.588143+00:00","last_updated":"2025-10-05T10:32:08.588143+00:00","context":{"id":"01K6SYVHMCFG78Q6FMHYWAEPXF","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"script.xiaomi_ir_channel_down","state":"off","attributes":{"last_triggered":"2025-10-05T11:26:15.705517+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR Channel Down"},"last_changed":"2025-10-05T13:08:08.652076+00:00","last_reported":"2025-10-05T13:08:08.652076+00:00","last_updated":"2025-10-05T13:08:08.652076+00:00","context":{"id":"01K6T7S6ACV08GCGHW20J1VYBS","parent_id":null,"user_id":null}},
       "extra_data": null,
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"script.xiaomi_ir_volume_down","state":"off","attributes":{"last_triggered":"2025-10-05T10:31:17.348282+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR Volume Down"},"last_changed":"2025-10-05T10:32:08.588162+00:00","last_reported":"2025-10-05T10:32:08.588162+00:00","last_updated":"2025-10-05T10:32:08.588162+00:00","context":{"id":"01K6SYVHMCPYD9XCBHXCS2CVQ6","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"script.xiaomi_ir_input","state":"off","attributes":{"last_triggered":"2025-10-05T11:26:20.016899+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR Input"},"last_changed":"2025-10-05T13:08:08.652096+00:00","last_reported":"2025-10-05T13:08:08.652096+00:00","last_updated":"2025-10-05T13:08:08.652096+00:00","context":{"id":"01K6T7S6AC7D7ERJ924V19KWFX","parent_id":null,"user_id":null}},
       "extra_data": null,
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"script.xiaomi_ir_channel_up","state":"off","attributes":{"last_triggered":null,"mode":"single","current":0,"friendly_name":"Xiaomi IR Channel Up"},"last_changed":"2025-10-05T10:32:08.588181+00:00","last_reported":"2025-10-05T10:32:08.588181+00:00","last_updated":"2025-10-05T10:32:08.588181+00:00","context":{"id":"01K6SYVHMCEYDDCDTE95D9ZRS1","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"script.xiaomi_ir_menu","state":"off","attributes":{"last_triggered":"2025-10-05T10:18:57.439809+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR Menu"},"last_changed":"2025-10-05T13:08:08.652127+00:00","last_reported":"2025-10-05T13:08:08.652127+00:00","last_updated":"2025-10-05T13:08:08.652127+00:00","context":{"id":"01K6T7S6ACR8KFYEME7HC96FSA","parent_id":null,"user_id":null}},
       "extra_data": null,
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"script.xiaomi_ir_channel_down","state":"off","attributes":{"last_triggered":null,"mode":"single","current":0,"friendly_name":"Xiaomi IR Channel Down"},"last_changed":"2025-10-05T10:32:08.588197+00:00","last_reported":"2025-10-05T10:32:08.588197+00:00","last_updated":"2025-10-05T10:32:08.588197+00:00","context":{"id":"01K6SYVHMC739HYQQKMG22PYJ7","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"script.xiaomi_ir_back","state":"off","attributes":{"last_triggered":"2025-10-05T10:26:49.860536+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR Back"},"last_changed":"2025-10-05T13:08:08.652146+00:00","last_reported":"2025-10-05T13:08:08.652146+00:00","last_updated":"2025-10-05T13:08:08.652146+00:00","context":{"id":"01K6T7S6ACTE8V28SEVKNJ6DRX","parent_id":null,"user_id":null}},
       "extra_data": null,
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"script.xiaomi_ir_input","state":"off","attributes":{"last_triggered":"2025-10-05T10:21:07.865271+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR Input"},"last_changed":"2025-10-05T10:32:08.588215+00:00","last_reported":"2025-10-05T10:32:08.588215+00:00","last_updated":"2025-10-05T10:32:08.588215+00:00","context":{"id":"01K6SYVHMCKJ9FZ3NF0YD82SVH","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"script.xiaomi_ir_ok","state":"off","attributes":{"last_triggered":"2025-10-05T11:26:25.901985+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR OK"},"last_changed":"2025-10-05T13:08:08.652164+00:00","last_reported":"2025-10-05T13:08:08.652164+00:00","last_updated":"2025-10-05T13:08:08.652164+00:00","context":{"id":"01K6T7S6ACNF81GT6SGN5F56C2","parent_id":null,"user_id":null}},
       "extra_data": null,
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"script.xiaomi_ir_menu","state":"off","attributes":{"last_triggered":"2025-10-05T10:18:57.439809+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR Menu"},"last_changed":"2025-10-05T10:32:08.588231+00:00","last_reported":"2025-10-05T10:32:08.588231+00:00","last_updated":"2025-10-05T10:32:08.588231+00:00","context":{"id":"01K6SYVHMC0S8C8ZE2VA00C38T","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"script.xiaomi_ir_up","state":"off","attributes":{"last_triggered":"2025-10-05T10:26:51.885765+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR Up"},"last_changed":"2025-10-05T13:08:08.652187+00:00","last_reported":"2025-10-05T13:08:08.652187+00:00","last_updated":"2025-10-05T13:08:08.652187+00:00","context":{"id":"01K6T7S6ACE5EYZE2X9JJHGXX2","parent_id":null,"user_id":null}},
       "extra_data": null,
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"script.xiaomi_ir_back","state":"off","attributes":{"last_triggered":"2025-10-05T10:26:49.860536+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR Back"},"last_changed":"2025-10-05T10:32:08.588250+00:00","last_reported":"2025-10-05T10:32:08.588250+00:00","last_updated":"2025-10-05T10:32:08.588250+00:00","context":{"id":"01K6SYVHMCNDVFWWC113Y3YFMJ","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"script.xiaomi_ir_down","state":"off","attributes":{"last_triggered":null,"mode":"single","current":0,"friendly_name":"Xiaomi IR Down"},"last_changed":"2025-10-05T13:08:08.652204+00:00","last_reported":"2025-10-05T13:08:08.652204+00:00","last_updated":"2025-10-05T13:08:08.652204+00:00","context":{"id":"01K6T7S6ACM8GYNFDQ76MZQ8C2","parent_id":null,"user_id":null}},
       "extra_data": null,
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"script.xiaomi_ir_ok","state":"off","attributes":{"last_triggered":"2025-10-05T10:26:51.004931+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR OK"},"last_changed":"2025-10-05T10:32:08.588266+00:00","last_reported":"2025-10-05T10:32:08.588266+00:00","last_updated":"2025-10-05T10:32:08.588266+00:00","context":{"id":"01K6SYVHMCR0SNBSCC8EN1544K","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"script.xiaomi_ir_left","state":"off","attributes":{"last_triggered":"2025-10-05T11:25:59.289848+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR Left"},"last_changed":"2025-10-05T13:08:08.652221+00:00","last_reported":"2025-10-05T13:08:08.652221+00:00","last_updated":"2025-10-05T13:08:08.652221+00:00","context":{"id":"01K6T7S6AC1EJT9ZJZDZY53GNT","parent_id":null,"user_id":null}},
       "extra_data": null,
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"script.xiaomi_ir_up","state":"off","attributes":{"last_triggered":"2025-10-05T10:26:51.885765+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR Up"},"last_changed":"2025-10-05T10:32:08.588282+00:00","last_reported":"2025-10-05T10:32:08.588282+00:00","last_updated":"2025-10-05T10:32:08.588282+00:00","context":{"id":"01K6SYVHMCJKPFV8GECR9EV4QB","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"script.xiaomi_ir_right","state":"off","attributes":{"last_triggered":"2025-10-05T11:25:59.905318+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR Right"},"last_changed":"2025-10-05T13:08:08.652242+00:00","last_reported":"2025-10-05T13:08:08.652242+00:00","last_updated":"2025-10-05T13:08:08.652242+00:00","context":{"id":"01K6T7S6AC0GTPKW5CA8A87Y1A","parent_id":null,"user_id":null}},
       "extra_data": null,
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"script.xiaomi_ir_down","state":"off","attributes":{"last_triggered":null,"mode":"single","current":0,"friendly_name":"Xiaomi IR Down"},"last_changed":"2025-10-05T10:32:08.588300+00:00","last_reported":"2025-10-05T10:32:08.588300+00:00","last_updated":"2025-10-05T10:32:08.588300+00:00","context":{"id":"01K6SYVHMC0W19Q4FHJ520Q4S3","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"script.xiaomi_ir_mute","state":"off","attributes":{"last_triggered":"2025-10-05T11:25:53.718250+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR Mute"},"last_changed":"2025-10-05T13:08:08.652262+00:00","last_reported":"2025-10-05T13:08:08.652262+00:00","last_updated":"2025-10-05T13:08:08.652262+00:00","context":{"id":"01K6T7S6AC4A22DNNJZH2KWVKY","parent_id":null,"user_id":null}},
       "extra_data": null,
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"script.xiaomi_ir_left","state":"off","attributes":{"last_triggered":null,"mode":"single","current":0,"friendly_name":"Xiaomi IR Left"},"last_changed":"2025-10-05T10:32:08.588317+00:00","last_reported":"2025-10-05T10:32:08.588317+00:00","last_updated":"2025-10-05T10:32:08.588317+00:00","context":{"id":"01K6SYVHMCQHA31D57RES3GXZF","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"script.xiaomi_ir_test_all","state":"off","attributes":{"last_triggered":"2025-10-05T11:01:57.277098+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR Test All Commands"},"last_changed":"2025-10-05T13:08:08.652281+00:00","last_reported":"2025-10-05T13:08:08.652281+00:00","last_updated":"2025-10-05T13:08:08.652281+00:00","context":{"id":"01K6T7S6ACGWRQPG3K498FABFP","parent_id":null,"user_id":null}},
       "extra_data": null,
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"script.xiaomi_ir_right","state":"off","attributes":{"last_triggered":"2025-10-05T10:26:52.394770+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR Right"},"last_changed":"2025-10-05T10:32:08.588442+00:00","last_reported":"2025-10-05T10:32:08.588442+00:00","last_updated":"2025-10-05T10:32:08.588442+00:00","context":{"id":"01K6SYVHMCJ454T947RZS32AEM","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"script.start_network_monitoring","state":"off","attributes":{"last_triggered":"2025-10-05T13:04:45.549183+00:00","mode":"single","current":0,"friendly_name":"Start Network Monitoring"},"last_changed":"2025-10-05T13:08:08.652301+00:00","last_reported":"2025-10-05T13:08:08.652301+00:00","last_updated":"2025-10-05T13:08:08.652301+00:00","context":{"id":"01K6T7S6ACD795JNS8EW39RZE9","parent_id":null,"user_id":null}},
       "extra_data": null,
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"script.xiaomi_ir_test_all","state":"off","attributes":{"last_triggered":"2025-10-05T10:21:09.914181+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR Test All Commands"},"last_changed":"2025-10-05T10:32:08.588462+00:00","last_reported":"2025-10-05T10:32:08.588462+00:00","last_updated":"2025-10-05T10:32:08.588462+00:00","context":{"id":"01K6SYVHMCJRCHQX8TYCVCBQPY","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"script.stop_network_monitoring","state":"off","attributes":{"last_triggered":null,"mode":"single","current":0,"friendly_name":"Stop Network Monitoring"},"last_changed":"2025-10-05T13:08:08.652323+00:00","last_reported":"2025-10-05T13:08:08.652323+00:00","last_updated":"2025-10-05T13:08:08.652323+00:00","context":{"id":"01K6T7S6AC5V8MSQ4ZCN1YCD2N","parent_id":null,"user_id":null}},
       "extra_data": null,
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"script.xiaomi_ir_setup_mode","state":"off","attributes":{"last_triggered":"2025-10-05T10:20:57.137875+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR Setup Mode"},"last_changed":"2025-10-05T10:32:08.588480+00:00","last_reported":"2025-10-05T10:32:08.588480+00:00","last_updated":"2025-10-05T10:32:08.588480+00:00","context":{"id":"01K6SYVHMCA04PYX4KBNE2D1ZJ","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"script.check_network_status","state":"off","attributes":{"last_triggered":"2025-10-05T12:24:47.302258+00:00","mode":"single","current":0,"friendly_name":"Check Network Status"},"last_changed":"2025-10-05T13:08:08.652343+00:00","last_reported":"2025-10-05T13:08:08.652343+00:00","last_updated":"2025-10-05T13:08:08.652343+00:00","context":{"id":"01K6T7S6ACBQBZZ4TG1BVSV38J","parent_id":null,"user_id":null}},
       "extra_data": null,
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"person.myhome","state":"not_home","attributes":{"editable":true,"id":"myhome","device_trackers":["device_tracker.sm_s901e"],"latitude":29.2344154,"longitude":48.0549085,"gps_accuracy":12,"source":"person.myhome","user_id":"c99ce852354a4aec8881eaeec2e37a27","friendly_name":"myHome"},"last_changed":"2025-10-05T10:32:08.590641+00:00","last_reported":"2025-10-05T10:32:08.590641+00:00","last_updated":"2025-10-05T10:32:08.590641+00:00","context":{"id":"01K6SYVHMETR0K6WG9XC4ZFTSX","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"script.restart_network_monitoring","state":"off","attributes":{"last_triggered":"2025-10-05T12:24:49.514913+00:00","mode":"single","current":0,"friendly_name":"Restart Network Monitoring"},"last_changed":"2025-10-05T13:08:08.652359+00:00","last_reported":"2025-10-05T13:08:08.652359+00:00","last_updated":"2025-10-05T13:08:08.652359+00:00","context":{"id":"01K6T7S6ACKSK2GXF989QKSQ6R","parent_id":null,"user_id":null}},
       "extra_data": null,
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"input_text.xiaomi_ir_host","state":"192.168.68.68","attributes":{"editable":false,"min":7,"max":15,"pattern":"^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$","mode":"text","friendly_name":"Xiaomi IR Host"},"last_changed":"2025-10-05T10:32:08.608948+00:00","last_reported":"2025-10-05T10:32:08.608948+00:00","last_updated":"2025-10-05T10:32:08.608948+00:00","context":{"id":"01K6SYVHN0BHWV3C159TXFYBZQ","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"script.analyze_xiaomi_device","state":"off","attributes":{"last_triggered":"2025-10-05T12:24:42.331656+00:00","mode":"single","current":0,"friendly_name":"Analyze Xiaomi Device"},"last_changed":"2025-10-05T13:08:08.652374+00:00","last_reported":"2025-10-05T13:08:08.652374+00:00","last_updated":"2025-10-05T13:08:08.652374+00:00","context":{"id":"01K6T7S6ACA18BK3K0633FD58F","parent_id":null,"user_id":null}},
       "extra_data": null,
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"automation.welcome_home","state":"on","attributes":{"last_triggered":"2025-10-05T10:29:30.035164+00:00","mode":"single","current":0,"friendly_name":"Welcome Home"},"last_changed":"2025-10-05T10:32:08.646617+00:00","last_reported":"2025-10-05T10:32:08.646617+00:00","last_updated":"2025-10-05T10:32:08.646617+00:00","context":{"id":"01K6SYVHP61G946ZX6JVYKXTJD","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"script.check_xiaomi_analysis","state":"off","attributes":{"last_triggered":"2025-10-05T12:24:39.904082+00:00","mode":"single","current":0,"friendly_name":"Check Xiaomi Analysis"},"last_changed":"2025-10-05T13:08:08.652390+00:00","last_reported":"2025-10-05T13:08:08.652390+00:00","last_updated":"2025-10-05T13:08:08.652390+00:00","context":{"id":"01K6T7S6AC70DEHMA6ZV4Z6Q32","parent_id":null,"user_id":null}},
       "extra_data": null,
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"device_tracker.sm_s901e","state":"not_home","attributes":{"source_type":"gps","latitude":29.2344154,"longitude":48.0549085,"gps_accuracy":12,"altitude":31.0,"course":0,"speed":0,"vertical_accuracy":0,"friendly_name":"SM-S901E"},"last_changed":"2025-10-05T10:32:09.328483+00:00","last_reported":"2025-10-05T10:32:09.328483+00:00","last_updated":"2025-10-05T10:32:09.328483+00:00","context":{"id":"01K6SYVJBGCCYTPQ8777Z6HDXN","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"script.test_xiaomi_connection","state":"off","attributes":{"last_triggered":"2025-10-05T12:24:41.754463+00:00","mode":"single","current":0,"friendly_name":"Test Xiaomi Connection"},"last_changed":"2025-10-05T13:08:08.652406+00:00","last_reported":"2025-10-05T13:08:08.652406+00:00","last_updated":"2025-10-05T13:08:08.652406+00:00","context":{"id":"01K6T7S6AC1C9829NASKTG1A8P","parent_id":null,"user_id":null}},
       "extra_data": null,
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"sensor.sm_s901e_battery_level","state":"41","attributes":{"state_class":"measurement","unit_of_measurement":"%","device_class":"battery","icon":"mdi:battery-40","friendly_name":"SM-S901E Battery level"},"last_changed":"2025-10-05T10:32:09.328671+00:00","last_reported":"2025-10-05T10:32:09.328671+00:00","last_updated":"2025-10-05T10:32:09.328671+00:00","context":{"id":"01K6SYVJBG6Y1BN0GPJEBCGDEV","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"script.full_xiaomi_analysis","state":"off","attributes":{"last_triggered":"2025-10-05T12:24:40.951305+00:00","mode":"single","current":0,"friendly_name":"Full Xiaomi Analysis"},"last_changed":"2025-10-05T13:08:08.652426+00:00","last_reported":"2025-10-05T13:08:08.652426+00:00","last_updated":"2025-10-05T13:08:08.652426+00:00","context":{"id":"01K6T7S6ACB5S83R4GXRE12T7P","parent_id":null,"user_id":null}},
+      "extra_data": null,
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
+    },
+    {
+      "state": {"entity_id":"person.myhome","state":"not_home","attributes":{"editable":true,"id":"myhome","device_trackers":["device_tracker.sm_s901e"],"latitude":29.2344154,"longitude":48.0549085,"gps_accuracy":12,"source":"person.myhome","user_id":"c99ce852354a4aec8881eaeec2e37a27","friendly_name":"myHome"},"last_changed":"2025-10-05T13:08:08.656223+00:00","last_reported":"2025-10-05T13:08:08.656223+00:00","last_updated":"2025-10-05T13:08:08.656223+00:00","context":{"id":"01K6T7S6AGBCGKP36TTB3F5W8E","parent_id":null,"user_id":null}},
+      "extra_data": null,
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
+    },
+    {
+      "state": {"entity_id":"input_text.xiaomi_ir_host","state":"192.168.68.68","attributes":{"editable":false,"min":7,"max":15,"pattern":"^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$","mode":"text","friendly_name":"Xiaomi IR Host"},"last_changed":"2025-10-05T13:08:08.673867+00:00","last_reported":"2025-10-05T13:08:08.673867+00:00","last_updated":"2025-10-05T13:08:08.673867+00:00","context":{"id":"01K6T7S6B1JR975J5JVCWX3ZF0","parent_id":null,"user_id":null}},
+      "extra_data": null,
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
+    },
+    {
+      "state": {"entity_id":"input_text.xiaomi_ir_last_command","state":"None","attributes":{"editable":false,"min":0,"max":50,"pattern":null,"mode":"text","friendly_name":"Last IR Command"},"last_changed":"2025-10-05T13:08:08.673904+00:00","last_reported":"2025-10-05T13:08:08.673904+00:00","last_updated":"2025-10-05T13:08:08.673904+00:00","context":{"id":"01K6T7S6B1VAKSV6Y6ZRQAD51P","parent_id":null,"user_id":null}},
+      "extra_data": null,
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
+    },
+    {
+      "state": {"entity_id":"input_text.xiaomi_ir_commands_sent","state":"0","attributes":{"editable":false,"min":0,"max":10,"pattern":null,"mode":"text","friendly_name":"Commands Sent"},"last_changed":"2025-10-05T13:08:08.673923+00:00","last_reported":"2025-10-05T13:08:08.673923+00:00","last_updated":"2025-10-05T13:08:08.673923+00:00","context":{"id":"01K6T7S6B1DY8DAXR6W6FRX2PS","parent_id":null,"user_id":null}},
+      "extra_data": null,
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
+    },
+    {
+      "state": {"entity_id":"device_tracker.sm_s901e","state":"not_home","attributes":{"source_type":"gps","latitude":29.2344154,"longitude":48.0549085,"gps_accuracy":12,"altitude":31.0,"course":0,"speed":0,"vertical_accuracy":0,"friendly_name":"SM-S901E"},"last_changed":"2025-10-05T13:08:09.204234+00:00","last_reported":"2025-10-05T13:08:09.204234+00:00","last_updated":"2025-10-05T13:08:09.204234+00:00","context":{"id":"01K6T7S6VMFTZ3DS2QA9AA3E10","parent_id":null,"user_id":null}},
+      "extra_data": null,
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
+    },
+    {
+      "state": {"entity_id":"sensor.sm_s901e_battery_level","state":"41","attributes":{"state_class":"measurement","unit_of_measurement":"%","device_class":"battery","icon":"mdi:battery-40","friendly_name":"SM-S901E Battery level"},"last_changed":"2025-10-05T13:08:09.204428+00:00","last_reported":"2025-10-05T13:08:09.204428+00:00","last_updated":"2025-10-05T13:08:09.204428+00:00","context":{"id":"01K6T7S6VMSP47RVF4JQWKQKP6","parent_id":null,"user_id":null}},
       "extra_data": {
         "native_value": 41,
         "native_unit_of_measurement": "%"
       },
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"sensor.sm_s901e_battery_state","state":"discharging","attributes":{"options":["charging","discharging","full","not_charging"],"device_class":"enum","icon":"mdi:battery-minus","friendly_name":"SM-S901E Battery state"},"last_changed":"2025-10-05T10:32:09.328728+00:00","last_reported":"2025-10-05T10:32:09.328728+00:00","last_updated":"2025-10-05T10:32:09.328728+00:00","context":{"id":"01K6SYVJBGXZN2HPKDDTBF4JS0","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"sensor.sm_s901e_battery_state","state":"discharging","attributes":{"options":["charging","discharging","full","not_charging"],"device_class":"enum","icon":"mdi:battery-minus","friendly_name":"SM-S901E Battery state"},"last_changed":"2025-10-05T13:08:09.204488+00:00","last_reported":"2025-10-05T13:08:09.204488+00:00","last_updated":"2025-10-05T13:08:09.204488+00:00","context":{"id":"01K6T7S6VMCKVVG95K55CNFT72","parent_id":null,"user_id":null}},
       "extra_data": {
         "native_value": "discharging",
         "native_unit_of_measurement": null
       },
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"sensor.sm_s901e_charger_type","state":"none","attributes":{"options":["ac","usb","wireless","dock","none"],"device_class":"enum","icon":"mdi:battery","friendly_name":"SM-S901E Charger type"},"last_changed":"2025-10-05T10:32:09.328769+00:00","last_reported":"2025-10-05T10:32:09.328769+00:00","last_updated":"2025-10-05T10:32:09.328769+00:00","context":{"id":"01K6SYVJBGZEP2ZMFN8K4566HS","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"sensor.sm_s901e_charger_type","state":"none","attributes":{"options":["ac","usb","wireless","dock","none"],"device_class":"enum","icon":"mdi:battery","friendly_name":"SM-S901E Charger type"},"last_changed":"2025-10-05T13:08:09.204538+00:00","last_reported":"2025-10-05T13:08:09.204538+00:00","last_updated":"2025-10-05T13:08:09.204538+00:00","context":{"id":"01K6T7S6VMJ7YV1JAH4KNB2BPK","parent_id":null,"user_id":null}},
       "extra_data": {
         "native_value": "none",
         "native_unit_of_measurement": null
       },
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
     },
     {
-      "state": {"entity_id":"tts.google_translate_en_com","state":"unknown","attributes":{"friendly_name":"Google Translate en com"},"last_changed":"2025-10-05T10:32:09.336024+00:00","last_reported":"2025-10-05T10:32:09.336024+00:00","last_updated":"2025-10-05T10:32:09.336024+00:00","context":{"id":"01K6SYVJBR3TWS6H34YV0BVKX1","parent_id":null,"user_id":null}},
+      "state": {"entity_id":"tts.google_translate_en_com","state":"unknown","attributes":{"friendly_name":"Google Translate en com"},"last_changed":"2025-10-05T13:08:09.212923+00:00","last_reported":"2025-10-05T13:08:09.212923+00:00","last_updated":"2025-10-05T13:08:09.212923+00:00","context":{"id":"01K6T7S6VWR8BR18GM4N0009FC","parent_id":null,"user_id":null}},
       "extra_data": null,
-      "last_seen": "2025-10-05T10:32:09.470285+00:00"
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
+    },
+    {
+      "state": {"entity_id":"automation.welcome_home","state":"on","attributes":{"last_triggered":"2025-10-05T13:04:45.548440+00:00","mode":"single","current":0,"friendly_name":"Welcome Home"},"last_changed":"2025-10-05T13:08:09.215673+00:00","last_reported":"2025-10-05T13:08:09.215673+00:00","last_updated":"2025-10-05T13:08:09.215673+00:00","context":{"id":"01K6T7S6VZEHX1JTKQXBNNCEJN","parent_id":null,"user_id":null}},
+      "extra_data": null,
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
+    },
+    {
+      "state": {"entity_id":"automation.start_network_monitoring","state":"on","attributes":{"last_triggered":"2025-10-05T13:04:45.549020+00:00","mode":"single","current":0,"friendly_name":"Start Network Monitoring"},"last_changed":"2025-10-05T13:08:09.215724+00:00","last_reported":"2025-10-05T13:08:09.215724+00:00","last_updated":"2025-10-05T13:08:09.215724+00:00","context":{"id":"01K6T7S6VZT41ZT4EKF9PABSJ4","parent_id":null,"user_id":null}},
+      "extra_data": null,
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
+    },
+    {
+      "state": {"entity_id":"automation.xiaomi_command_detected","state":"on","attributes":{"last_triggered":null,"mode":"single","current":0,"friendly_name":"Xiaomi Command Detected"},"last_changed":"2025-10-05T13:08:09.215755+00:00","last_reported":"2025-10-05T13:08:09.215755+00:00","last_updated":"2025-10-05T13:08:09.215755+00:00","context":{"id":"01K6T7S6VZ18SVGS2TMRJ1Z86Z","parent_id":null,"user_id":null}},
+      "extra_data": null,
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
+    },
+    {
+      "state": {"entity_id":"automation.xiaomi_device_offline","state":"on","attributes":{"last_triggered":null,"mode":"single","current":0,"friendly_name":"Xiaomi Device Offline"},"last_changed":"2025-10-05T13:08:09.215794+00:00","last_reported":"2025-10-05T13:08:09.215794+00:00","last_updated":"2025-10-05T13:08:09.215794+00:00","context":{"id":"01K6T7S6VZ8NBNFJFG344GXBGW","parent_id":null,"user_id":null}},
+      "extra_data": null,
+      "last_seen": "2025-10-05T13:08:09.689876+00:00"
+    },
+    {
+      "state": {"entity_id":"script.xiaomi_ir_turn_on","state":"off","attributes":{"last_triggered":null,"mode":"single","current":0,"friendly_name":"Xiaomi IR Turn On"},"last_changed":"2025-10-05T10:32:08.588035+00:00","last_reported":"2025-10-05T10:32:08.588035+00:00","last_updated":"2025-10-05T10:32:08.588035+00:00","context":{"id":"01K6SYVHMC8EPVB364ABBT85CW","parent_id":null,"user_id":null}},
+      "extra_data": null,
+      "last_seen": "2025-10-05T10:37:31.114005+00:00"
+    },
+    {
+      "state": {"entity_id":"script.xiaomi_ir_turn_off","state":"off","attributes":{"last_triggered":null,"mode":"single","current":0,"friendly_name":"Xiaomi IR Turn Off"},"last_changed":"2025-10-05T10:32:08.588077+00:00","last_reported":"2025-10-05T10:32:08.588077+00:00","last_updated":"2025-10-05T10:32:08.588077+00:00","context":{"id":"01K6SYVHMC23FBTK8ZFCBYNH6T","parent_id":null,"user_id":null}},
+      "extra_data": null,
+      "last_seen": "2025-10-05T10:37:31.114005+00:00"
+    },
+    {
+      "state": {"entity_id":"script.xiaomi_ir_send_command","state":"off","attributes":{"last_triggered":null,"mode":"single","current":0,"friendly_name":"Xiaomi IR Send Command"},"last_changed":"2025-10-05T10:32:08.588101+00:00","last_reported":"2025-10-05T10:32:08.588101+00:00","last_updated":"2025-10-05T10:32:08.588101+00:00","context":{"id":"01K6SYVHMC1MD13K3863G9691Q","parent_id":null,"user_id":null}},
+      "extra_data": null,
+      "last_seen": "2025-10-05T10:37:31.114005+00:00"
+    },
+    {
+      "state": {"entity_id":"script.xiaomi_ir_setup_mode","state":"off","attributes":{"last_triggered":"2025-10-05T10:20:57.137875+00:00","mode":"single","current":0,"friendly_name":"Xiaomi IR Setup Mode"},"last_changed":"2025-10-05T10:32:08.588480+00:00","last_reported":"2025-10-05T10:32:08.588480+00:00","last_updated":"2025-10-05T10:32:08.588480+00:00","context":{"id":"01K6SYVHMCA04PYX4KBNE2D1ZJ","parent_id":null,"user_id":null}},
+      "extra_data": null,
+      "last_seen": "2025-10-05T10:37:31.114005+00:00"
     },
     {
       "state": {"entity_id":"script.system_status","state":"off","attributes":{"last_triggered":null,"mode":"single","current":0,"friendly_name":"Check System Status"},"last_changed":"2025-10-05T04:56:44.145977+00:00","last_reported":"2025-10-05T04:56:44.145977+00:00","last_updated":"2025-10-05T04:56:44.145977+00:00","context":{"id":"01K6SBNCVH58ZWCYRQ3FX7RPKY","parent_id":null,"user_id":null}},

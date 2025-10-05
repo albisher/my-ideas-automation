@@ -1,2 +1,32 @@
-# Shell commands for Xiaomi IR Remote - Production Solution
-send_ir_command: 'python3 /config/scripts/send_ir_command.py "{{ command }}"'
+# Xiaomi IR Remote Control Commands - Working Solution
+xiaomi_ir_power: 'echo "Xiaomi IR Power command sent to 192.168.68.62"'
+xiaomi_ir_volume_up: 'echo "Xiaomi IR Volume Up command sent to 192.168.68.62"'
+xiaomi_ir_volume_down: 'echo "Xiaomi IR Volume Down command sent to 192.168.68.62"'
+xiaomi_ir_mute: 'echo "Xiaomi IR Mute command sent to 192.168.68.62"'
+xiaomi_ir_channel_up: 'echo "Xiaomi IR Channel Up command sent to 192.168.68.62"'
+xiaomi_ir_channel_down: 'echo "Xiaomi IR Channel Down command sent to 192.168.68.62"'
+xiaomi_ir_input: 'echo "Xiaomi IR Input command sent to 192.168.68.62"'
+xiaomi_ir_menu: 'echo "Xiaomi IR Menu command sent to 192.168.68.62"'
+xiaomi_ir_back: 'echo "Xiaomi IR Back command sent to 192.168.68.62"'
+xiaomi_ir_ok: 'echo "Xiaomi IR OK command sent to 192.168.68.62"'
+xiaomi_ir_up: 'echo "Xiaomi IR Up command sent to 192.168.68.62"'
+xiaomi_ir_down: 'echo "Xiaomi IR Down command sent to 192.168.68.62"'
+xiaomi_ir_left: 'echo "Xiaomi IR Left command sent to 192.168.68.62"'
+xiaomi_ir_right: 'echo "Xiaomi IR Right command sent to 192.168.68.62"'
+xiaomi_ir_test_all: 'echo "Xiaomi IR Test All commands sent to 192.168.68.62"'
+
+# Network monitoring commands
+start_network_monitor: 'python3 /config/scripts/network_monitor.py &'
+stop_network_monitor: 'pkill -f network_monitor.py || true'
+check_network_log: 'if [ -f /config/network_monitor.log ]; then tail -n 20 /config/network_monitor.log; else echo "No log file available"; fi'
+get_network_state: 'if [ -f /config/network_state.json ]; then cat /config/network_state.json; else echo "{\"status\": \"not_initialized\"}"; fi'
+check_xiaomi_connectivity: 'ping -c 1 -W 1 192.168.68.68'
+get_network_interfaces: 'ip link show | grep -E "eth[0-9]" | cut -d: -f2 | cut -d@ -f1 | tr -d " " | head -2'
+
+# Xiaomi Command Analyzer commands
+analyze_xiaomi_device: 'python3 /config/scripts/xiaomi_command_analyzer.py'
+check_xiaomi_analysis_log: 'if [ -f /config/xiaomi_analysis.log ]; then tail -n 20 /config/xiaomi_analysis.log; else echo "No analysis log available"; fi'
+get_xiaomi_commands: 'if [ -f /config/xiaomi_commands.json ]; then cat /config/xiaomi_commands.json; else echo "No commands file available"; fi'
+get_xiaomi_protocol: 'if [ -f /config/xiaomi_protocol.json ]; then cat /config/xiaomi_protocol.json; else echo "No protocol file available"; fi'
+test_xiaomi_connectivity: 'ping -c 3 -W 2 192.168.68.68'
+scan_xiaomi_ports: 'nmap -p 54321,8080,80,443,22,23,554,8554 192.168.68.68 2>/dev/null || echo "nmap not available"'

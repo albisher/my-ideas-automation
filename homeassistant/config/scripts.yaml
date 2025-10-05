@@ -7,6 +7,7 @@ xiaomi_ir_power:
     - service: shell_command.send_ir_command
       data:
         command: "hisense_tv_power"
+    - delay: "00:00:01"
 
 xiaomi_ir_volume_up:
   alias: "Xiaomi IR Volume Up"
@@ -14,6 +15,7 @@ xiaomi_ir_volume_up:
     - service: shell_command.send_ir_command
       data:
         command: "hisense_tv_volume_up"
+    - delay: "00:00:01"
 
 xiaomi_ir_volume_down:
   alias: "Xiaomi IR Volume Down"
@@ -21,6 +23,7 @@ xiaomi_ir_volume_down:
     - service: shell_command.send_ir_command
       data:
         command: "hisense_tv_volume_down"
+    - delay: "00:00:01"
 
 xiaomi_ir_channel_up:
   alias: "Xiaomi IR Channel Up"
@@ -28,6 +31,7 @@ xiaomi_ir_channel_up:
     - service: shell_command.send_ir_command
       data:
         command: "hisense_tv_channel_up"
+    - delay: "00:00:01"
 
 xiaomi_ir_channel_down:
   alias: "Xiaomi IR Channel Down"
@@ -35,6 +39,7 @@ xiaomi_ir_channel_down:
     - service: shell_command.send_ir_command
       data:
         command: "hisense_tv_channel_down"
+    - delay: "00:00:01"
 
 xiaomi_ir_input:
   alias: "Xiaomi IR Input"
@@ -42,6 +47,7 @@ xiaomi_ir_input:
     - service: shell_command.send_ir_command
       data:
         command: "hisense_tv_input"
+    - delay: "00:00:01"
 
 xiaomi_ir_menu:
   alias: "Xiaomi IR Menu"
@@ -49,6 +55,7 @@ xiaomi_ir_menu:
     - service: shell_command.send_ir_command
       data:
         command: "hisense_tv_menu"
+    - delay: "00:00:01"
 
 xiaomi_ir_back:
   alias: "Xiaomi IR Back"
@@ -56,6 +63,7 @@ xiaomi_ir_back:
     - service: shell_command.send_ir_command
       data:
         command: "hisense_tv_back"
+    - delay: "00:00:01"
 
 xiaomi_ir_ok:
   alias: "Xiaomi IR OK"
@@ -63,6 +71,7 @@ xiaomi_ir_ok:
     - service: shell_command.send_ir_command
       data:
         command: "hisense_tv_ok"
+    - delay: "00:00:01"
 
 xiaomi_ir_up:
   alias: "Xiaomi IR Up"
@@ -70,6 +79,7 @@ xiaomi_ir_up:
     - service: shell_command.send_ir_command
       data:
         command: "hisense_tv_up"
+    - delay: "00:00:01"
 
 xiaomi_ir_down:
   alias: "Xiaomi IR Down"
@@ -77,6 +87,7 @@ xiaomi_ir_down:
     - service: shell_command.send_ir_command
       data:
         command: "hisense_tv_down"
+    - delay: "00:00:01"
 
 xiaomi_ir_left:
   alias: "Xiaomi IR Left"
@@ -84,6 +95,7 @@ xiaomi_ir_left:
     - service: shell_command.send_ir_command
       data:
         command: "hisense_tv_left"
+    - delay: "00:00:01"
 
 xiaomi_ir_right:
   alias: "Xiaomi IR Right"
@@ -91,6 +103,7 @@ xiaomi_ir_right:
     - service: shell_command.send_ir_command
       data:
         command: "hisense_tv_right"
+    - delay: "00:00:01"
 
 xiaomi_ir_mute:
   alias: "Xiaomi IR Mute"
@@ -98,6 +111,7 @@ xiaomi_ir_mute:
     - service: shell_command.send_ir_command
       data:
         command: "hisense_tv_mute"
+    - delay: "00:00:01"
 
 xiaomi_ir_test_all:
   alias: "Xiaomi IR Test All Commands"
@@ -117,3 +131,65 @@ xiaomi_ir_test_all:
     - service: shell_command.send_ir_command
       data:
         command: "hisense_tv_menu"
+
+# Network monitoring scripts
+start_network_monitoring:
+  alias: "Start Network Monitoring"
+  sequence:
+    - service: shell_command.start_network_monitor
+    - delay: "00:00:02"
+    - service: shell_command.check_network_log
+
+stop_network_monitoring:
+  alias: "Stop Network Monitoring"
+  sequence:
+    - service: shell_command.stop_network_monitor
+    - delay: "00:00:01"
+
+check_network_status:
+  alias: "Check Network Status"
+  sequence:
+    - service: shell_command.check_xiaomi_connectivity
+    - service: shell_command.get_network_state
+    - service: shell_command.check_network_log
+
+restart_network_monitoring:
+  alias: "Restart Network Monitoring"
+  sequence:
+    - service: shell_command.stop_network_monitor
+    - delay: "00:00:02"
+    - service: shell_command.start_network_monitor
+    - delay: "00:00:02"
+    - service: shell_command.check_network_log
+
+# Xiaomi Command Analyzer scripts
+analyze_xiaomi_device:
+  alias: "Analyze Xiaomi Device"
+  sequence:
+    - service: shell_command.analyze_xiaomi_device
+    - delay: "00:00:05"
+    - service: shell_command.check_xiaomi_analysis_log
+
+check_xiaomi_analysis:
+  alias: "Check Xiaomi Analysis"
+  sequence:
+    - service: shell_command.check_xiaomi_analysis_log
+    - service: shell_command.get_xiaomi_commands
+    - service: shell_command.get_xiaomi_protocol
+
+test_xiaomi_connection:
+  alias: "Test Xiaomi Connection"
+  sequence:
+    - service: shell_command.test_xiaomi_connectivity
+    - service: shell_command.scan_xiaomi_ports
+
+full_xiaomi_analysis:
+  alias: "Full Xiaomi Analysis"
+  sequence:
+    - service: shell_command.test_xiaomi_connectivity
+    - delay: "00:00:02"
+    - service: shell_command.scan_xiaomi_ports
+    - delay: "00:00:02"
+    - service: shell_command.analyze_xiaomi_device
+    - delay: "00:00:10"
+    - service: shell_command.check_xiaomi_analysis_log

@@ -1,0 +1,13 @@
+{
+  "status": "analyzing",
+  "device_online": false,
+  "total_commands_learned": 0,
+  "total_responses": 0,
+  "analysis_duration": "0:02:16.350517",
+  "last_activity": null,
+  "start_time": "2025-10-05T14:26:43.844704",
+  "learned_commands": {},
+  "protocol_analysis": {
+    "last_update": "2025-10-05T14:29:00.195176"
+  }
+}

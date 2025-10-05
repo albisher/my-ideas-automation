@@ -1,0 +1,85 @@
+name: Hourly Repository Sync
+
+on:
+  schedule:
+    # Run every hour at minute 0
+    - cron: '0 * * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  sync-check:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+    
+    - name: Configure Git
+      run: |
+        git config --global user.name "GitHub Actions Bot"
+        git config --global user.email "actions@github.com"
+    
+    - name: Check for changes
+      id: check-changes
+      run: |
+        # Check if there are any uncommitted changes
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "changes=true" >> $GITHUB_OUTPUT
+          echo "Found uncommitted changes"
+          git status --porcelain
+        else
+          echo "changes=false" >> $GITHUB_OUTPUT
+          echo "No changes detected"
+        fi
+    
+    - name: Commit and push changes
+      if: steps.check-changes.outputs.changes == 'true'
+      run: |
+        # Add all changes
+        git add .
+        
+        # Create commit with timestamp
+        TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+        git commit -m "chore: Auto-sync changes at $TIMESTAMP
+        
+        Automated sync of repository changes detected by GitHub Actions."
+        
+        # Push changes
+        git push origin main
+        
+        # Create auto-tag if significant changes
+        CHANGES_COUNT=$(git diff --stat HEAD~1 | grep -o '[0-9]* files changed' | grep -o '[0-9]*')
+        if [ "$CHANGES_COUNT" -gt 5 ]; then
+          # Create patch version tag for significant changes
+          LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+          VERSION=$(echo $LATEST_TAG | sed 's/v//')
+          MAJOR=$(echo $VERSION | cut -d. -f1)
+          MINOR=$(echo $VERSION | cut -d. -f2)
+          PATCH=$(echo $VERSION | cut -d. -f3)
+          NEW_PATCH=$((PATCH + 1))
+          NEW_TAG="v${MAJOR}.${MINOR}.${NEW_PATCH}"
+          
+          git tag -a "$NEW_TAG" -m "Auto-release: Significant changes detected ($CHANGES_COUNT files)"
+          git push origin "$NEW_TAG"
+        fi
+    
+    - name: Create sync report
+      if: always()
+      run: |
+        echo "## Hourly Sync Report - $(date)" >> sync-report.md
+        echo "**Status:** ${{ steps.check-changes.outputs.changes == 'true' && 'Changes detected and synced' || 'No changes found' }}" >> sync-report.md
+        echo "**Timestamp:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> sync-report.md
+        echo "**Repository:** ${{ github.repository }}" >> sync-report.md
+        echo "**Branch:** ${{ github.ref_name }}" >> sync-report.md
+        echo "" >> sync-report.md
+    
+    - name: Upload sync report
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: sync-report-${{ github.run_number }}
+        path: sync-report.md
+        retention-days: 7

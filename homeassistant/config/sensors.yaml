@@ -19,9 +19,213 @@
     xiaomi_ir_last_command:
       friendly_name: "Last IR Command"
       value_template: "{{ states('input_text.xiaomi_ir_last_command') }}"
-      icon: mdi:remote
+      icon_template: mdi:remote
 
     xiaomi_ir_commands_sent:
       friendly_name: "Commands Sent"
       value_template: "{{ states('input_text.xiaomi_ir_commands_sent') | int }}"
-      icon: mdi:counter
+      icon_template: mdi:counter
+
+# Network monitoring sensors for Xiaomi device traffic
+- platform: command_line
+  name: "Xiaomi Network Ping"
+  command: 'ping -c 1 -W 1 192.168.68.62'
+  scan_interval: 30
+  value_template: >-
+    {% if "1 received" in value %}
+      Online
+    {% else %}
+      Offline
+    {% endif %}
+  unit_of_measurement: "Status"
+
+- platform: command_line
+  name: "Xiaomi Network Latency"
+  command: 'ping -c 1 -W 1 192.168.68.62 | grep "time=" | cut -d"=" -f4 | cut -d" " -f1'
+  scan_interval: 30
+  unit_of_measurement: "ms"
+
+- platform: command_line
+  name: "Network Traffic Monitor"
+  command: 'netstat -i | grep -E "(eth0|wlan0)" | awk "{print $3, $7}"'
+  scan_interval: 60
+  value_template: "RX: {{ value.split()[0] if value.split()|length > 0 else '0' }}, TX: {{ value.split()[1] if value.split()|length > 1 else '0' }}"
+
+# Template sensors for network monitoring
+- platform: template
+  sensors:
+    xiaomi_network_activity:
+      friendly_name: "Xiaomi Network Activity"
+      value_template: >-
+        {% set ping_state = states('sensor.xiaomi_network_ping') %}
+        {% if ping_state == 'Online' %}
+          Active
+        {% else %}
+          Inactive
+        {% endif %}
+      icon_template: >-
+        {% if states('sensor.xiaomi_network_ping') == 'Online' %}
+          mdi:network
+        {% else %}
+          mdi:network-off
+        {% endif %}
+
+    xiaomi_connection_quality:
+      friendly_name: "Xiaomi Connection Quality"
+      value_template: >-
+        {% set latency = states('sensor.xiaomi_network_latency') | float(0) %}
+        {% if latency == 0 %}
+          No Connection
+        {% elif latency < 10 %}
+          Excellent
+        {% elif latency < 50 %}
+          Good
+        {% elif latency < 100 %}
+          Fair
+        {% else %}
+          Poor
+        {% endif %}
+      icon_template: >-
+        {% set latency = states('sensor.xiaomi_network_latency') | float(0) %}
+        {% if latency == 0 %}
+          mdi:network-off
+        {% elif latency < 10 %}
+          mdi:network-strength-4
+        {% elif latency < 50 %}
+          mdi:network-strength-3
+        {% elif latency < 100 %}
+          mdi:network-strength-2
+        {% else %}
+          mdi:network-strength-1
+        {% endif %}
+
+# Network log and state monitoring sensors
+- platform: command_line
+  name: "Network Monitor Log"
+  command: 'if [ -f /config/network_monitor.log ]; then tail -n 5 /config/network_monitor.log; else echo "No log file yet"; fi'
+  scan_interval: 30
+  value_template: "{{ value }}"
+
+- platform: command_line
+  name: "Network Monitor State"
+  command: 'if [ -f /config/network_state.json ]; then cat /config/network_state.json; else echo "{\"status\": \"not_initialized\"}"; fi'
+  scan_interval: 10
+  value_template: "{{ value }}"
+
+- platform: command_line
+  name: "Network Interfaces"
+  command: 'ip link show | grep -E "eth[0-9]" | cut -d: -f2 | cut -d@ -f1 | tr -d " " | head -2'
+  scan_interval: 60
+  value_template: "{{ value }}"
+
+# Template sensor for network monitor status
+- platform: template
+  sensors:
+    network_monitor_status:
+      friendly_name: "Network Monitor Status"
+      value_template: >-
+        {% set state_data = states('sensor.network_monitor_state') %}
+        {% if 'active' in state_data %}
+          Running
+        {% elif 'initializing' in state_data %}
+          Starting
+        {% else %}
+          Stopped
+        {% endif %}
+      icon_template: >-
+        {% set state_data = states('sensor.network_monitor_state') %}
+        {% if 'active' in state_data %}
+          mdi:monitor
+        {% elif 'initializing' in state_data %}
+          mdi:loading
+        {% else %}
+          mdi:monitor-off
+        {% endif %}
+
+    xiaomi_command_detection:
+      friendly_name: "Xiaomi Command Detection"
+      value_template: >-
+        {% set log_data = states('sensor.network_monitor_log') %}
+        {% if '192.168.68.68' in log_data %}
+          Commands Detected
+        {% else %}
+          No Commands
+        {% endif %}
+      icon_template: >-
+        {% set log_data = states('sensor.network_monitor_log') %}
+        {% if '192.168.68.68' in log_data %}
+          mdi:remote
+        {% else %}
+          mdi:remote-off
+        {% endif %}
+
+# Xiaomi Command Analyzer sensors
+- platform: command_line
+  name: "Xiaomi Analysis Log"
+  command: 'if [ -f /config/xiaomi_analysis.log ]; then tail -n 5 /config/xiaomi_analysis.log; else echo "No analysis log yet"; fi'
+  scan_interval: 30
+  value_template: "{{ value }}"
+
+- platform: command_line
+  name: "Xiaomi Commands"
+  command: 'if [ -f /config/xiaomi_commands.json ]; then cat /config/xiaomi_commands.json; else echo "{\"status\": \"not_analyzed\"}"; fi'
+  scan_interval: 60
+  value_template: "{{ value }}"
+
+- platform: command_line
+  name: "Xiaomi Protocol"
+  command: 'if [ -f /config/xiaomi_protocol.json ]; then cat /config/xiaomi_protocol.json; else echo "{\"status\": \"not_analyzed\"}"; fi'
+  scan_interval: 60
+  value_template: "{{ value }}"
+
+- platform: command_line
+  name: "Xiaomi Port Scan"
+  command: 'nmap -p 54321,8080,80,443,22,23,554,8554 192.168.68.68 2>/dev/null | grep -E "open|closed|filtered" | head -5 || echo "nmap not available"'
+  scan_interval: 300
+  value_template: "{{ value }}"
+
+# Template sensors for Xiaomi analysis
+- platform: template
+  sensors:
+    xiaomi_analysis_status:
+      friendly_name: "Xiaomi Analysis Status"
+      value_template: >-
+        {% set protocol_data = states('sensor.xiaomi_protocol') %}
+        {% if 'not_analyzed' in protocol_data %}
+          Not Analyzed
+        {% elif 'open_ports' in protocol_data %}
+          Analyzed
+        {% else %}
+          Unknown
+        {% endif %}
+      icon_template: >-
+        {% set protocol_data = states('sensor.xiaomi_protocol') %}
+        {% if 'not_analyzed' in protocol_data %}
+          mdi:help-circle
+        {% elif 'open_ports' in protocol_data %}
+          mdi:check-circle
+        {% else %}
+          mdi:alert-circle
+        {% endif %}
+
+    xiaomi_device_type:
+      friendly_name: "Xiaomi Device Type"
+      value_template: >-
+        {% set protocol_data = states('sensor.xiaomi_protocol') %}
+        {% if 'device_info' in protocol_data and 'type' in protocol_data %}
+          {{ protocol_data.split('"type": "')[1].split('"')[0] if '"type": "' in protocol_data else 'Unknown' }}
+        {% else %}
+          Unknown
+        {% endif %}
+      icon_template: mdi:devices
+
+    xiaomi_open_ports:
+      friendly_name: "Xiaomi Open Ports"
+      value_template: >-
+        {% set protocol_data = states('sensor.xiaomi_protocol') %}
+        {% if 'open_ports' in protocol_data %}
+          {{ protocol_data.split('"open_ports": [')[1].split(']')[0] if '"open_ports": [' in protocol_data else 'None' }}
+        {% else %}
+          None
+        {% endif %}
+      icon_template: mdi:network

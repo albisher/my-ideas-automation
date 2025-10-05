@@ -1,0 +1,9 @@
+{
+  "status": "monitoring",
+  "total_commands_captured": 0,
+  "last_update": "2025-10-05T14:41:19.629160",
+  "commands": {},
+  "command_patterns": {
+    "established_connections": 3414
+  }
+}

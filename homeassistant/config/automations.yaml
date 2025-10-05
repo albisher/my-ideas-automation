@@ -10,3 +10,43 @@
         message: "Welcome to your smart home! Tapo device discovery and Google Home integration are active."
         title: "Smart Home Ready"
   mode: single
+
+- alias: "Start Network Monitoring"
+  description: "Start network monitoring for Xiaomi device on Home Assistant startup"
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - service: script.start_network_monitoring
+    - delay: "00:00:05"
+    - service: notify.persistent_notification
+      data:
+        message: "Network monitoring started for Xiaomi device at 192.168.68.68"
+        title: "Network Monitor Active"
+  mode: single
+
+- alias: "Xiaomi Command Detected"
+  description: "Notify when commands are detected to Xiaomi device"
+  trigger:
+    - platform: state
+      entity_id: sensor.xiaomi_command_detection
+      to: "Commands Detected"
+  action:
+    - service: notify.persistent_notification
+      data:
+        message: "Command detected to Xiaomi device from phone over SA network"
+        title: "Xiaomi Command Activity"
+  mode: single
+
+- alias: "Xiaomi Device Offline"
+  description: "Notify when Xiaomi device goes offline"
+  trigger:
+    - platform: state
+      entity_id: sensor.xiaomi_network_ping
+      to: "Offline"
+  action:
+    - service: notify.persistent_notification
+      data:
+        message: "Xiaomi device at 192.168.68.68 is offline"
+        title: "Xiaomi Device Offline"
+  mode: single

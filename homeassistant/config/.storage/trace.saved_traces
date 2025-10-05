@@ -7,11 +7,11 @@
       {
         "extended_dict": {
           "last_step": "action/0",
-          "run_id": "042fdcb66f3a9ba1f039cb4298e7f58f",
+          "run_id": "ca85bce0199c50e0d1914a47a9fb8c1e",
           "state": "running",
           "script_execution": null,
           "timestamp": {
-            "start": "2025-10-05T10:29:30.035100+00:00",
+            "start": "2025-10-05T13:04:45.548323+00:00",
             "finish": null
           },
           "domain": "automation",
@@ -21,22 +21,22 @@
             "trigger/0": [
               {
                 "path": "trigger/0",
-                "timestamp": "2025-10-05T10:29:30.035124+00:00",
+                "timestamp": "2025-10-05T13:04:45.548364+00:00",
                 "changed_variables": {
                   "this": {
                     "entity_id": "automation.welcome_home",
                     "state": "on",
                     "attributes": {
-                      "last_triggered": "2025-10-05T10:25:11.708675+00:00",
+                      "last_triggered": "2025-10-05T13:00:55.894151+00:00",
                       "mode": "single",
                       "current": 0,
                       "friendly_name": "Welcome Home"
                     },
-                    "last_changed": "2025-10-05T10:29:29.464947+00:00",
-                    "last_reported": "2025-10-05T10:29:29.464947+00:00",
-                    "last_updated": "2025-10-05T10:29:29.464947+00:00",
+                    "last_changed": "2025-10-05T13:04:45.147175+00:00",
+                    "last_reported": "2025-10-05T13:04:45.147175+00:00",
+                    "last_updated": "2025-10-05T13:04:45.147175+00:00",
                     "context": {
-                      "id": "01K6SYPP7R31WD3G3GND8J1MJB",
+                      "id": "01K6T7JZJVAAR9P2N0HGXEFW0E",
                       "parent_id": null,
                       "user_id": null
                     }
@@ -55,10 +55,10 @@
             "action/0": [
               {
                 "path": "action/0",
-                "timestamp": "2025-10-05T10:29:30.035234+00:00",
+                "timestamp": "2025-10-05T13:04:45.548552+00:00",
                 "changed_variables": {
                   "context": {
-                    "id": "01K6SYPPSK2Y8397ZVQGT654RZ",
+                    "id": "01K6T7JZZCWYDHYTAWCGP2KWN8",
                     "parent_id": null,
                     "user_id": null
                   }
@@ -100,75 +100,121 @@
           },
           "blueprint_inputs": null,
           "context": {
-            "id": "01K6SYPPSK2Y8397ZVQGT654RZ",
+            "id": "01K6T7JZZCWYDHYTAWCGP2KWN8",
             "parent_id": null,
             "user_id": null
           }
         },
         "short_dict": {
           "last_step": "action/0",
-          "run_id": "042fdcb66f3a9ba1f039cb4298e7f58f",
+          "run_id": "ca85bce0199c50e0d1914a47a9fb8c1e",
           "state": "running",
           "script_execution": null,
           "timestamp": {
-            "start": "2025-10-05T10:29:30.035100+00:00",
+            "start": "2025-10-05T13:04:45.548323+00:00",
             "finish": null
           },
           "domain": "automation",
           "item_id": "None",
           "trigger": "Home Assistant starting"
         }
-      }
-    ],
-    "script.xiaomi_ir_volume_down": [
+      },
       {
         "extended_dict": {
-          "last_step": "sequence/0",
-          "run_id": "dcfc51cad376be904eae95095bd92797",
-          "state": "stopped",
-          "script_execution": "finished",
+          "last_step": "action/2",
+          "run_id": "1d2981b9169d14d57d2f1d51f38f660f",
+          "state": "running",
+          "script_execution": null,
           "timestamp": {
-            "start": "2025-10-05T10:31:17.347992+00:00",
-            "finish": "2025-10-05T10:31:22.399362+00:00"
+            "start": "2025-10-05T13:04:45.548969+00:00",
+            "finish": null
           },
-          "domain": "script",
-          "item_id": "xiaomi_ir_volume_down",
+          "domain": "automation",
+          "item_id": "None",
+          "trigger": "Home Assistant starting",
           "trace": {
-            "sequence/0": [
+            "trigger/0": [
               {
-                "path": "sequence/0",
-                "timestamp": "2025-10-05T10:31:17.348770+00:00",
+                "path": "trigger/0",
+                "timestamp": "2025-10-05T13:04:45.548986+00:00",
                 "changed_variables": {
                   "this": {
-                    "entity_id": "script.xiaomi_ir_volume_down",
-                    "state": "off",
+                    "entity_id": "automation.start_network_monitoring",
+                    "state": "on",
                     "attributes": {
-                      "last_triggered": "2025-10-05T10:26:46.764031+00:00",
+                      "last_triggered": "2025-10-05T13:00:55.894614+00:00",
                       "mode": "single",
                       "current": 0,
-                      "friendly_name": "Xiaomi IR Volume Down"
+                      "friendly_name": "Start Network Monitoring"
                     },
-                    "last_changed": "2025-10-05T10:29:29.416903+00:00",
-                    "last_reported": "2025-10-05T10:29:29.416903+00:00",
-                    "last_updated": "2025-10-05T10:29:29.416903+00:00",
+                    "last_changed": "2025-10-05T13:04:45.147214+00:00",
+                    "last_reported": "2025-10-05T13:04:45.147214+00:00",
+                    "last_updated": "2025-10-05T13:04:45.147214+00:00",
                     "context": {
-                      "id": "01K6SYPP687SE133VA3XBHGGZ9",
+                      "id": "01K6T7JZJVJSYNX0AF1MHXN8VE",
                       "parent_id": null,
                       "user_id": null
                     }
                   },
+                  "trigger": {
+                    "id": "0",
+                    "idx": "0",
+                    "alias": null,
+                    "platform": "homeassistant",
+                    "event": "start",
+                    "description": "Home Assistant starting"
+                  }
+                }
+              }
+            ],
+            "action/0": [
+              {
+                "path": "action/0",
+                "timestamp": "2025-10-05T13:04:45.549076+00:00",
+                "child_id": {
+                  "domain": "script",
+                  "item_id": "start_network_monitoring",
+                  "run_id": "6952052cdeb6a1aa0d03cbe862550255"
+                },
+                "changed_variables": {
                   "context": {
-                    "id": "01K6SYSZK34X3PSHH0Q84RK4N8",
+                    "id": "01K6T7JZZC6J3S1YS414DWTSC0",
                     "parent_id": null,
-                    "user_id": "c99ce852354a4aec8881eaeec2e37a27"
+                    "user_id": null
                   }
                 },
                 "result": {
                   "params": {
-                    "domain": "shell_command",
-                    "service": "send_ir_command",
+                    "domain": "script",
+                    "service": "start_network_monitoring",
+                    "service_data": {},
+                    "target": {}
+                  },
+                  "running_script": true
+                }
+              }
+            ],
+            "action/1": [
+              {
+                "path": "action/1",
+                "timestamp": "2025-10-05T13:04:48.686346+00:00",
+                "result": {
+                  "delay": 5.0,
+                  "done": true
+                }
+              }
+            ],
+            "action/2": [
+              {
+                "path": "action/2",
+                "timestamp": "2025-10-05T13:04:53.693725+00:00",
+                "result": {
+                  "params": {
+                    "domain": "notify",
+                    "service": "persistent_notification",
                     "service_data": {
-                      "command": "hisense_tv_volume_down"
+                      "message": "Network monitoring started for Xiaomi device at 192.168.68.68",
+                      "title": "Network Monitor Active"
                     },
                     "target": {}
                   },
@@ -178,34 +224,165 @@
             ]
           },
           "config": {
-            "alias": "Xiaomi IR Volume Down",
-            "sequence": [
+            "alias": "Start Network Monitoring",
+            "description": "Start network monitoring for Xiaomi device on Home Assistant startup",
+            "trigger": [
+              {
+                "platform": "homeassistant",
+                "event": "start"
+              }
+            ],
+            "action": [
+              {
+                "action": "script.start_network_monitoring"
+              },
+              {
+                "delay": "00:00:05"
+              },
               {
                 "data": {
-                  "command": "hisense_tv_volume_down"
+                  "message": "Network monitoring started for Xiaomi device at 192.168.68.68",
+                  "title": "Network Monitor Active"
                 },
-                "action": "shell_command.send_ir_command"
+                "action": "notify.persistent_notification"
+              }
+            ],
+            "mode": "single"
+          },
+          "blueprint_inputs": null,
+          "context": {
+            "id": "01K6T7JZZC6J3S1YS414DWTSC0",
+            "parent_id": null,
+            "user_id": null
+          }
+        },
+        "short_dict": {
+          "last_step": "action/2",
+          "run_id": "1d2981b9169d14d57d2f1d51f38f660f",
+          "state": "running",
+          "script_execution": null,
+          "timestamp": {
+            "start": "2025-10-05T13:04:45.548969+00:00",
+            "finish": null
+          },
+          "domain": "automation",
+          "item_id": "None",
+          "trigger": "Home Assistant starting"
+        }
+      }
+    ],
+    "script.start_network_monitoring": [
+      {
+        "extended_dict": {
+          "last_step": "sequence/2",
+          "run_id": "6952052cdeb6a1aa0d03cbe862550255",
+          "state": "stopped",
+          "script_execution": "finished",
+          "timestamp": {
+            "start": "2025-10-05T13:04:45.549152+00:00",
+            "finish": "2025-10-05T13:04:48.686284+00:00"
+          },
+          "domain": "script",
+          "item_id": "start_network_monitoring",
+          "trace": {
+            "sequence/0": [
+              {
+                "path": "sequence/0",
+                "timestamp": "2025-10-05T13:04:45.549249+00:00",
+                "changed_variables": {
+                  "this": {
+                    "entity_id": "script.start_network_monitoring",
+                    "state": "off",
+                    "attributes": {
+                      "last_triggered": "2025-10-05T13:00:55.894749+00:00",
+                      "mode": "single",
+                      "current": 0,
+                      "friendly_name": "Start Network Monitoring"
+                    },
+                    "last_changed": "2025-10-05T13:04:44.674130+00:00",
+                    "last_reported": "2025-10-05T13:04:44.674130+00:00",
+                    "last_updated": "2025-10-05T13:04:44.674130+00:00",
+                    "context": {
+                      "id": "01K6T7JZ42YSGRYTZARMNAAAG7",
+                      "parent_id": null,
+                      "user_id": null
+                    }
+                  },
+                  "context": {
+                    "id": "01K6T7JZZC6J3S1YS414DWTSC0",
+                    "parent_id": null,
+                    "user_id": null
+                  }
+                },
+                "result": {
+                  "params": {
+                    "domain": "shell_command",
+                    "service": "start_network_monitor",
+                    "service_data": {},
+                    "target": {}
+                  },
+                  "running_script": false
+                }
+              }
+            ],
+            "sequence/1": [
+              {
+                "path": "sequence/1",
+                "timestamp": "2025-10-05T13:04:46.666571+00:00",
+                "result": {
+                  "delay": 2.0,
+                  "done": true
+                }
+              }
+            ],
+            "sequence/2": [
+              {
+                "path": "sequence/2",
+                "timestamp": "2025-10-05T13:04:48.674271+00:00",
+                "result": {
+                  "params": {
+                    "domain": "shell_command",
+                    "service": "check_network_log",
+                    "service_data": {},
+                    "target": {}
+                  },
+                  "running_script": false
+                }
+              }
+            ]
+          },
+          "config": {
+            "alias": "Start Network Monitoring",
+            "sequence": [
+              {
+                "action": "shell_command.start_network_monitor"
+              },
+              {
+                "delay": "00:00:02"
+              },
+              {
+                "action": "shell_command.check_network_log"
               }
             ]
           },
           "blueprint_inputs": null,
           "context": {
-            "id": "01K6SYSZK34X3PSHH0Q84RK4N8",
+            "id": "01K6T7JZZC6J3S1YS414DWTSC0",
             "parent_id": null,
-            "user_id": "c99ce852354a4aec8881eaeec2e37a27"
+            "user_id": null
           }
         },
         "short_dict": {
-          "last_step": "sequence/0",
-          "run_id": "dcfc51cad376be904eae95095bd92797",
+          "last_step": "sequence/2",
+          "run_id": "6952052cdeb6a1aa0d03cbe862550255",
           "state": "stopped",
           "script_execution": "finished",
           "timestamp": {
-            "start": "2025-10-05T10:31:17.347992+00:00",
-            "finish": "2025-10-05T10:31:22.399362+00:00"
+            "start": "2025-10-05T13:04:45.549152+00:00",
+            "finish": "2025-10-05T13:04:48.686284+00:00"
           },
           "domain": "script",
-          "item_id": "xiaomi_ir_volume_down"
+          "item_id": "start_network_monitoring"
         }
       }
     ]

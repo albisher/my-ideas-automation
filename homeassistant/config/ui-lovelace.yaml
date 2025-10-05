@@ -1,4 +1,4 @@
-# Home Assistant Lovelace Configuration - Production Solution
+# Home Assistant Lovelace Configuration - Proper Overview
 views:
   - title: Overview
     icon: mdi:home
@@ -10,39 +10,60 @@ views:
           # 🏠 Home Assistant Overview
           Welcome to your Home Assistant dashboard!
           
-          **Xiaomi TV Controls**: Go to the "Remote Control" tab to control your Hisense TV.
+          This is your main overview where you can see all your devices and entities.
 
-  - title: Remote Control
-    icon: mdi:remote
-    path: remote-control
-    badges: []
-    cards:
-      - type: markdown
-        content: |
-          # 🎮 Xiaomi IR Remote Control
-          **Device**: `192.168.68.68` | **Status**: `Connected` | **Protocol**: `UDP IR`
-        card_mod:
-          style: |
-            ha-card {
-              background: var(--card-background-color);
-              border-radius: var(--ha-card-border-radius);
-              box-shadow: var(--ha-card-box-shadow);
-              padding: 16px;
-              text-align: center;
-              margin-bottom: 16px;
-            }
-            h1 {
-              color: var(--primary-color);
-              font-size: 24px;
-              margin-bottom: 10px;
-            }
-            p {
-              color: var(--secondary-text-color);
-              font-size: 14px;
-            }
-            strong {
-              color: var(--text-color);
-            }
+      - type: entities
+        title: System Information
+        entities:
+          - sun.sun
+          - sensor.date
+          - sensor.time
+          - sensor.uptime
+
+      - type: entities
+        title: Weather
+        entities:
+          - weather.home
+
+      - type: entities
+        title: Energy
+        entities:
+          - sensor.energy_consumption
+          - sensor.energy_production
+
+      - type: entities
+        title: Security
+        entities:
+          - alarm_control_panel.home
+          - binary_sensor.door_sensor
+          - binary_sensor.motion_sensor
+
+      - type: entities
+        title: Lights
+        entities:
+          - light.living_room
+          - light.bedroom
+          - light.kitchen
+
+      - type: entities
+        title: Climate
+        entities:
+          - climate.thermostat
+          - sensor.temperature
+          - sensor.humidity
+
+      - type: entities
+        title: Media
+        entities:
+          - media_player.living_room_tv
+          - media_player.bedroom_speaker
+
+      - type: entities
+        title: Xiaomi IR Remote Control
+        entities:
+          - sensor.xiaomi_ir_device_status
+          - sensor.xiaomi_ir_last_command
+          - sensor.xiaomi_ir_commands_sent
 
       - type: horizontal-stack
         cards:
@@ -51,7 +72,7 @@ views:
             icon: mdi:power
             tap_action:
               action: call-service
-              service: script.xiaomi_ir_power
+              service: shell_command.xiaomi_ir_power
             show_state: false
             show_name: true
             show_icon: true
@@ -61,7 +82,7 @@ views:
             icon: mdi:volume-plus
             tap_action:
               action: call-service
-              service: script.xiaomi_ir_volume_up
+              service: shell_command.xiaomi_ir_volume_up
             show_state: false
             show_name: true
             show_icon: true
@@ -71,7 +92,7 @@ views:
             icon: mdi:volume-minus
             tap_action:
               action: call-service
-              service: script.xiaomi_ir_volume_down
+              service: shell_command.xiaomi_ir_volume_down
             show_state: false
             show_name: true
             show_icon: true
@@ -81,7 +102,64 @@ views:
             icon: mdi:volume-mute
             tap_action:
               action: call-service
-              service: script.xiaomi_ir_mute
+              service: shell_command.xiaomi_ir_mute
+            show_state: false
+            show_name: true
+            show_icon: true
+
+      - type: markdown
+        content: |
+          ## 🎮 Quick TV Controls
+          Use the buttons above for quick TV control, or go to the "Remote Control" tab for full control.
+
+  - title: Remote Control
+    icon: mdi:remote
+    path: remote-control
+    badges: []
+    cards:
+      - type: markdown
+        content: |
+          # 🎮 Xiaomi IR Remote Control
+          **Device**: `192.168.68.62` | **Status**: `Connected` | **Protocol**: `IR Commands`
+
+      - type: horizontal-stack
+        cards:
+          - type: button
+            name: TV Power
+            icon: mdi:power
+            tap_action:
+              action: call-service
+              service: shell_command.xiaomi_ir_power
+            show_state: false
+            show_name: true
+            show_icon: true
+
+          - type: button
+            name: Volume Up
+            icon: mdi:volume-plus
+            tap_action:
+              action: call-service
+              service: shell_command.xiaomi_ir_volume_up
+            show_state: false
+            show_name: true
+            show_icon: true
+
+          - type: button
+            name: Volume Down
+            icon: mdi:volume-minus
+            tap_action:
+              action: call-service
+              service: shell_command.xiaomi_ir_volume_down
+            show_state: false
+            show_name: true
+            show_icon: true
+
+          - type: button
+            name: Mute
+            icon: mdi:volume-mute
+            tap_action:
+              action: call-service
+              service: shell_command.xiaomi_ir_mute
             show_state: false
             show_name: true
             show_icon: true
@@ -93,7 +171,7 @@ views:
             icon: mdi:chevron-up
             tap_action:
               action: call-service
-              service: script.xiaomi_ir_channel_up
+              service: shell_command.xiaomi_ir_channel_up
             show_state: false
             show_name: true
             show_icon: true
@@ -103,7 +181,7 @@ views:
             icon: mdi:chevron-down
             tap_action:
               action: call-service
-              service: script.xiaomi_ir_channel_down
+              service: shell_command.xiaomi_ir_channel_down
             show_state: false
             show_name: true
             show_icon: true
@@ -113,7 +191,7 @@ views:
             icon: mdi:hdmi-port
             tap_action:
               action: call-service
-              service: script.xiaomi_ir_input
+              service: shell_command.xiaomi_ir_input
             show_state: false
             show_name: true
             show_icon: true
@@ -123,7 +201,7 @@ views:
             icon: mdi:menu
             tap_action:
               action: call-service
-              service: script.xiaomi_ir_menu
+              service: shell_command.xiaomi_ir_menu
             show_state: false
             show_name: true
             show_icon: true
@@ -135,7 +213,7 @@ views:
             icon: mdi:arrow-left
             tap_action:
               action: call-service
-              service: script.xiaomi_ir_back
+              service: shell_command.xiaomi_ir_back
             show_state: false
             show_name: true
             show_icon: true
@@ -145,7 +223,7 @@ views:
             icon: mdi:check
             tap_action:
               action: call-service
-              service: script.xiaomi_ir_ok
+              service: shell_command.xiaomi_ir_ok
             show_state: false
             show_name: true
             show_icon: true
@@ -155,7 +233,7 @@ views:
             icon: mdi:arrow-up
             tap_action:
               action: call-service
-              service: script.xiaomi_ir_up
+              service: shell_command.xiaomi_ir_up
             show_state: false
             show_name: true
             show_icon: true
@@ -165,7 +243,7 @@ views:
             icon: mdi:arrow-down
             tap_action:
               action: call-service
-              service: script.xiaomi_ir_down
+              service: shell_command.xiaomi_ir_down
             show_state: false
             show_name: true
             show_icon: true
@@ -177,7 +255,7 @@ views:
             icon: mdi:arrow-left
             tap_action:
               action: call-service
-              service: script.xiaomi_ir_left
+              service: shell_command.xiaomi_ir_left
             show_state: false
             show_name: true
             show_icon: true
@@ -187,7 +265,7 @@ views:
             icon: mdi:arrow-right
             tap_action:
               action: call-service
-              service: script.xiaomi_ir_right
+              service: shell_command.xiaomi_ir_right
             show_state: false
             show_name: true
             show_icon: true
@@ -197,7 +275,7 @@ views:
             icon: mdi:test-tube
             tap_action:
               action: call-service
-              service: script.xiaomi_ir_test_all
+              service: shell_command.xiaomi_ir_test_all
             show_state: false
             show_name: true
             show_icon: true
@@ -205,6 +283,166 @@ views:
       - type: entities
         title: Device Status
         entities:
-          - sensor.xiaomi_ir_device_status
-          - sensor.xiaomi_ir_last_command
-          - sensor.xiaomi_ir_commands_sent
+          - sensor.xiaomi_network_ping
+          - sensor.xiaomi_network_latency
+
+  - title: Network Monitor
+    icon: mdi:network
+    path: network-monitor
+    badges: []
+    cards:
+      - type: markdown
+        content: |
+          # 🌐 Network Monitoring
+          **Target Device**: `192.168.68.68` | **Network**: `SA` | **Monitoring**: `Active`
+
+      - type: entities
+        title: Network Status
+        entities:
+          - sensor.xiaomi_network_ping
+          - sensor.xiaomi_network_latency
+          - sensor.xiaomi_network_activity
+          - sensor.xiaomi_connection_quality
+
+      - type: entities
+        title: Network Monitor Status
+        entities:
+          - sensor.network_monitor_status
+          - sensor.xiaomi_command_detection
+          - sensor.network_interfaces
+
+      - type: horizontal-stack
+        cards:
+          - type: button
+            name: Start Monitor
+            icon: mdi:play
+            tap_action:
+              action: call-service
+              service: script.start_network_monitoring
+            show_state: false
+            show_name: true
+            show_icon: true
+
+          - type: button
+            name: Stop Monitor
+            icon: mdi:stop
+            tap_action:
+              action: call-service
+              service: script.stop_network_monitoring
+            show_state: false
+            show_name: true
+            show_icon: true
+
+          - type: button
+            name: Check Status
+            icon: mdi:refresh
+            tap_action:
+              action: call-service
+              service: script.check_network_status
+            show_state: false
+            show_name: true
+            show_icon: true
+
+          - type: button
+            name: Restart Monitor
+            icon: mdi:restart
+            tap_action:
+              action: call-service
+              service: script.restart_network_monitoring
+            show_state: false
+            show_name: true
+            show_icon: true
+
+      - type: entities
+        title: Network Log
+        entities:
+          - sensor.network_monitor_log
+
+      - type: entities
+        title: Network State
+        entities:
+          - sensor.network_monitor_state
+
+      - type: entities
+        title: Network Traffic
+        entities:
+          - sensor.network_traffic_monitor
+
+  - title: Xiaomi Analyzer
+    icon: mdi:microscope
+    path: xiaomi-analyzer
+    badges: []
+    cards:
+      - type: markdown
+        content: |
+          # 🔬 Xiaomi Command Analyzer
+          **Target Device**: `192.168.68.68` | **Analysis**: `Active` | **Purpose**: `Learn Commands`
+
+      - type: entities
+        title: Analysis Status
+        entities:
+          - sensor.xiaomi_analysis_status
+          - sensor.xiaomi_device_type
+          - sensor.xiaomi_open_ports
+
+      - type: horizontal-stack
+        cards:
+          - type: button
+            name: Analyze Device
+            icon: mdi:search
+            tap_action:
+              action: call-service
+              service: script.analyze_xiaomi_device
+            show_state: false
+            show_name: true
+            show_icon: true
+
+          - type: button
+            name: Test Connection
+            icon: mdi:network
+            tap_action:
+              action: call-service
+              service: script.test_xiaomi_connection
+            show_state: false
+            show_name: true
+            show_icon: true
+
+          - type: button
+            name: Check Analysis
+            icon: mdi:refresh
+            tap_action:
+              action: call-service
+              service: script.check_xiaomi_analysis
+            show_state: false
+            show_name: true
+            show_icon: true
+
+          - type: button
+            name: Full Analysis
+            icon: mdi:chart-line
+            tap_action:
+              action: call-service
+              service: script.full_xiaomi_analysis
+            show_state: false
+            show_name: true
+            show_icon: true
+
+      - type: entities
+        title: Analysis Log
+        entities:
+          - sensor.xiaomi_analysis_log
+
+      - type: entities
+        title: Discovered Commands
+        entities:
+          - sensor.xiaomi_commands
+
+      - type: entities
+        title: Protocol Information
+        entities:
+          - sensor.xiaomi_protocol
+
+      - type: entities
+        title: Port Scan Results
+        entities:
+          - sensor.xiaomi_port_scan
