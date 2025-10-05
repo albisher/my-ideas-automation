@@ -1,0 +1,15 @@
+# Entity Customization
+# This file allows you to customize entity names, icons, and other properties
+
+# Example Tapo device customizations (will be populated automatically)
+# light.tapo_bulb_1:
+#   friendly_name: "Living Room Light"
+#   icon: mdi:lightbulb
+
+# switch.tapo_plug_1:
+#   friendly_name: "Coffee Maker"
+#   icon: mdi:coffee
+
+# camera.tapo_camera_1:
+#   friendly_name: "Front Door Camera"
+#   icon: mdi:cctv

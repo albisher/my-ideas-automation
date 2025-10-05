@@ -1,0 +1,182 @@
+title: Hisense TV Control
+path: hisense-tv-dashboard
+icon: mdi:television
+badges: []
+cards:
+  - type: vertical-stack
+    title: Hisense TV Control via Xiaomi IR
+    cards:
+      - type: media-control
+        entity: remote.xiaomi_ir_remote
+      - type: entities
+        title: IR Remote Status
+        entities:
+          - remote.xiaomi_ir_remote
+
+  - type: vertical-stack
+    title: Hisense TV Power Control
+    cards:
+      - type: grid
+        square: false
+        columns: 2
+        cards:
+          - type: button
+            name: TV Power
+            icon: mdi:power
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.xiaomi_ir_remote
+                command: "hisense_tv_power"
+          - type: button
+            name: TV Input
+            icon: mdi:input-hdmi
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.xiaomi_ir_remote
+                command: "hisense_tv_input"
+
+  - type: vertical-stack
+    title: Hisense TV Volume Control
+    cards:
+      - type: grid
+        square: false
+        columns: 2
+        cards:
+          - type: button
+            name: Volume Up
+            icon: mdi:volume-plus
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.xiaomi_ir_remote
+                command: "hisense_tv_volume_up"
+          - type: button
+            name: Volume Down
+            icon: mdi:volume-minus
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.xiaomi_ir_remote
+                command: "hisense_tv_volume_down"
+
+  - type: vertical-stack
+    title: Hisense TV Channel Control
+    cards:
+      - type: grid
+        square: false
+        columns: 2
+        cards:
+          - type: button
+            name: Channel Up
+            icon: mdi:chevron-up
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.xiaomi_ir_remote
+                command: "hisense_tv_channel_up"
+          - type: button
+            name: Channel Down
+            icon: mdi:chevron-down
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.xiaomi_ir_remote
+                command: "hisense_tv_channel_down"
+
+  - type: vertical-stack
+    title: Hisense TV Navigation
+    cards:
+      - type: grid
+        square: false
+        columns: 3
+        cards:
+          - type: button
+            name: Menu
+            icon: mdi:menu
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.xiaomi_ir_remote
+                command: "hisense_tv_menu"
+          - type: button
+            name: Back
+            icon: mdi:arrow-left
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.xiaomi_ir_remote
+                command: "hisense_tv_back"
+          - type: button
+            name: OK
+            icon: mdi:check
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.xiaomi_ir_remote
+                command: "hisense_tv_ok"
+
+  - type: vertical-stack
+    title: Hisense TV Directional Control
+    cards:
+      - type: grid
+        square: false
+        columns: 3
+        cards:
+          - type: button
+            name: Up
+            icon: mdi:chevron-up
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.xiaomi_ir_remote
+                command: "hisense_tv_up"
+          - type: button
+            name: Down
+            icon: mdi:chevron-down
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.xiaomi_ir_remote
+                command: "hisense_tv_down"
+          - type: button
+            name: Left
+            icon: mdi:chevron-left
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.xiaomi_ir_remote
+                command: "hisense_tv_left"
+          - type: button
+            name: Right
+            icon: mdi:chevron-right
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              service_data:
+                entity_id: remote.xiaomi_ir_remote
+                command: "hisense_tv_right"
+
+  - type: vertical-stack
+    title: Device Information
+    cards:
+      - type: entities
+        title: Xiaomi Device Status
+        entities:
+          - remote.xiaomi_ir_remote
+          - sensor.xiaomi_connection_status
+          - sensor.xiaomi_ir_devices_count
+          - sensor.xiaomi_last_ir_command

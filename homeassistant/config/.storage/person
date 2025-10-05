@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "minor_version": 1,
+  "key": "person",
+  "data": {
+    "items": [
+      {
+        "id": "myhome",
+        "name": "myHome",
+        "user_id": "c99ce852354a4aec8881eaeec2e37a27",
+        "device_trackers": [
+          "device_tracker.sm_s901e"
+        ]
+      }
+    ]
+  }
+}

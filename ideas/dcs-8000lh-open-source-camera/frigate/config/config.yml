@@ -1,0 +1,74 @@
+# Frigate Configuration
+mqtt:
+  enabled: true
+  host: localhost
+  port: 1883
+  user: frigate
+  password: frigate_password
+  topic_prefix: frigate
+
+cameras:
+  dcs_8000lh_1:
+    ffmpeg:
+      inputs:
+        - path: rtsp://admin:admin@192.168.68.50:554/stream1
+          roles:
+            - detect
+            - record
+    detect:
+      width: 1280
+      height: 720
+      fps: 5
+    record:
+      enabled: true
+      retain:
+        days: 7
+        mode: motion
+    snapshots:
+      enabled: true
+      retain:
+        default: 10
+        objects:
+          person: 20
+          car: 15
+
+  dcs_8000lh_2:
+    ffmpeg:
+      inputs:
+        - path: rtsp://admin:admin@192.168.68.51:554/stream1
+          roles:
+            - detect
+            - record
+    detect:
+      width: 1280
+      height: 720
+      fps: 5
+    record:
+      enabled: true
+      retain:
+        days: 7
+        mode: motion
+    snapshots:
+      enabled: true
+      retain:
+        default: 10
+        objects:
+          person: 20
+          car: 15
+
+objects:
+  track:
+    - person
+    - car
+  filters:
+    person:
+      min_area: 5000
+      max_area: 100000
+      min_score: 0.5
+    car:
+      min_area: 10000
+      max_area: 200000
+      min_score: 0.5
+detect:
+  enabled: true
+version: 0.16-0

@@ -1,0 +1,154 @@
+# Xiaomi IR Remote Scripts
+# These scripts send IR commands directly to the Xiaomi device without authentication
+
+xiaomi_ir_turn_on:
+  alias: "Xiaomi IR Turn On"
+  sequence:
+    - service: python_script.xiaomi_ir_send_command
+      data:
+        command: "hisense_tv_power"
+
+xiaomi_ir_turn_off:
+  alias: "Xiaomi IR Turn Off"
+  sequence:
+    - service: python_script.xiaomi_ir_send_command
+      data:
+        command: "hisense_tv_power"
+
+xiaomi_ir_send_command:
+  alias: "Xiaomi IR Send Command"
+  sequence:
+    - service: shell_command.send_ir_command
+      data:
+        command: "{{ command }}"
+
+# Individual IR command scripts
+xiaomi_ir_power:
+  alias: "Xiaomi IR Power"
+  sequence:
+    - service: python_script.xiaomi_ir_send_command
+      data:
+        command: "hisense_tv_power"
+
+xiaomi_ir_volume_up:
+  alias: "Xiaomi IR Volume Up"
+  sequence:
+    - service: python_script.xiaomi_ir_send_command
+      data:
+        command: "hisense_tv_volume_up"
+
+xiaomi_ir_volume_down:
+  alias: "Xiaomi IR Volume Down"
+  sequence:
+    - service: python_script.xiaomi_ir_send_command
+      data:
+        command: "hisense_tv_volume_down"
+
+xiaomi_ir_channel_up:
+  alias: "Xiaomi IR Channel Up"
+  sequence:
+    - service: python_script.xiaomi_ir_send_command
+      data:
+        command: "hisense_tv_channel_up"
+
+xiaomi_ir_channel_down:
+  alias: "Xiaomi IR Channel Down"
+  sequence:
+    - service: python_script.xiaomi_ir_send_command
+      data:
+        command: "hisense_tv_channel_down"
+
+xiaomi_ir_input:
+  alias: "Xiaomi IR Input"
+  sequence:
+    - service: python_script.xiaomi_ir_send_command
+      data:
+        command: "hisense_tv_input"
+
+xiaomi_ir_menu:
+  alias: "Xiaomi IR Menu"
+  sequence:
+    - service: python_script.xiaomi_ir_send_command
+      data:
+        command: "hisense_tv_menu"
+
+xiaomi_ir_back:
+  alias: "Xiaomi IR Back"
+  sequence:
+    - service: python_script.xiaomi_ir_send_command
+      data:
+        command: "hisense_tv_back"
+
+xiaomi_ir_ok:
+  alias: "Xiaomi IR OK"
+  sequence:
+    - service: python_script.xiaomi_ir_send_command
+      data:
+        command: "hisense_tv_ok"
+
+xiaomi_ir_up:
+  alias: "Xiaomi IR Up"
+  sequence:
+    - service: python_script.xiaomi_ir_send_command
+      data:
+        command: "hisense_tv_up"
+
+xiaomi_ir_down:
+  alias: "Xiaomi IR Down"
+  sequence:
+    - service: python_script.xiaomi_ir_send_command
+      data:
+        command: "hisense_tv_down"
+
+xiaomi_ir_left:
+  alias: "Xiaomi IR Left"
+  sequence:
+    - service: python_script.xiaomi_ir_send_command
+      data:
+        command: "hisense_tv_left"
+
+xiaomi_ir_right:
+  alias: "Xiaomi IR Right"
+  sequence:
+    - service: python_script.xiaomi_ir_send_command
+      data:
+        command: "hisense_tv_right"
+
+# Additional utility scripts
+xiaomi_ir_test_all:
+  alias: "Xiaomi IR Test All Commands"
+  sequence:
+    - service: python_script.xiaomi_ir_send_command
+      data:
+        command: "hisense_tv_power"
+    - delay: "00:00:01"
+    - service: python_script.xiaomi_ir_send_command
+      data:
+        command: "hisense_tv_volume_up"
+    - delay: "00:00:01"
+    - service: python_script.xiaomi_ir_send_command
+      data:
+        command: "hisense_tv_channel_up"
+    - delay: "00:00:01"
+    - service: python_script.xiaomi_ir_send_command
+      data:
+        command: "hisense_tv_menu"
+
+xiaomi_ir_setup_mode:
+  alias: "Xiaomi IR Setup Mode"
+  sequence:
+    - service: python_script.xiaomi_ir_send_command
+      data:
+        command: "hisense_tv_menu"
+    - delay: "00:00:02"
+    - service: python_script.xiaomi_ir_send_command
+      data:
+        command: "hisense_tv_ok"
+    - delay: "00:00:01"
+    - service: python_script.xiaomi_ir_send_command
+      data:
+        command: "hisense_tv_down"
+    - delay: "00:00:01"
+    - service: python_script.xiaomi_ir_send_command
+      data:
+        command: "hisense_tv_ok"

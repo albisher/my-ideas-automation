@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "minor_version": 12,
+  "key": "core.device_registry",
+  "data": {
+    "devices": [
+      {"area_id":null,"config_entries":["01K6MWGZPXGC47NZBSKY1CDJXE"],"config_entries_subentries":{"01K6MWGZPXGC47NZBSKY1CDJXE":[null]},"configuration_url":null,"connections":[],"created_at":"2025-10-03T11:15:13.246248+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"100e53c6073c4c389a53072dcc293d87","identifiers":[["sun","01K6MWGZPXGC47NZBSKY1CDJXE"]],"labels":[],"manufacturer":null,"model":null,"model_id":null,"modified_at":"2025-10-03T11:15:13.246265+00:00","name_by_user":null,"name":"Sun","primary_config_entry":"01K6MWGZPXGC47NZBSKY1CDJXE","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01K6MWGZSEND9TXAXCNSEND733"],"config_entries_subentries":{"01K6MWGZSEND9TXAXCNSEND733":[null]},"configuration_url":"homeassistant://config/backup","connections":[],"created_at":"2025-10-03T11:15:13.335731+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"cb832ad313dea55d038981d7d81dfa5a","identifiers":[["backup","backup_manager"]],"labels":[],"manufacturer":"Home Assistant","model":"Home Assistant Backup","model_id":null,"modified_at":"2025-10-03T11:15:13.335754+00:00","name_by_user":null,"name":"Backup","primary_config_entry":"01K6MWGZSEND9TXAXCNSEND733","serial_number":null,"sw_version":"2025.9.4","via_device_id":null},
+      {"area_id":null,"config_entries":["01K6MWVGSZPG46PBZ9RCXKXJXP"],"config_entries_subentries":{"01K6MWVGSZPG46PBZ9RCXKXJXP":[null]},"configuration_url":"https://www.met.no/en","connections":[],"created_at":"2025-10-03T11:20:58.962851+00:00","disabled_by":null,"entry_type":"service","hw_version":null,"id":"48260a6a3fea31369f7cd95bd79e453f","identifiers":[["met","01K6MWVGSZPG46PBZ9RCXKXJXP"]],"labels":[],"manufacturer":"Met.no","model":"Forecast","model_id":null,"modified_at":"2025-10-03T11:20:58.962915+00:00","name_by_user":null,"name":"Forecast","primary_config_entry":"01K6MWVGSZPG46PBZ9RCXKXJXP","serial_number":null,"sw_version":null,"via_device_id":null},
+      {"area_id":null,"config_entries":["01K6NHJ188J0961840ESRBK206"],"config_entries_subentries":{"01K6NHJ188J0961840ESRBK206":[null]},"configuration_url":null,"connections":[],"created_at":"2025-10-03T17:22:47.688884+00:00","disabled_by":null,"entry_type":null,"hw_version":null,"id":"69c9e113ecab9ed5569b67e538df83d6","identifiers":[["mobile_app","70d135527be5054f"]],"labels":[],"manufacturer":"samsung","model":"SM-S901E","model_id":null,"modified_at":"2025-10-03T17:22:47.689026+00:00","name_by_user":null,"name":"SM-S901E","primary_config_entry":"01K6NHJ188J0961840ESRBK206","serial_number":null,"sw_version":"35","via_device_id":null}
+    ],
+    "deleted_devices": []
+  }
+}

@@ -1,0 +1,199 @@
+# Mac Mini M4 Optimized Voice Assistant Docker Compose
+# Free, open-source container-based voice assistant solution
+
+version: '3.8'
+
+services:
+  # MQTT Broker for communication
+  mqtt:
+    image: eclipse-mosquitto:latest
+    container_name: voice-mqtt
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mqtt/config:/mosquitto/config
+      - ./mqtt/data:/mosquitto/data
+      - ./mqtt/log:/mosquitto/log
+    networks:
+      - voice-assistant
+
+  # Whisper Speech-to-Text (Optimized for M4)
+  whisper:
+    image: rhasspy/wyoming-whisper:latest
+    container_name: whisper-stt
+    restart: unless-stopped
+    ports:
+      - "10301:10300"
+    command: --model small --language en --beam-size 1
+    volumes:
+      - ./whisper/models:/models
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+          cpus: '4.0'
+        reservations:
+          memory: 2G
+          cpus: '2.0'
+    networks:
+      - voice-assistant
+
+  # Piper Text-to-Speech (Optimized for M4)
+  piper:
+    image: rhasspy/wyoming-piper:latest
+    container_name: piper-tts
+    restart: unless-stopped
+    ports:
+      - "10201:10200"
+    command: --voice en-us-libritts-high
+    volumes:
+      - ./piper/voices:/voices
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+          cpus: '2.0'
+        reservations:
+          memory: 1G
+          cpus: '1.0'
+    networks:
+      - voice-assistant
+
+  # OpenWakeWord for wake word detection
+  openwakeword:
+    image: rhasspy/wyoming-openwakeword:latest
+    container_name: openwakeword
+    restart: unless-stopped
+    ports:
+      - "10101:10100"
+    command: --model hey_jarvis
+    volumes:
+      - ./openwakeword/models:/models
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+          cpus: '1.0'
+        reservations:
+          memory: 512M
+          cpus: '0.5'
+    networks:
+      - voice-assistant
+
+  # Wyoming Server (Protocol server)
+  wyoming-server:
+    image: rhasspy/wyoming-server:latest
+    container_name: wyoming-server
+    restart: unless-stopped
+    ports:
+      - "10400:10400"
+    environment:
+      - WYOMING_SERVER_PORT=10400
+      - WYOMING_SERVER_HOST=0.0.0.0
+    volumes:
+      - ./wyoming/config:/config
+    depends_on:
+      - whisper
+      - piper
+      - openwakeword
+    networks:
+      - voice-assistant
+
+  # Rhasspy (Alternative complete solution)
+  rhasspy:
+    image: rhasspy/rhasspy:latest
+    container_name: rhasspy-voice
+    restart: unless-stopped
+    ports:
+      - "12101:12101"
+    volumes:
+      - ./rhasspy/profiles:/profiles
+      - ./rhasspy/data:/data
+      - ./rhasspy/logs:/logs
+    environment:
+      - RHASSPY_PROFILE=english
+      - RHASSPY_LANGUAGE=en
+      - RHASSPY_MICROPHONE=ALSA
+      - RHASSPY_SPEAKER=ALSA
+      - RHASSPY_MQTT_HOST=mqtt
+      - RHASSPY_MQTT_PORT=1883
+    depends_on:
+      - mqtt
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+          cpus: '4.0'
+        reservations:
+          memory: 2G
+          cpus: '2.0'
+    networks:
+      - voice-assistant
+
+  # Mycroft (Alternative voice assistant)
+  mycroft:
+    image: mycroftai/mycroft-core:latest
+    container_name: mycroft-voice
+    restart: unless-stopped
+    ports:
+      - "8181:8181"
+    volumes:
+      - ./mycroft/config:/opt/mycroft
+      - ./mycroft/logs:/var/log/mycroft
+    environment:
+      - MYCROFT_DEBUG=1
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+          cpus: '4.0'
+        reservations:
+          memory: 2G
+          cpus: '2.0'
+    networks:
+      - voice-assistant
+
+  # OpenVoiceOS (Advanced alternative)
+  ovos:
+    image: opendatahub/ovos:latest
+    container_name: ovos-voice
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./ovos/config:/opt/ovos
+      - ./ovos/logs:/var/log/ovos
+    environment:
+      - OVOS_DEBUG=1
+    deploy:
+      resources:
+        limits:
+          memory: 6G
+          cpus: '6.0'
+        reservations:
+          memory: 3G
+          cpus: '3.0'
+    networks:
+      - voice-assistant
+
+networks:
+  voice-assistant:
+    driver: bridge
+    name: voice-assistant
+
+volumes:
+  mqtt_data:
+  mqtt_log:
+  whisper_models:
+  piper_voices:
+  openwakeword_models:
+  wyoming_config:
+  rhasspy_profiles:
+  rhasspy_data:
+  rhasspy_logs:
+  mycroft_config:
+  mycroft_logs:
+  ovos_config:
+  ovos_logs:

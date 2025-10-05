@@ -1,0 +1,202 @@
+# Frigate NVR Configuration for DCS-8000LH Camera
+# This configuration enables AI-powered motion detection and object recognition
+
+mqtt:
+  enabled: true
+  host: mqtt
+  port: 1883
+  topic_prefix: frigate
+  client_id: frigate
+  user: frigate
+  password: frigate_password
+
+detectors:
+  cpu1:
+    type: cpu
+
+detect:
+  width: 1280
+  height: 720
+  fps: 5
+
+model:
+  width: 320
+  height: 320
+  input_tensor: nhwc
+  input_pixel_format: rgb
+  path: /openvino-model/ssdlite_mobilenet_v2.xml
+
+objects:
+  track:
+    - person
+    - car
+    - truck
+    - bus
+    - motorcycle
+    - bicycle
+    - dog
+    - cat
+    - bird
+  filters:
+    person:
+      min_area: 5000
+      max_area: 100000
+      min_score: 0.5
+      threshold: 0.7
+    car:
+      min_area: 5000
+      max_area: 100000
+      min_score: 0.5
+      threshold: 0.7
+
+record:
+  enabled: true
+  retain:
+    days: 30
+    mode: motion
+  events:
+    retain:
+      default: 30
+      mode: motion
+      objects:
+        person: 60
+        car: 30
+        truck: 30
+        bus: 30
+        motorcycle: 30
+        bicycle: 30
+        dog: 30
+        cat: 30
+        bird: 30
+
+snapshots:
+  enabled: true
+  timestamp: true
+  bounding_box: true
+  retain:
+    default: 30
+    objects:
+      person: 60
+      car: 30
+      truck: 30
+      bus: 30
+      motorcycle: 30
+      bicycle: 30
+      dog: 30
+      cat: 30
+      bird: 30
+
+live:
+  height: 720
+  quality: 8
+
+cameras:
+  dcs8000lh:
+    enabled: true
+    ffmpeg:
+      inputs:
+        - path: rtsp://admin:admin@192.168.68.100:554/stream1
+          roles:
+            - detect
+            - record
+            - live
+            - clips
+        - path: rtsp://admin:admin@192.168.68.100:554/stream2
+          roles:
+            - record
+            - live
+      hwaccel_args: []
+    detect:
+      width: 1280
+      height: 720
+      fps: 5
+    motion:
+      mask:
+        - 0,0,0,100,100,100,100,0
+    zones:
+      front_door:
+        coordinates: 0,0,100,0,100,100,0,100
+        filters:
+          person:
+            min_area: 5000
+            max_area: 100000
+            min_score: 0.5
+            threshold: 0.7
+    record:
+      enabled: true
+      retain:
+        days: 30
+        mode: motion
+      events:
+        retain:
+          default: 30
+          mode: motion
+          objects:
+            person: 60
+            car: 30
+            truck: 30
+            bus: 30
+            motorcycle: 30
+            bicycle: 30
+            dog: 30
+            cat: 30
+            bird: 30
+    snapshots:
+      enabled: true
+      timestamp: true
+      bounding_box: true
+      retain:
+        default: 30
+        objects:
+          person: 60
+          car: 30
+          truck: 30
+          bus: 30
+          motorcycle: 30
+          bicycle: 30
+          dog: 30
+          cat: 30
+          bird: 30
+    live:
+      height: 720
+      quality: 8
+
+# Optional: Add more cameras
+# cameras:
+#   dcs8000lh_2:
+#     enabled: true
+#     ffmpeg:
+#       inputs:
+#         - path: rtsp://admin:admin@192.168.68.100_2:554/stream1
+#           roles:
+#             - detect
+#             - record
+#             - live
+#             - clips
+#     detect:
+#       width: 1280
+#       height: 720
+#       fps: 5
+#     motion:
+#       mask: []
+#     zones:
+#       backyard:
+#         coordinates: 0,0,100,0,100,100,0,100
+#         filters:
+#           person:
+#             min_area: 5000
+#             max_area: 100000
+#             min_score: 0.5
+#             threshold: 0.7
+#     record:
+#       enabled: true
+#       retain:
+#         days: 30
+#         mode: motion
+#     snapshots:
+#       enabled: true
+#       timestamp: true
+#       bounding_box: true
+#     live:
+#       height: 720
+#       quality: 8

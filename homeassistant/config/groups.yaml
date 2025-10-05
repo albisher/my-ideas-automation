@@ -1,0 +1,17 @@
+# Clean Groups
+default_view:
+  name: "Home"
+  entities:
+    - group.tapo_devices
+    - group.system_status
+
+tapo_devices:
+  name: "Tapo Devices"
+  entities: []
+  icon: mdi:home-automation
+
+system_status:
+  name: "System Status"
+  entities:
+    - script.system_status
+  icon: mdi:information

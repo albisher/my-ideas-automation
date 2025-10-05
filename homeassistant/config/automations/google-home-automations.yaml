@@ -1,0 +1,198 @@
+# Google Home Automation Examples
+# These automations demonstrate how to use Google Home devices with Home Assistant
+
+# Morning Routine with Google Home
+- alias: "Morning Announcement"
+  description: "Play morning announcement on Google Home"
+  trigger:
+    - platform: time
+      at: "07:00:00"
+  condition:
+    - condition: state
+      entity_id: media_player.google_home_mini
+      state: "idle"
+  action:
+    - service: media_player.turn_on
+      target:
+        entity_id: media_player.google_home_mini
+    - service: media_player.volume_set
+      target:
+        entity_id: media_player.google_home_mini
+      data:
+        volume_level: 0.6
+    - service: media_player.play_media
+      target:
+        entity_id: media_player.google_home_mini
+      data:
+        media_content_id: "Good morning! It's {{ now().strftime('%A, %B %d') }}. The weather is {{ states('weather.home') }}."
+        media_content_type: "music"
+
+# Doorbell Integration
+- alias: "Doorbell Google Home Alert"
+  description: "Announce doorbell on Google Home"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.doorbell
+      to: "on"
+  action:
+    - service: media_player.play_media
+      target:
+        entity_id: media_player.google_home_mini
+      data:
+        media_content_id: "🔔 Someone is at the door!"
+        media_content_type: "music"
+    - service: media_player.volume_set
+      target:
+        entity_id: media_player.google_home_mini
+      data:
+        volume_level: 0.8
+
+# Weather Updates
+- alias: "Weather Update on Google Home"
+  description: "Play weather update on Google Home"
+  trigger:
+    - platform: time
+      at: "08:00:00"
+  action:
+    - service: media_player.play_media
+      target:
+        entity_id: media_player.google_home_mini
+      data:
+        media_content_id: "Today's weather: {{ states('weather.home') }}. Temperature: {{ states('sensor.weather_temperature') }}°C"
+        media_content_type: "music"
+
+# Security Alert
+- alias: "Security Alert on Google Home"
+  description: "Play security alert on Google Home"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor
+      to: "on"
+  condition:
+    - condition: time
+      after: "22:00:00"
+      before: "06:00:00"
+  action:
+    - service: media_player.play_media
+      target:
+        entity_id: media_player.google_home_mini
+      data:
+        media_content_id: "⚠️ Motion detected in the house!"
+        media_content_type: "music"
+    - service: media_player.volume_set
+      target:
+        entity_id: media_player.google_home_mini
+      data:
+        volume_level: 1.0
+
+# Evening Routine
+- alias: "Evening Announcement"
+  description: "Play evening announcement on Google Home"
+  trigger:
+    - platform: time
+      at: "18:00:00"
+  action:
+    - service: media_player.play_media
+      target:
+        entity_id: media_player.google_home_mini
+      data:
+        media_content_id: "Good evening! Time to wind down. Tomorrow's weather will be {{ states('weather.home') }}."
+        media_content_type: "music"
+
+# Google Home Volume Control Based on Time
+- alias: "Auto Volume Control"
+  description: "Automatically adjust Google Home volume based on time"
+  trigger:
+    - platform: time
+      at: 
+        - "07:00:00"
+        - "12:00:00"
+        - "18:00:00"
+        - "22:00:00"
+  action:
+    - choose:
+        - conditions:
+            - condition: time
+              after: "07:00:00"
+              before: "12:00:00"
+          sequence:
+            - service: media_player.volume_set
+              target:
+                entity_id: media_player.google_home_mini
+              data:
+                volume_level: 0.7
+        - conditions:
+            - condition: time
+              after: "12:00:00"
+              before: "18:00:00"
+          sequence:
+            - service: media_player.volume_set
+              target:
+                entity_id: media_player.google_home_mini
+              data:
+                volume_level: 0.5
+        - conditions:
+            - condition: time
+              after: "18:00:00"
+              before: "22:00:00"
+          sequence:
+            - service: media_player.volume_set
+              target:
+                entity_id: media_player.google_home_mini
+              data:
+                volume_level: 0.6
+        - conditions:
+            - condition: time
+              after: "22:00:00"
+              before: "07:00:00"
+          sequence:
+            - service: media_player.volume_set
+              target:
+                entity_id: media_player.google_home_mini
+              data:
+                volume_level: 0.3
+
+# Google Home Group Control
+- alias: "Control All Google Home Devices"
+  description: "Control all Google Home devices simultaneously"
+  trigger:
+    - platform: event
+      event_type: google_home_group_control
+  action:
+    - service: media_player.volume_set
+      target:
+        entity_id: 
+          - media_player.google_home_mini
+          - media_player.google_nest_hub
+      data:
+        volume_level: "{{ trigger.event.data.volume }}"
+    - service: media_player.play_media
+      target:
+        entity_id: 
+          - media_player.google_home_mini
+          - media_player.google_nest_hub
+      data:
+        media_content_id: "{{ trigger.event.data.message }}"
+        media_content_type: "music"
+
+# Google Home Status Check
+- alias: "Google Home Status Check"
+  description: "Check Google Home device status and notify if offline"
+  trigger:
+    - platform: time
+      at: "09:00:00"
+  action:
+    - if:
+        - condition: state
+          entity_id: media_player.google_home_mini
+          state: "unavailable"
+      then:
+        - service: notify.persistent_notification
+          data:
+            title: "Google Home Status"
+            message: "Google Home Mini is offline. Please check the device."
+      else:
+        - service: notify.persistent_notification
+          data:
+            title: "Google Home Status"
+            message: "All Google Home devices are online and working properly."

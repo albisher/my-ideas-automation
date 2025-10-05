@@ -1,0 +1,60 @@
+# Matter Server Configuration
+# This file configures the Matter server for local device management
+
+# Server Configuration
+server:
+  host: "0.0.0.0"
+  port: 5580
+  commissioning_port: 5581
+
+# Matter Network Configuration
+matter:
+  # Enable IPv6 support for Matter devices
+  enable_ipv6: true
+  
+  # Matter fabric configuration
+  fabric:
+    # Auto-generate fabric ID
+    auto_generate_fabric_id: true
+    
+  # Device commissioning
+  commissioning:
+    # Enable automatic commissioning
+    auto_commission: true
+    
+    # Commissioning timeout (seconds)
+    timeout: 300
+    
+  # Device discovery
+  discovery:
+    # Enable mDNS discovery
+    enable_mdns: true
+    
+    # Discovery timeout (seconds)
+    timeout: 30
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "json"
+  
+# Storage Configuration
+storage:
+  # Database path
+  database_path: "/data/matter.db"
+  
+  # Backup configuration
+  backup:
+    enabled: true
+    interval: "24h"
+    retention: "7d"
+
+# Security Configuration
+security:
+  # Enable device authentication
+  device_auth: true
+  
+  # Certificate management
+  certificates:
+    auto_generate: true
+    path: "/data/certificates"

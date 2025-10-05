@@ -1,0 +1,163 @@
+# Echo Dot 5th Gen Hybrid Setup - Home Assistant as Brain
+# Complete Docker Compose configuration for local voice assistant
+
+version: '3.8'
+
+services:
+  # MQTT Broker for communication
+  mqtt:
+    image: eclipse-mosquitto:latest
+    container_name: voice-mqtt
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mqtt/config:/mosquitto/config
+      - ./mqtt/data:/mosquitto/data
+    networks:
+      - voice-assistant
+
+  # Whisper Speech-to-Text (Optimized for Mac M4)
+  whisper:
+    image: rhasspy/wyoming-whisper:latest
+    container_name: whisper-stt
+    restart: unless-stopped
+    ports:
+      - "10301:10300"
+    command: --model small --language en --beam-size 1
+    volumes:
+      - ./whisper/models:/models
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+          cpus: '4.0'
+        reservations:
+          memory: 2G
+          cpus: '2.0'
+    networks:
+      - voice-assistant
+
+  # Piper Text-to-Speech (Optimized for Mac M4)
+  piper:
+    image: rhasspy/wyoming-piper:latest
+    container_name: piper-tts
+    restart: unless-stopped
+    ports:
+      - "10201:10200"
+    command: --voice en-us-libritts-high
+    volumes:
+      - ./piper/voices:/voices
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+          cpus: '2.0'
+        reservations:
+          memory: 1G
+          cpus: '1.0'
+    networks:
+      - voice-assistant
+
+  # OpenWakeWord for wake word detection
+  openwakeword:
+    image: rhasspy/wyoming-openwakeword:latest
+    container_name: openwakeword
+    restart: unless-stopped
+    ports:
+      - "10101:10100"
+    command: --model hey_jarvis
+    volumes:
+      - ./openwakeword/models:/models
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+          cpus: '1.0'
+        reservations:
+          memory: 512M
+          cpus: '0.5'
+    networks:
+      - voice-assistant
+
+  # Wyoming Server (Protocol server)
+  wyoming-server:
+    image: rhasspy/wyoming-server:latest
+    container_name: wyoming-server
+    restart: unless-stopped
+    ports:
+      - "10400:10400"
+    environment:
+      - WYOMING_SERVER_PORT=10400
+      - WYOMING_SERVER_HOST=0.0.0.0
+    volumes:
+      - ./wyoming/config:/config
+    depends_on:
+      - whisper
+      - piper
+      - openwakeword
+    networks:
+      - voice-assistant
+
+  # Rhasspy (Alternative complete solution)
+  rhasspy:
+    image: rhasspy/rhasspy:latest
+    container_name: rhasspy-voice
+    restart: unless-stopped
+    ports:
+      - "12101:12101"
+    volumes:
+      - ./rhasspy/profiles:/profiles
+      - ./rhasspy/data:/data
+      - ./rhasspy/logs:/logs
+    environment:
+      - RHASSPY_PROFILE=english
+      - RHASSPY_LANGUAGE=en
+      - RHASSPY_MICROPHONE=ALSA
+      - RHASSPY_SPEAKER=ALSA
+      - RHASSPY_MQTT_HOST=mqtt
+      - RHASSPY_MQTT_PORT=1883
+      - RHASSPY_MQTT_USERNAME=rhasspy
+      - RHASSPY_MQTT_PASSWORD=your_secure_password
+    depends_on:
+      - mqtt
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+          cpus: '4.0'
+        reservations:
+          memory: 2G
+          cpus: '2.0'
+    networks:
+      - voice-assistant
+
+  # Home Assistant (your existing setup)
+  homeassistant:
+    image: ghcr.io/home-assistant/home-assistant:stable
+    container_name: homeassistant
+    restart: unless-stopped
+    volumes:
+      - ./homeassistant/config:/config
+      - /etc/localtime:/etc/localtime:ro
+    privileged: true
+    network_mode: host
+    # Note: This assumes your existing Home Assistant setup
+    # You may need to adjust this based on your current configuration
+
+networks:
+  voice-assistant:
+    driver: bridge
+    name: voice-assistant
+
+volumes:
+  mqtt_data:
+  mqtt_log:
+  whisper_models:
+  piper_voices:
+  openwakeword_models:
+  wyoming_config:
+  rhasspy_profiles:
+  rhasspy_data:
+  rhasspy_logs:

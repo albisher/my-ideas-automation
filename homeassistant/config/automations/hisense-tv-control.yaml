@@ -1,0 +1,109 @@
+# Hisense TV Control Automations via Xiaomi IR
+
+# Turn on TV when arriving home
+- alias: "Turn on Hisense TV when arriving home"
+  description: "Automatically turn on Hisense TV when someone arrives home"
+  trigger:
+    - platform: state
+      entity_id: person.you
+      to: 'home'
+  condition:
+    - condition: time
+      after: '18:00:00'
+      before: '23:00:00'
+  action:
+    - service: remote.send_command
+      target:
+        entity_id: remote.xiaomi_ir_remote
+      data:
+        command: "hisense_tv_power"
+    - service: notify.persistent_notification
+      data:
+        message: "Hisense TV turned on via Xiaomi IR control"
+        title: "Hisense TV Automation"
+
+# Turn off TV when leaving home
+- alias: "Turn off Hisense TV when leaving home"
+  description: "Turn off Hisense TV when leaving home"
+  trigger:
+    - platform: state
+      entity_id: person.you
+      to: 'not_home'
+  action:
+    - service: remote.send_command
+      target:
+        entity_id: remote.xiaomi_ir_remote
+      data:
+        command: "hisense_tv_power"
+    - service: notify.persistent_notification
+      data:
+        message: "Hisense TV turned off via Xiaomi IR control"
+        title: "Hisense TV Automation"
+
+# Good morning routine - Turn on TV
+- alias: "Good morning Hisense TV routine"
+  description: "Turn on Hisense TV in the morning"
+  trigger:
+    - platform: time
+      at: '07:00:00'
+  condition:
+    - condition: state
+      entity_id: person.you
+      state: 'home'
+  action:
+    - service: remote.send_command
+      target:
+        entity_id: remote.xiaomi_ir_remote
+      data:
+        command: "hisense_tv_power"
+    - service: notify.persistent_notification
+      data:
+        message: "Good morning! Hisense TV turned on via Xiaomi IR"
+        title: "Hisense TV Morning Routine"
+
+# Evening routine - Turn on TV
+- alias: "Evening Hisense TV routine"
+  description: "Turn on Hisense TV in the evening"
+  trigger:
+    - platform: time
+      at: '19:00:00'
+  condition:
+    - condition: state
+      entity_id: person.you
+      state: 'home'
+  action:
+    - service: remote.send_command
+      target:
+        entity_id: remote.xiaomi_ir_remote
+      data:
+        command: "hisense_tv_power"
+    - service: notify.persistent_notification
+      data:
+        message: "Evening routine activated! Hisense TV turned on via Xiaomi IR"
+        title: "Hisense TV Evening Routine"
+
+# Volume control automation
+- alias: "Hisense TV Volume Control"
+  description: "Control Hisense TV volume via Xiaomi IR"
+  trigger:
+    - platform: state
+      entity_id: input_number.tv_volume
+  action:
+    - service: remote.send_command
+      target:
+        entity_id: remote.xiaomi_ir_remote
+      data:
+        command: "hisense_tv_volume_up"
+
+# Channel control automation
+- alias: "Hisense TV Channel Control"
+  description: "Control Hisense TV channels via Xiaomi IR"
+  trigger:
+    - platform: state
+      entity_id: input_number.tv_channel
+  action:
+    - service: remote.send_command
+      target:
+        entity_id: remote.xiaomi_ir_remote
+      data:
+        command: "hisense_tv_channel_up"

@@ -1,0 +1,7 @@
+# Input text entities for Xiaomi IR Remote
+xiaomi_ir_host:
+  name: "Xiaomi IR Host"
+  initial: "192.168.68.68"
+  min: 7
+  max: 15
+  pattern: "^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}$"

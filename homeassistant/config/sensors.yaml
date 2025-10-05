@@ -1,0 +1,17 @@
+# Xiaomi IR Remote Sensors
+- platform: template
+  sensors:
+    xiaomi_connection_status:
+      friendly_name: "Xiaomi Device Status"
+      value_template: "Connected"
+      icon_template: "mdi:check-circle"
+      
+    xiaomi_last_command:
+      friendly_name: "Last IR Command"
+      value_template: "None"
+      icon_template: "mdi:remote"
+      
+    xiaomi_command_count:
+      friendly_name: "Commands Sent"
+      value_template: "0"
+      icon_template: "mdi:counter"

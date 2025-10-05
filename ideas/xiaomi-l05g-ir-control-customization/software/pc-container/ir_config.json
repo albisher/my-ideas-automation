@@ -1,0 +1,37 @@
+{
+  "broadlink": {
+    "enabled": true,
+    "timeout": 5,
+    "retry_count": 3
+  },
+  "lirc": {
+    "enabled": false,
+    "config_file": "/etc/lirc/lircd.conf"
+  },
+  "devices": {
+    "tv": {
+      "name": "Living Room TV",
+      "type": "television",
+      "brand": "Samsung"
+    },
+    "ac": {
+      "name": "Bedroom AC",
+      "type": "air_conditioner",
+      "brand": "LG"
+    }
+  },
+  "commands": {
+    "tv_power": {
+      "protocol": "nec",
+      "data": [32, 223, 16, 239],
+      "device": "tv",
+      "description": "Turn TV on/off"
+    },
+    "tv_volume_up": {
+      "protocol": "nec",
+      "data": [32, 223, 16, 239],
+      "device": "tv",
+      "description": "Increase TV volume"
+    }
+  }
+}

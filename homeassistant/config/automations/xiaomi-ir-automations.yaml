@@ -1,0 +1,83 @@
+# Xiaomi IR Control Automations
+
+# Turn on TV when arriving home
+- alias: "Turn on TV when arriving home"
+  description: "Automatically turn on TV when someone arrives home"
+  trigger:
+    - platform: state
+      entity_id: person.you
+      to: 'home'
+  condition:
+    - condition: time
+      after: '18:00:00'
+      before: '23:00:00'
+  action:
+    - service: switch.turn_on
+      target:
+        entity_id: switch.xiaomi_ir_tv_power
+    - service: notify.persistent_notification
+      data:
+        message: "TV turned on via Xiaomi IR control"
+        title: "Xiaomi IR Automation"
+
+# Turn off all IR devices when leaving home
+- alias: "Turn off IR devices when leaving home"
+  description: "Turn off all IR controlled devices when leaving home"
+  trigger:
+    - platform: state
+      entity_id: person.you
+      to: 'not_home'
+  action:
+    - service: switch.turn_off
+      target:
+        entity_id: 
+          - switch.xiaomi_ir_tv_power
+          - switch.xiaomi_ir_air_conditioner
+          - switch.xiaomi_ir_fan
+          - switch.xiaomi_ir_light
+    - service: notify.persistent_notification
+      data:
+        message: "All IR devices turned off via Xiaomi control"
+        title: "Xiaomi IR Automation"
+
+# Good morning routine
+- alias: "Good morning IR routine"
+  description: "Turn on lights and fan in the morning"
+  trigger:
+    - platform: time
+      at: '07:00:00'
+  condition:
+    - condition: state
+      entity_id: person.you
+      state: 'home'
+  action:
+    - service: switch.turn_on
+      target:
+        entity_id: 
+          - switch.xiaomi_ir_light
+          - switch.xiaomi_ir_fan
+    - service: notify.persistent_notification
+      data:
+        message: "Good morning! Lights and fan turned on via Xiaomi IR"
+        title: "Xiaomi IR Morning Routine"
+
+# Evening routine
+- alias: "Evening IR routine"
+  description: "Turn on TV and lights in the evening"
+  trigger:
+    - platform: time
+      at: '19:00:00'
+  condition:
+    - condition: state
+      entity_id: person.you
+      state: 'home'
+  action:
+    - service: switch.turn_on
+      target:
+        entity_id: 
+          - switch.xiaomi_ir_tv_power
+          - switch.xiaomi_ir_light
+    - service: notify.persistent_notification
+      data:
+        message: "Evening routine activated! TV and lights turned on via Xiaomi IR"
+        title: "Xiaomi IR Evening Routine"

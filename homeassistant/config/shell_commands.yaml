@@ -1,0 +1,2 @@
+# Shell commands for Xiaomi IR Remote
+send_ir_command: 'python3 /config/scripts/send_ir_command.py "{{ command }}"'

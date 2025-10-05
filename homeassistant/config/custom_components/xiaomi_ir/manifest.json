@@ -1,0 +1,9 @@
+{
+  "domain": "xiaomi_ir",
+  "name": "Xiaomi IR Remote",
+  "version": "1.0.0",
+  "documentation": "https://github.com/home-assistant/core",
+  "dependencies": [],
+  "codeowners": [],
+  "requirements": []
+}

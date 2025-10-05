@@ -1,0 +1,24 @@
+#!/bin/sh
+# Enhanced defogger configuration for DCS-8000LH
+# This script enables full streaming capabilities
+
+# Enable HTTP streaming
+echo "streaming_http=1" > /etc/camera.conf
+echo "streaming_rtsp=1" >> /etc/camera.conf
+echo "video_codec=h264" >> /etc/camera.conf
+echo "video_resolution=1280x720" >> /etc/camera.conf
+echo "video_bitrate=2000" >> /etc/camera.conf
+
+# Enable web interface
+tdb set HTTPServer Enable_byte=1
+tdb set HTTPAccount AdminPasswd_ss="admin"
+
+# Start services
+/etc/rc.d/init.d/extra_lighttpd.sh start
+rtspd -p 554 -m 8554 &
+httpd -p 80 &
+
+# Enable telnet
+telnetd &
+
+echo "Enhanced defogger configuration applied"

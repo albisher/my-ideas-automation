@@ -1,0 +1,258 @@
+title: Advanced Xiaomi TV Control
+path: advanced-tv-dashboard
+icon: mdi:television-classic
+badges: []
+cards:
+  - type: vertical-stack
+    title: 🎮 Xiaomi IR Remote Control Center
+    cards:
+      - type: markdown
+        content: |
+          ## 🏠 **Hisense TV Control via Xiaomi IR Remote**
+          
+          **Device IP:** `192.168.68.62` | **Status:** ✅ Connected
+          
+          Use the buttons below to control your Hisense TV through the Xiaomi IR remote device.
+          
+          ---
+          
+          **💡 Tips:**
+          - Hold buttons for repeated commands
+          - Use "Test All Commands" to verify connection
+          - Check TV response after each command
+
+      - type: entities
+        title: 📊 Device Status
+        entities:
+          - input_text.xiaomi_ir_host
+          - sensor.xiaomi_connection_status
+          - sensor.xiaomi_last_command
+          - sensor.xiaomi_command_count
+
+  - type: horizontal-stack
+    title: 🔴 Power & Input Control
+    cards:
+      - type: button
+        name: "🔴 TV Power"
+        icon: mdi:power
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_power
+        hold_action:
+          action: call-service
+          service: script.xiaomi_ir_power
+        show_state: false
+      - type: button
+        name: "📺 Input Source"
+        icon: mdi:input-hdmi
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_input
+        show_state: false
+
+  - type: horizontal-stack
+    title: 🔊 Volume Control
+    cards:
+      - type: button
+        name: "🔊 Volume Up"
+        icon: mdi:volume-plus
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_volume_up
+        hold_action:
+          action: call-service
+          service: script.xiaomi_ir_volume_up
+        show_state: false
+      - type: button
+        name: "🔉 Volume Down"
+        icon: mdi:volume-minus
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_volume_down
+        hold_action:
+          action: call-service
+          service: script.xiaomi_ir_volume_down
+        show_state: false
+      - type: button
+        name: "🔇 Mute"
+        icon: mdi:volume-off
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_volume_down
+        show_state: false
+
+  - type: horizontal-stack
+    title: 📺 Channel Control
+    cards:
+      - type: button
+        name: "⬆️ Channel Up"
+        icon: mdi:chevron-up
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_channel_up
+        hold_action:
+          action: call-service
+          service: script.xiaomi_ir_channel_up
+        show_state: false
+      - type: button
+        name: "⬇️ Channel Down"
+        icon: mdi:chevron-down
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_channel_down
+        hold_action:
+          action: call-service
+          service: script.xiaomi_ir_channel_down
+        show_state: false
+
+  - type: grid
+    title: 🎯 Navigation Control
+    square: false
+    columns: 3
+    cards:
+      - type: button
+        name: "📋 Menu"
+        icon: mdi:menu
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_menu
+        show_state: false
+      - type: button
+        name: "⬅️ Back"
+        icon: mdi:arrow-left
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_back
+        show_state: false
+      - type: button
+        name: "✅ OK"
+        icon: mdi:check
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_ok
+        show_state: false
+
+  - type: grid
+    title: 🎮 Directional Control
+    square: false
+    columns: 3
+    cards:
+      - type: button
+        name: "⬆️ Up"
+        icon: mdi:chevron-up
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_up
+        hold_action:
+          action: call-service
+          service: script.xiaomi_ir_up
+        show_state: false
+      - type: button
+        name: "⬇️ Down"
+        icon: mdi:chevron-down
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_down
+        hold_action:
+          action: call-service
+          service: script.xiaomi_ir_down
+        show_state: false
+      - type: button
+        name: "⬅️ Left"
+        icon: mdi:chevron-left
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_left
+        hold_action:
+          action: call-service
+          service: script.xiaomi_ir_left
+        show_state: false
+      - type: button
+        name: "➡️ Right"
+        icon: mdi:chevron-right
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_right
+        hold_action:
+          action: call-service
+          service: script.xiaomi_ir_right
+        show_state: false
+
+  - type: horizontal-stack
+    title: 🛠️ Utility Functions
+    cards:
+      - type: button
+        name: "🧪 Test All Commands"
+        icon: mdi:test-tube
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_test_all
+        show_state: false
+      - type: button
+        name: "⚙️ Setup Mode"
+        icon: mdi:cog
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_setup_mode
+        show_state: false
+
+  - type: vertical-stack
+    title: 🤖 Automation Controls
+    cards:
+      - type: grid
+        square: false
+        columns: 2
+        cards:
+          - type: button
+            name: "🏠 Enable Home Automation"
+            icon: mdi:home-automation
+            tap_action:
+              action: call-service
+              service: automation.turn_on
+              service_data:
+                entity_id: automation.turn_on_hisense_tv_when_arriving_home
+            show_state: false
+          - type: button
+            name: "🚫 Disable Home Automation"
+            icon: mdi:home-automation
+            tap_action:
+              action: call-service
+              service: automation.turn_off
+              service_data:
+                entity_id: automation.turn_on_hisense_tv_when_arriving_home
+            show_state: false
+
+  - type: vertical-stack
+    title: 📈 Usage Statistics
+    cards:
+      - type: entities
+        title: 📊 Command Statistics
+        entities:
+          - sensor.xiaomi_connection_status
+          - sensor.xiaomi_last_command
+          - sensor.xiaomi_command_count
+          - input_text.xiaomi_ir_host
+
+  - type: markdown
+    title: 📚 Quick Reference
+    content: |
+      ## 🎯 **Quick Commands Reference**
+      
+      | Button | Function | Description |
+      |--------|----------|-------------|
+      | 🔴 Power | TV On/Off | Toggle TV power |
+      | 🔊 Volume | Volume Up/Down | Adjust TV volume |
+      | 📺 Channel | Channel Up/Down | Change TV channels |
+      | 🎮 Navigation | Up/Down/Left/Right | Navigate TV menu |
+      | 📋 Menu | Access TV menu | Open TV settings |
+      | ⬅️ Back | Go back | Return to previous screen |
+      | ✅ OK | Confirm | Select/confirm action |
+      | 📺 Input | Change input | Switch input source |
+      
+      ---
+      
+      **💡 Pro Tips:**
+      - Hold buttons for repeated commands
+      - Use "Test All Commands" to verify everything works
+      - Check TV response after each command
+      - Use "Setup Mode" for TV configuration

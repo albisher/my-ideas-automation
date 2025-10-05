@@ -1,0 +1,115 @@
+title: Xiaomi Smart Home
+path: xiaomi-dashboard
+icon: mdi:home-automation
+badges: []
+cards:
+  - type: vertical-stack
+    title: Xiaomi Smart Speaker
+    cards:
+      - type: media-control
+        entity: media_player.xiaomi_smart_speaker
+      - type: entities
+        title: Speaker Controls
+        entities:
+          - media_player.xiaomi_smart_speaker
+          - sensor.xiaomi_connection_status
+          - sensor.xiaomi_ir_devices_count
+          - sensor.xiaomi_last_ir_command
+
+  - type: vertical-stack
+    title: IR Remote Control
+    cards:
+      - type: remote
+        entity: remote.xiaomi_smart_speaker_ir
+      - type: entities
+        title: IR Remote Status
+        entities:
+          - remote.xiaomi_smart_speaker_ir
+
+  - type: vertical-stack
+    title: IR Device Controls
+    cards:
+      - type: grid
+        square: false
+        columns: 2
+        cards:
+          - type: button
+            name: TV Power
+            icon: mdi:television
+            tap_action:
+              action: toggle
+              entity: switch.xiaomi_ir_tv_power
+          - type: button
+            name: Air Conditioner
+            icon: mdi:air-conditioner
+            tap_action:
+              action: toggle
+              entity: switch.xiaomi_ir_air_conditioner
+          - type: button
+            name: Fan
+            icon: mdi:fan
+            tap_action:
+              action: toggle
+              entity: switch.xiaomi_ir_fan
+          - type: button
+            name: Light
+            icon: mdi:lightbulb
+            tap_action:
+              action: toggle
+              entity: switch.xiaomi_ir_light
+
+  - type: vertical-stack
+    title: IR Commands
+    cards:
+      - type: button
+        name: Send TV Power Command
+        icon: mdi:television
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.xiaomi_smart_speaker_ir
+            command: "power"
+            device: "tv"
+      - type: button
+        name: Send AC Power Command
+        icon: mdi:air-conditioner
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.xiaomi_smart_speaker_ir
+            command: "power"
+            device: "air_conditioner"
+      - type: button
+        name: Send Fan Power Command
+        icon: mdi:fan
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.xiaomi_smart_speaker_ir
+            command: "power"
+            device: "fan"
+      - type: button
+        name: Send Light Power Command
+        icon: mdi:lightbulb
+        tap_action:
+          action: call-service
+          service: remote.send_command
+          service_data:
+            entity_id: remote.xiaomi_smart_speaker_ir
+            command: "power"
+            device: "light"
+
+  - type: vertical-stack
+    title: Device Information
+    cards:
+      - type: entities
+        title: Xiaomi Device Status
+        entities:
+          - sensor.xiaomi_connection_status
+          - sensor.xiaomi_ir_devices_count
+          - sensor.xiaomi_last_ir_command
+          - media_player.xiaomi_smart_speaker
+          - remote.xiaomi_smart_speaker_ir

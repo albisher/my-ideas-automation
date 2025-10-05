@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "path": "default_view",
+          "title": "Home",
+          "cards": [
+            {
+              "type": "entities",
+              "entities": [
+                "group.system_status",
+                "group.tapo_devices"
+              ],
+              "title": "Home",
+              "show_header_toggle": true
+            },
+            {
+              "type": "entities",
+              "entities": [
+                "script.system_status"
+              ],
+              "title": "System Status",
+              "show_header_toggle": true
+            },
+            {
+              "type": "entities",
+              "entities": [
+                "person.myhome"
+              ]
+            },
+            {
+              "type": "entities",
+              "entities": [
+                "input_text.xiaomi_ir_host"
+              ],
+              "title": "Helpers"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                "sensor.xiaomi_command_count",
+                "sensor.xiaomi_last_command",
+                "sensor.xiaomi_connection_status"
+              ],
+              "title": "Sensor"
+            },
+            {
+              "type": "weather-forecast",
+              "entity": "weather.forecast_home",
+              "show_forecast": false
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

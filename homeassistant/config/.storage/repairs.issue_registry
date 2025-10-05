@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "minor_version": 2,
+  "key": "repairs.issue_registry",
+  "data": {
+    "issues": [
+      {
+        "created": "2025-10-03T17:11:00.883483+00:00",
+        "dismissed_version": null,
+        "domain": "homeassistant",
+        "is_persistent": false,
+        "issue_id": "config_entry_only_matter"
+      },
+      {
+        "created": "2025-10-03T18:00:03.867682+00:00",
+        "dismissed_version": null,
+        "domain": "automation",
+        "is_persistent": false,
+        "issue_id": "automation.automation_1_validation_failed_schema"
+      },
+      {
+        "created": "2025-10-04T15:50:48.277448+00:00",
+        "dismissed_version": null,
+        "domain": "automation",
+        "is_persistent": false,
+        "issue_id": "automation.automation_0_validation_failed_schema"
+      },
+      {
+        "created": "2025-10-04T16:58:58.189206+00:00",
+        "dismissed_version": null,
+        "domain": "homeassistant",
+        "is_persistent": false,
+        "issue_id": "config_entry_only_xiaomi_miio"
+      }
+    ]
+  }
+}

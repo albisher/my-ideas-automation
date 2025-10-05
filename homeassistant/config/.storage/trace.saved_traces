@@ -1,0 +1,306 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "trace.saved_traces",
+  "data": {
+    "automation.None": [
+      {
+        "extended_dict": {
+          "last_step": "action/0",
+          "run_id": "1185bb5643ba48bf06c8344f367d8138",
+          "state": "running",
+          "script_execution": null,
+          "timestamp": {
+            "start": "2025-10-05T10:01:41.192703+00:00",
+            "finish": null
+          },
+          "domain": "automation",
+          "item_id": "None",
+          "trigger": "Home Assistant starting",
+          "trace": {
+            "trigger/0": [
+              {
+                "path": "trigger/0",
+                "timestamp": "2025-10-05T10:01:41.192720+00:00",
+                "changed_variables": {
+                  "this": {
+                    "entity_id": "automation.welcome_home",
+                    "state": "on",
+                    "attributes": {
+                      "last_triggered": "2025-10-05T05:25:10.536110+00:00",
+                      "mode": "single",
+                      "current": 0,
+                      "friendly_name": "Welcome Home"
+                    },
+                    "last_changed": "2025-10-05T10:01:40.463717+00:00",
+                    "last_reported": "2025-10-05T10:01:40.463717+00:00",
+                    "last_updated": "2025-10-05T10:01:40.463717+00:00",
+                    "context": {
+                      "id": "01K6SX3RBFBWR8S8CJHJ0Y0325",
+                      "parent_id": null,
+                      "user_id": null
+                    }
+                  },
+                  "trigger": {
+                    "id": "0",
+                    "idx": "0",
+                    "alias": null,
+                    "platform": "homeassistant",
+                    "event": "start",
+                    "description": "Home Assistant starting"
+                  }
+                }
+              }
+            ],
+            "action/0": [
+              {
+                "path": "action/0",
+                "timestamp": "2025-10-05T10:01:41.192794+00:00",
+                "changed_variables": {
+                  "context": {
+                    "id": "01K6SX3S281T44WFDZE9EZHYR6",
+                    "parent_id": null,
+                    "user_id": null
+                  }
+                },
+                "result": {
+                  "params": {
+                    "domain": "notify",
+                    "service": "persistent_notification",
+                    "service_data": {
+                      "message": "Welcome to your smart home! Tapo device discovery and Google Home integration are active.",
+                      "title": "Smart Home Ready"
+                    },
+                    "target": {}
+                  },
+                  "running_script": false
+                }
+              }
+            ]
+          },
+          "config": {
+            "alias": "Welcome Home",
+            "description": "Welcome message when Home Assistant starts",
+            "trigger": [
+              {
+                "platform": "homeassistant",
+                "event": "start"
+              }
+            ],
+            "action": [
+              {
+                "data": {
+                  "message": "Welcome to your smart home! Tapo device discovery and Google Home integration are active.",
+                  "title": "Smart Home Ready"
+                },
+                "action": "notify.persistent_notification"
+              }
+            ],
+            "mode": "single"
+          },
+          "blueprint_inputs": null,
+          "context": {
+            "id": "01K6SX3S281T44WFDZE9EZHYR6",
+            "parent_id": null,
+            "user_id": null
+          }
+        },
+        "short_dict": {
+          "last_step": "action/0",
+          "run_id": "1185bb5643ba48bf06c8344f367d8138",
+          "state": "running",
+          "script_execution": null,
+          "timestamp": {
+            "start": "2025-10-05T10:01:41.192703+00:00",
+            "finish": null
+          },
+          "domain": "automation",
+          "item_id": "None",
+          "trigger": "Home Assistant starting"
+        }
+      }
+    ],
+    "script.xiaomi_ir_volume_down": [
+      {
+        "extended_dict": {
+          "last_step": "sequence/0",
+          "run_id": "f230a03db0b7fdf4dc3e37971fc220bf",
+          "state": "stopped",
+          "script_execution": "error",
+          "timestamp": {
+            "start": "2025-10-05T10:02:25.070776+00:00",
+            "finish": "2025-10-05T10:02:25.072728+00:00"
+          },
+          "domain": "script",
+          "item_id": "xiaomi_ir_volume_down",
+          "error": "Action python_script.xiaomi_ir_send_command not found",
+          "trace": {
+            "sequence/0": [
+              {
+                "path": "sequence/0",
+                "timestamp": "2025-10-05T10:02:25.071534+00:00",
+                "changed_variables": {
+                  "this": {
+                    "entity_id": "script.xiaomi_ir_volume_down",
+                    "state": "off",
+                    "attributes": {
+                      "last_triggered": "2025-10-05T10:01:18.644048+00:00",
+                      "mode": "single",
+                      "current": 0,
+                      "friendly_name": "Xiaomi IR Volume Down"
+                    },
+                    "last_changed": "2025-10-05T10:01:40.397420+00:00",
+                    "last_reported": "2025-10-05T10:01:40.397420+00:00",
+                    "last_updated": "2025-10-05T10:01:40.397420+00:00",
+                    "context": {
+                      "id": "01K6SX3R9DXJGWFJ8YWJ78C0JX",
+                      "parent_id": null,
+                      "user_id": null
+                    }
+                  },
+                  "context": {
+                    "id": "01K6SX53XE39MDP6C7MR14JZGN",
+                    "parent_id": null,
+                    "user_id": "c99ce852354a4aec8881eaeec2e37a27"
+                  }
+                },
+                "error": "Action python_script.xiaomi_ir_send_command not found",
+                "result": {
+                  "params": {
+                    "domain": "python_script",
+                    "service": "xiaomi_ir_send_command",
+                    "service_data": {
+                      "command": "hisense_tv_volume_down"
+                    },
+                    "target": {}
+                  },
+                  "running_script": true
+                }
+              }
+            ]
+          },
+          "config": {
+            "alias": "Xiaomi IR Volume Down",
+            "sequence": [
+              {
+                "data": {
+                  "command": "hisense_tv_volume_down"
+                },
+                "action": "python_script.xiaomi_ir_send_command"
+              }
+            ]
+          },
+          "blueprint_inputs": null,
+          "context": {
+            "id": "01K6SX53XE39MDP6C7MR14JZGN",
+            "parent_id": null,
+            "user_id": "c99ce852354a4aec8881eaeec2e37a27"
+          }
+        },
+        "short_dict": {
+          "last_step": "sequence/0",
+          "run_id": "f230a03db0b7fdf4dc3e37971fc220bf",
+          "state": "stopped",
+          "script_execution": "error",
+          "timestamp": {
+            "start": "2025-10-05T10:02:25.070776+00:00",
+            "finish": "2025-10-05T10:02:25.072728+00:00"
+          },
+          "domain": "script",
+          "item_id": "xiaomi_ir_volume_down",
+          "error": "Action python_script.xiaomi_ir_send_command not found"
+        }
+      },
+      {
+        "extended_dict": {
+          "last_step": "sequence/0",
+          "run_id": "9a2835b5c0648ea5626760020a232317",
+          "state": "stopped",
+          "script_execution": "error",
+          "timestamp": {
+            "start": "2025-10-05T10:02:38.023911+00:00",
+            "finish": "2025-10-05T10:02:38.026073+00:00"
+          },
+          "domain": "script",
+          "item_id": "xiaomi_ir_volume_down",
+          "error": "Action python_script.xiaomi_ir_send_command not found",
+          "trace": {
+            "sequence/0": [
+              {
+                "path": "sequence/0",
+                "timestamp": "2025-10-05T10:02:38.024542+00:00",
+                "changed_variables": {
+                  "this": {
+                    "entity_id": "script.xiaomi_ir_volume_down",
+                    "state": "off",
+                    "attributes": {
+                      "last_triggered": "2025-10-05T10:02:25.071002+00:00",
+                      "mode": "single",
+                      "current": 0,
+                      "friendly_name": "Xiaomi IR Volume Down"
+                    },
+                    "last_changed": "2025-10-05T10:02:25.072594+00:00",
+                    "last_reported": "2025-10-05T10:02:25.072594+00:00",
+                    "last_updated": "2025-10-05T10:02:25.072594+00:00",
+                    "context": {
+                      "id": "01K6SX53XE39MDP6C7MR14JZGN",
+                      "parent_id": null,
+                      "user_id": "c99ce852354a4aec8881eaeec2e37a27"
+                    }
+                  },
+                  "context": {
+                    "id": "01K6SX5GJ7PRDWBHQ5EQSEMZC3",
+                    "parent_id": null,
+                    "user_id": "c99ce852354a4aec8881eaeec2e37a27"
+                  }
+                },
+                "error": "Action python_script.xiaomi_ir_send_command not found",
+                "result": {
+                  "params": {
+                    "domain": "python_script",
+                    "service": "xiaomi_ir_send_command",
+                    "service_data": {
+                      "command": "hisense_tv_volume_down"
+                    },
+                    "target": {}
+                  },
+                  "running_script": true
+                }
+              }
+            ]
+          },
+          "config": {
+            "alias": "Xiaomi IR Volume Down",
+            "sequence": [
+              {
+                "data": {
+                  "command": "hisense_tv_volume_down"
+                },
+                "action": "python_script.xiaomi_ir_send_command"
+              }
+            ]
+          },
+          "blueprint_inputs": null,
+          "context": {
+            "id": "01K6SX5GJ7PRDWBHQ5EQSEMZC3",
+            "parent_id": null,
+            "user_id": "c99ce852354a4aec8881eaeec2e37a27"
+          }
+        },
+        "short_dict": {
+          "last_step": "sequence/0",
+          "run_id": "9a2835b5c0648ea5626760020a232317",
+          "state": "stopped",
+          "script_execution": "error",
+          "timestamp": {
+            "start": "2025-10-05T10:02:38.023911+00:00",
+            "finish": "2025-10-05T10:02:38.026073+00:00"
+          },
+          "domain": "script",
+          "item_id": "xiaomi_ir_volume_down",
+          "error": "Action python_script.xiaomi_ir_send_command not found"
+        }
+      }
+    ]
+  }
+}

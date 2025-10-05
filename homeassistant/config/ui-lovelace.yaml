@@ -1,0 +1,242 @@
+# Original Home Assistant Overview Dashboard
+views:
+  - title: Overview
+    icon: mdi:home
+    cards:
+      - type: entities
+        title: Home
+        entities:
+          - system_status
+          - tapo_devices
+      
+      - type: entities
+        title: System Status
+        entities:
+          - script.check_system_status
+      
+      - type: entities
+        title: myHome
+        entities:
+          - person.myhome
+      
+      - type: entities
+        title: Sunny
+        entities:
+          - weather.forecast_my_home
+      
+      - type: entities
+        title: Helpers
+        entities:
+          - input_text.xiaomi_ir_host
+      
+      - type: entities
+        title: Sensor
+        entities:
+          - sensor.xiaomi_command_count
+          - sensor.xiaomi_last_command
+          - sensor.xiaomi_connection_status
+
+  - title: Remote Control
+    icon: mdi:remote
+    path: remote-control
+    cards:
+      - type: markdown
+        content: |
+          ## 🎮 **Xiaomi IR Remote Control**
+          
+          **Device:** `192.168.68.68` | **Status:** ✅ Connected | **Protocol:** UDP IR
+          
+          ---
+
+      - type: button
+        name: "🔴 TV Power"
+        icon: mdi:power
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_power
+        hold_action:
+          action: call-service
+          service: script.xiaomi_ir_power
+        show_state: false
+
+      - type: grid
+        title: 🔊 Volume Control
+        square: false
+        columns: 3
+        cards:
+          - type: button
+            name: "🔊 Volume Up"
+            icon: mdi:volume-plus
+            tap_action:
+              action: call-service
+              service: script.xiaomi_ir_volume_up
+            hold_action:
+              action: call-service
+              service: script.xiaomi_ir_volume_up
+            show_state: false
+          - type: button
+            name: "🔉 Volume Down"
+            icon: mdi:volume-minus
+            tap_action:
+              action: call-service
+              service: script.xiaomi_ir_volume_down
+            hold_action:
+              action: call-service
+              service: script.xiaomi_ir_volume_down
+            show_state: false
+          - type: button
+            name: "🔇 Mute"
+            icon: mdi:volume-off
+            tap_action:
+              action: call-service
+              service: script.xiaomi_ir_volume_down
+            show_state: false
+
+      - type: grid
+        title: 📺 Channel Control
+        square: false
+        columns: 2
+        cards:
+          - type: button
+            name: "⬆️ Channel Up"
+            icon: mdi:chevron-up
+            tap_action:
+              action: call-service
+              service: script.xiaomi_ir_channel_up
+            hold_action:
+              action: call-service
+              service: script.xiaomi_ir_channel_up
+            show_state: false
+          - type: button
+            name: "⬇️ Channel Down"
+            icon: mdi:chevron-down
+            tap_action:
+              action: call-service
+              service: script.xiaomi_ir_channel_down
+            hold_action:
+              action: call-service
+              service: script.xiaomi_ir_channel_down
+            show_state: false
+
+      - type: grid
+        title: 🎯 Navigation Control
+        square: false
+        columns: 3
+        cards:
+          - type: button
+            name: "📋 Menu"
+            icon: mdi:menu
+            tap_action:
+              action: call-service
+              service: script.xiaomi_ir_menu
+            show_state: false
+          - type: button
+            name: "⬅️ Back"
+            icon: mdi:arrow-left
+            tap_action:
+              action: call-service
+              service: script.xiaomi_ir_back
+            show_state: false
+          - type: button
+            name: "✅ OK"
+            icon: mdi:check
+            tap_action:
+              action: call-service
+              service: script.xiaomi_ir_ok
+            show_state: false
+
+      - type: grid
+        title: 🎮 Directional Control
+        square: false
+        columns: 3
+        cards:
+          - type: button
+            name: "⬆️ Up"
+            icon: mdi:chevron-up
+            tap_action:
+              action: call-service
+              service: script.xiaomi_ir_up
+            hold_action:
+              action: call-service
+              service: script.xiaomi_ir_up
+            show_state: false
+          - type: button
+            name: "⬇️ Down"
+            icon: mdi:chevron-down
+            tap_action:
+              action: call-service
+              service: script.xiaomi_ir_down
+            hold_action:
+              action: call-service
+              service: script.xiaomi_ir_down
+            show_state: false
+          - type: button
+            name: "⬅️ Left"
+            icon: mdi:chevron-left
+            tap_action:
+              action: call-service
+              service: script.xiaomi_ir_left
+            hold_action:
+              action: call-service
+              service: script.xiaomi_ir_left
+            show_state: false
+          - type: button
+            name: "➡️ Right"
+            icon: mdi:chevron-right
+            tap_action:
+              action: call-service
+              service: script.xiaomi_ir_right
+            hold_action:
+              action: call-service
+              service: script.xiaomi_ir_right
+            show_state: false
+
+      - type: grid
+        title: 📺 Input & Utility
+        square: false
+        columns: 3
+        cards:
+          - type: button
+            name: "📺 Input"
+            icon: mdi:input-hdmi
+            tap_action:
+              action: call-service
+              service: script.xiaomi_ir_input
+            show_state: false
+          - type: button
+            name: "🧪 Test All"
+            icon: mdi:test-tube
+            tap_action:
+              action: call-service
+              service: script.xiaomi_ir_test_all
+            show_state: false
+          - type: button
+            name: "⚙️ Setup"
+            icon: mdi:cog
+            tap_action:
+              action: call-service
+              service: script.xiaomi_ir_setup_mode
+            show_state: false
+
+      - type: entities
+        title: 📊 Device Status
+        entities:
+          - input_text.xiaomi_ir_host
+          - sensor.xiaomi_connection_status
+          - sensor.xiaomi_last_command
+          - sensor.xiaomi_command_count
+
+      - type: markdown
+        title: 💡 Quick Tips
+        content: |
+          **🎯 How to Use:**
+          - **Tap** buttons for single commands
+          - **Hold** buttons for repeated commands
+          - **Test All** to verify all commands work
+          - **Setup** for TV configuration mode
+          
+          **🔧 Troubleshooting:**
+          - Ensure Xiaomi device is pointing at TV
+          - Check TV is within IR range
+          - Verify device IP is correct
+          - Test commands one by one

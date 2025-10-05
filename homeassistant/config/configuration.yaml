@@ -1,0 +1,49 @@
+# Clean Home Assistant Configuration with Embedded Onboarding
+default_config:
+
+# Home Assistant Core Configuration
+homeassistant:
+  name: "My Home"
+  latitude: 29.3000
+  longitude: 48.0500
+  elevation: 36
+  unit_system: metric
+  time_zone: "Asia/Kuwait"
+  country: "KW"
+  language: "en"
+  
+  # Customize entities
+  customize: !include customize.yaml
+
+# Discovery Configuration for Tapo devices, Google Home, and Xiaomi
+discovery:
+  enable:
+    - tapo
+    - zeroconf
+    - google_cast
+    - xiaomi_miio
+
+# Zeroconf for Tapo device discovery
+zeroconf:
+
+# Google Cast integration for Google Home devices
+google_cast:
+
+# Xiaomi IR Remote for TV control (using scripts - no token required)
+# The remote functionality is provided through scripts and automations
+
+# Google Assistant integration for voice control (commented out - needs project_id)
+# google_assistant:
+
+# Lovelace Dashboard Configuration
+lovelace:
+  mode: yaml
+
+# Include other configuration files
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+group: !include groups.yaml
+input_text: !include input_text.yaml
+sensor: !include sensors.yaml
+shell_command: !include shell_commands.yaml

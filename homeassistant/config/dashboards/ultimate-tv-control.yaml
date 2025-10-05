@@ -1,0 +1,530 @@
+title: Ultimate Xiaomi TV Control
+path: ultimate-tv-control
+icon: mdi:television-classic
+badges: []
+cards:
+  - type: custom:button-card
+    name: "🎮 Xiaomi IR Remote Control"
+    icon: mdi:remote
+    tap_action:
+      action: none
+    styles:
+      card:
+        - height: 100px
+        - background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+        - border-radius: 20px
+        - box-shadow: 0 8px 32px rgba(0,0,0,0.3)
+        - color: white
+        - font-weight: bold
+        - font-size: 24px
+        - text-align: center
+        - display: flex
+        - align-items: center
+        - justify-content: center
+      icon:
+        - color: white
+        - font-size: 32px
+        - margin-right: 15px
+
+  - type: custom:button-card
+    name: "🔴 TV Power"
+    icon: mdi:power
+    tap_action:
+      action: call-service
+      service: script.xiaomi_ir_power
+    hold_action:
+      action: call-service
+      service: script.xiaomi_ir_power
+    show_state: false
+    styles:
+      card:
+        - height: 100px
+        - background: 'linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%)'
+        - border-radius: 20px
+        - box-shadow: 0 6px 20px rgba(255,107,107,0.4)
+        - color: white
+        - font-weight: bold
+        - font-size: 18px
+        - text-align: center
+        - display: flex
+        - align-items: center
+        - justify-content: center
+        - margin: 10px
+      icon:
+        - color: white
+        - font-size: 28px
+        - margin-right: 15px
+
+  - type: grid
+    title: 🔊 Volume Control
+    square: false
+    columns: 3
+    cards:
+      - type: custom:button-card
+        name: "🔊 Volume Up"
+        icon: mdi:volume-plus
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_volume_up
+        hold_action:
+          action: call-service
+          service: script.xiaomi_ir_volume_up
+        show_state: false
+        styles:
+          card:
+            - height: 80px
+            - background: 'linear-gradient(135deg, #3498db 0%, #2980b9 100%)'
+            - border-radius: 15px
+            - box-shadow: 0 4px 15px rgba(52,152,219,0.3)
+            - color: white
+            - font-weight: bold
+            - font-size: 16px
+            - text-align: center
+            - display: flex
+            - align-items: center
+            - justify-content: center
+            - margin: 5px
+          icon:
+            - color: white
+            - font-size: 24px
+            - margin-right: 10px
+      - type: custom:button-card
+        name: "🔉 Volume Down"
+        icon: mdi:volume-minus
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_volume_down
+        hold_action:
+          action: call-service
+          service: script.xiaomi_ir_volume_down
+        show_state: false
+        styles:
+          card:
+            - height: 80px
+            - background: 'linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)'
+            - border-radius: 15px
+            - box-shadow: 0 4px 15px rgba(231,76,60,0.3)
+            - color: white
+            - font-weight: bold
+            - font-size: 16px
+            - text-align: center
+            - display: flex
+            - align-items: center
+            - justify-content: center
+            - margin: 5px
+          icon:
+            - color: white
+            - font-size: 24px
+            - margin-right: 10px
+      - type: custom:button-card
+        name: "🔇 Mute"
+        icon: mdi:volume-off
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_volume_down
+        show_state: false
+        styles:
+          card:
+            - height: 80px
+            - background: 'linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%)'
+            - border-radius: 15px
+            - box-shadow: 0 4px 15px rgba(149,165,166,0.3)
+            - color: white
+            - font-weight: bold
+            - font-size: 16px
+            - text-align: center
+            - display: flex
+            - align-items: center
+            - justify-content: center
+            - margin: 5px
+          icon:
+            - color: white
+            - font-size: 24px
+            - margin-right: 10px
+
+  - type: grid
+    title: 📺 Channel Control
+    square: false
+    columns: 2
+    cards:
+      - type: custom:button-card
+        name: "⬆️ Channel Up"
+        icon: mdi:chevron-up
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_channel_up
+        hold_action:
+          action: call-service
+          service: script.xiaomi_ir_channel_up
+        show_state: false
+        styles:
+          card:
+            - height: 80px
+            - background: 'linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%)'
+            - border-radius: 15px
+            - box-shadow: 0 4px 15px rgba(155,89,182,0.3)
+            - color: white
+            - font-weight: bold
+            - font-size: 16px
+            - text-align: center
+            - display: flex
+            - align-items: center
+            - justify-content: center
+            - margin: 5px
+          icon:
+            - color: white
+            - font-size: 24px
+            - margin-right: 10px
+      - type: custom:button-card
+        name: "⬇️ Channel Down"
+        icon: mdi:chevron-down
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_channel_down
+        hold_action:
+          action: call-service
+          service: script.xiaomi_ir_channel_down
+        show_state: false
+        styles:
+          card:
+            - height: 80px
+            - background: 'linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%)'
+            - border-radius: 15px
+            - box-shadow: 0 4px 15px rgba(155,89,182,0.3)
+            - color: white
+            - font-weight: bold
+            - font-size: 16px
+            - text-align: center
+            - display: flex
+            - align-items: center
+            - justify-content: center
+            - margin: 5px
+          icon:
+            - color: white
+            - font-size: 24px
+            - margin-right: 10px
+
+  - type: grid
+    title: 🎯 Navigation Control
+    square: false
+    columns: 3
+    cards:
+      - type: custom:button-card
+        name: "📋 Menu"
+        icon: mdi:menu
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_menu
+        show_state: false
+        styles:
+          card:
+            - height: 80px
+            - background: 'linear-gradient(135deg, #f39c12 0%, #e67e22 100%)'
+            - border-radius: 15px
+            - box-shadow: 0 4px 15px rgba(243,156,18,0.3)
+            - color: white
+            - font-weight: bold
+            - font-size: 16px
+            - text-align: center
+            - display: flex
+            - align-items: center
+            - justify-content: center
+            - margin: 5px
+          icon:
+            - color: white
+            - font-size: 24px
+            - margin-right: 10px
+      - type: custom:button-card
+        name: "⬅️ Back"
+        icon: mdi:arrow-left
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_back
+        show_state: false
+        styles:
+          card:
+            - height: 80px
+            - background: 'linear-gradient(135deg, #f39c12 0%, #e67e22 100%)'
+            - border-radius: 15px
+            - box-shadow: 0 4px 15px rgba(243,156,18,0.3)
+            - color: white
+            - font-weight: bold
+            - font-size: 16px
+            - text-align: center
+            - display: flex
+            - align-items: center
+            - justify-content: center
+            - margin: 5px
+          icon:
+            - color: white
+            - font-size: 24px
+            - margin-right: 10px
+      - type: custom:button-card
+        name: "✅ OK"
+        icon: mdi:check
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_ok
+        show_state: false
+        styles:
+          card:
+            - height: 80px
+            - background: 'linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)'
+            - border-radius: 15px
+            - box-shadow: 0 4px 15px rgba(39,174,96,0.3)
+            - color: white
+            - font-weight: bold
+            - font-size: 16px
+            - text-align: center
+            - display: flex
+            - align-items: center
+            - justify-content: center
+            - margin: 5px
+          icon:
+            - color: white
+            - font-size: 24px
+            - margin-right: 10px
+
+  - type: grid
+    title: 🎮 Directional Control
+    square: false
+    columns: 3
+    cards:
+      - type: custom:button-card
+        name: "⬆️ Up"
+        icon: mdi:chevron-up
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_up
+        hold_action:
+          action: call-service
+          service: script.xiaomi_ir_up
+        show_state: false
+        styles:
+          card:
+            - height: 80px
+            - background: 'linear-gradient(135deg, #1abc9c 0%, #16a085 100%)'
+            - border-radius: 15px
+            - box-shadow: 0 4px 15px rgba(26,188,156,0.3)
+            - color: white
+            - font-weight: bold
+            - font-size: 16px
+            - text-align: center
+            - display: flex
+            - align-items: center
+            - justify-content: center
+            - margin: 5px
+          icon:
+            - color: white
+            - font-size: 24px
+            - margin-right: 10px
+      - type: custom:button-card
+        name: "⬇️ Down"
+        icon: mdi:chevron-down
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_down
+        hold_action:
+          action: call-service
+          service: script.xiaomi_ir_down
+        show_state: false
+        styles:
+          card:
+            - height: 80px
+            - background: 'linear-gradient(135deg, #1abc9c 0%, #16a085 100%)'
+            - border-radius: 15px
+            - box-shadow: 0 4px 15px rgba(26,188,156,0.3)
+            - color: white
+            - font-weight: bold
+            - font-size: 16px
+            - text-align: center
+            - display: flex
+            - align-items: center
+            - justify-content: center
+            - margin: 5px
+          icon:
+            - color: white
+            - font-size: 24px
+            - margin-right: 10px
+      - type: custom:button-card
+        name: "⬅️ Left"
+        icon: mdi:chevron-left
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_left
+        hold_action:
+          action: call-service
+          service: script.xiaomi_ir_left
+        show_state: false
+        styles:
+          card:
+            - height: 80px
+            - background: 'linear-gradient(135deg, #1abc9c 0%, #16a085 100%)'
+            - border-radius: 15px
+            - box-shadow: 0 4px 15px rgba(26,188,156,0.3)
+            - color: white
+            - font-weight: bold
+            - font-size: 16px
+            - text-align: center
+            - display: flex
+            - align-items: center
+            - justify-content: center
+            - margin: 5px
+          icon:
+            - color: white
+            - font-size: 24px
+            - margin-right: 10px
+      - type: custom:button-card
+        name: "➡️ Right"
+        icon: mdi:chevron-right
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_right
+        hold_action:
+          action: call-service
+          service: script.xiaomi_ir_right
+        show_state: false
+        styles:
+          card:
+            - height: 80px
+            - background: 'linear-gradient(135deg, #1abc9c 0%, #16a085 100%)'
+            - border-radius: 15px
+            - box-shadow: 0 4px 15px rgba(26,188,156,0.3)
+            - color: white
+            - font-weight: bold
+            - font-size: 16px
+            - text-align: center
+            - display: flex
+            - align-items: center
+            - justify-content: center
+            - margin: 5px
+          icon:
+            - color: white
+            - font-size: 24px
+            - margin-right: 10px
+
+  - type: grid
+    title: 📺 Input & Utility
+    square: false
+    columns: 3
+    cards:
+      - type: custom:button-card
+        name: "📺 Input"
+        icon: mdi:input-hdmi
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_input
+        show_state: false
+        styles:
+          card:
+            - height: 80px
+            - background: 'linear-gradient(135deg, #e67e22 0%, #d35400 100%)'
+            - border-radius: 15px
+            - box-shadow: 0 4px 15px rgba(230,126,34,0.3)
+            - color: white
+            - font-weight: bold
+            - font-size: 16px
+            - text-align: center
+            - display: flex
+            - align-items: center
+            - justify-content: center
+            - margin: 5px
+          icon:
+            - color: white
+            - font-size: 24px
+            - margin-right: 10px
+      - type: custom:button-card
+        name: "🧪 Test All"
+        icon: mdi:test-tube
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_test_all
+        show_state: false
+        styles:
+          card:
+            - height: 80px
+            - background: 'linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%)'
+            - border-radius: 15px
+            - box-shadow: 0 4px 15px rgba(142,68,173,0.3)
+            - color: white
+            - font-weight: bold
+            - font-size: 16px
+            - text-align: center
+            - display: flex
+            - align-items: center
+            - justify-content: center
+            - margin: 5px
+          icon:
+            - color: white
+            - font-size: 24px
+            - margin-right: 10px
+      - type: custom:button-card
+        name: "⚙️ Setup"
+        icon: mdi:cog
+        tap_action:
+          action: call-service
+          service: script.xiaomi_ir_setup_mode
+        show_state: false
+        styles:
+          card:
+            - height: 80px
+            - background: 'linear-gradient(135deg, #34495e 0%, #2c3e50 100%)'
+            - border-radius: 15px
+            - box-shadow: 0 4px 15px rgba(52,73,94,0.3)
+            - color: white
+            - font-weight: bold
+            - font-size: 16px
+            - text-align: center
+            - display: flex
+            - align-items: center
+            - justify-content: center
+            - margin: 5px
+          icon:
+            - color: white
+            - font-size: 24px
+            - margin-right: 10px
+
+  - type: entities
+    title: 📊 Device Status & Information
+    entities:
+      - input_text.xiaomi_ir_host
+      - sensor.xiaomi_connection_status
+      - sensor.xiaomi_last_command
+      - sensor.xiaomi_command_count
+
+  - type: markdown
+    title: 💡 Usage Instructions
+    content: |
+      ## 🎮 **Xiaomi IR Remote Control Instructions**
+      
+      **🔴 Power Control:**
+      - **Tap** to toggle TV on/off
+      - **Hold** for repeated power commands
+      
+      **🔊 Volume Control:**
+      - **Volume Up/Down** for volume adjustment
+      - **Hold** for continuous volume change
+      - **Mute** for quick mute toggle
+      
+      **📺 Channel Control:**
+      - **Channel Up/Down** for channel changing
+      - **Hold** for rapid channel surfing
+      
+      **🎯 Navigation:**
+      - **Menu** to access TV settings
+      - **Back** to return to previous screen
+      - **OK** to confirm selections
+      - **Directional** for menu navigation
+      
+      **🛠️ Utility:**
+      - **Input** to change input source
+      - **Test All** to verify all commands
+      - **Setup** for TV configuration
+      
+      ---
+      
+      **💡 Pro Tips:**
+      - All buttons support **hold actions** for repeated commands
+      - Use **Test All** to verify your TV responds
+      - Ensure Xiaomi device is pointing at TV
+      - Check TV is within IR range (3-5 meters)

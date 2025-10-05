@@ -1,0 +1,43 @@
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    volumes:
+      - ./homeassistant/config:/config
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    privileged: true
+    ports:
+      - "8123:8123"
+    environment:
+      - TZ=UTC
+    networks:
+      - homeassistant
+      - matter
+
+  matter:
+    container_name: matter-server
+    build:
+      context: ./matter
+      dockerfile: Dockerfile
+    volumes:
+      - ./matter/config:/data
+      - /etc/localtime:/etc/localtime:ro
+      - /run/dbus:/run/dbus:ro
+    restart: unless-stopped
+    privileged: true
+    ports:
+      - "5580:5580"  # Matter server port
+      - "5581:5581"  # Matter commissioning port
+    environment:
+      - TZ=Asia/Kuwait
+    networks:
+      - matter
+    depends_on:
+      - homeassistant
+
+networks:
+  homeassistant:
+    driver: bridge
+  matter:
+    driver: bridge

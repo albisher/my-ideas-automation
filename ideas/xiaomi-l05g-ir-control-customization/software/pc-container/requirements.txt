@@ -1,0 +1,38 @@
+# PC Container Requirements for IR Control System
+
+# Core dependencies
+broadlink==0.18.0
+requests==2.31.0
+flask==2.3.3
+flask-cors==4.0.0
+
+# IR protocol support
+lirc==0.10.1
+python-lirc==1.2.3
+
+# Network and communication
+websockets==11.0.3
+asyncio-mqtt==0.13.0
+
+# Data handling
+pydantic==2.4.2
+sqlalchemy==2.0.21
+alembic==1.12.0
+
+# Logging and monitoring
+loguru==0.7.2
+prometheus-client==0.17.1
+
+# Development and testing
+pytest==7.4.2
+pytest-asyncio==0.21.1
+black==23.7.0
+flake8==6.0.0
+
+# Optional: GUI interface
+tkinter  # Built-in with Python
+customtkinter==5.2.0
+
+# Optional: Web interface
+fastapi==0.103.1
+uvicorn==0.23.2

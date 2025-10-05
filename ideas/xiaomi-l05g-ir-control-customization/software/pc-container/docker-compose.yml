@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  ir-controller:
+    build: .
+    container_name: ir-controller
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./ir_config.json:/app/ir_config.json
+      - ./logs:/app/logs
+    environment:
+      - FLASK_ENV=production
+      - FLASK_DEBUG=0
+    restart: unless-stopped
+    networks:
+      - ir-network
+
+  # Optional: Add database for command storage
+  postgres:
+    image: postgres:15
+    container_name: ir-postgres
+    environment:
+      - POSTGRES_DB=ir_controller
+      - POSTGRES_USER=ir_user
+      - POSTGRES_PASSWORD=ir_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - ir-network
+
+  # Optional: Add Redis for caching
+  redis:
+    image: redis:7-alpine
+    container_name: ir-redis
+    networks:
+      - ir-network
+
+networks:
+  ir-network:
+    driver: bridge
+
+volumes:
+  postgres_data:

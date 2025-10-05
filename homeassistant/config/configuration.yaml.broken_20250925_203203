@@ -1,0 +1,92 @@
+# Home Assistant Configuration for DCS-8000LH Camera System
+# This configuration integrates Frigate NVR, Tapo devices, and the DCS-8000LH camera
+
+# Default configuration
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+# Group all the entities
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Uncomment this if you are using SSL/TLS, or if you are using a reverse proxy
+# http:
+#   use_x_forwarded_for: true
+#   trusted_proxies:
+#     - 127.0.0.1
+#     - ::1
+
+# Example configuration.yaml entry
+mqtt:
+  broker: localhost
+  port: 1883
+  username: frigate
+  password: frigate_password
+
+# Frigate integration
+frigate:
+  host: http://localhost:5001
+  mqtt_host: localhost
+  mqtt_port: 1883
+  mqtt_username: frigate
+  mqtt_password: frigate_password
+
+# Tapo integration
+tapo_control:
+  host: localhost
+  port: 8080
+  username: your_tapo_username
+  password: your_tapo_password
+
+# Camera integration
+camera:
+  - platform: generic
+    name: "DCS-8000LH Camera"
+    stream_source: rtsp://admin:admin@192.168.68.100:554/stream1
+    still_image_url: http://192.168.68.100/image.jpg
+    verify_ssl: false
+
+# Binary sensors for motion detection
+binary_sensor:
+  - platform: mqtt
+    name: "DCS-8000LH Motion"
+    state_topic: "frigate/dcs8000lh/motion"
+    payload_on: "ON"
+    payload_off: "OFF"
+    device_class: motion
+
+# Sensors for object detection
+sensor:
+  - platform: mqtt
+    name: "DCS-8000LH Person Count"
+    state_topic: "frigate/dcs8000lh/person"
+    value_template: "{{ value_json.count }}"
+    unit_of_measurement: "people"
+    
+  - platform: mqtt
+    name: "DCS-8000LH Car Count"
+    state_topic: "frigate/dcs8000lh/car"
+    value_template: "{{ value_json.count }}"
+    unit_of_measurement: "cars"
+
+# Notifications
+notify:
+  - platform: telegram
+    api_key: YOUR_TELEGRAM_BOT_TOKEN
+    chat_id: YOUR_TELEGRAM_CHAT_ID
+    name: telegram
+
+# Logging
+logger:
+  default: info
+  logs:
+    homeassistant.components.frigate: debug
+    homeassistant.components.tapo_control: debug

@@ -1,0 +1,12 @@
+# Clean Automations
+- alias: "Welcome Home"
+  description: "Welcome message when Home Assistant starts"
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - service: notify.persistent_notification
+      data:
+        message: "Welcome to your smart home! Tapo device discovery and Google Home integration are active."
+        title: "Smart Home Ready"
+  mode: single
