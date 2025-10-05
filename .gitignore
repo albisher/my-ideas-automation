@@ -23,3 +23,10 @@ node_modules/
 
 # OS specific
 .DS_Store
+
+# Embedded git repositories
+ideas/dcs-8000lh-open-source-camera/defogger/
+ideas/dcs-8000lh-open-source-camera/defogger-tools/
+
+# Python virtual environments
+xiaomi-tools/

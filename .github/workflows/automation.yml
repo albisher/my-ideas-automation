@@ -1,0 +1,278 @@
+name: Automated Project Management
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Run daily at 2 AM UTC
+    - cron: '0 2 * * *'
+
+jobs:
+  auto-tag:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+      - name: Get latest tag
+        id: get_tag
+        run: |
+          TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+          echo "current_tag=$TAG" >> $GITHUB_OUTPUT
+          echo "Current tag: $TAG"
+
+      - name: Generate next tag
+        id: next_tag
+        run: |
+          CURRENT_TAG="${{ steps.get_tag.outputs.current_tag }}"
+          # Remove 'v' prefix and split version
+          VERSION=${CURRENT_TAG#v}
+          IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION"
+          
+          # Increment patch version
+          PATCH=$((PATCH + 1))
+          NEW_TAG="v${MAJOR}.${MINOR}.${PATCH}"
+          echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
+          echo "Next tag: $NEW_TAG"
+
+      - name: Create and push tag
+        run: |
+          NEW_TAG="${{ steps.next_tag.outputs.new_tag }}"
+          git tag -a "$NEW_TAG" -m "Automated release $NEW_TAG"
+          git push origin "$NEW_TAG"
+          echo "Created and pushed tag: $NEW_TAG"
+
+  create-release:
+    runs-on: ubuntu-latest
+    needs: auto-tag
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get latest tag
+        id: get_tag
+        run: |
+          TAG=$(git describe --tags --abbrev=0)
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+          echo "Latest tag: $TAG"
+
+      - name: Generate changelog
+        id: changelog
+        run: |
+          TAG="${{ steps.get_tag.outputs.tag }}"
+          PREV_TAG=$(git describe --tags --abbrev=0 HEAD~1 2>/dev/null || echo "")
+          
+          if [ -n "$PREV_TAG" ]; then
+            CHANGELOG=$(git log --pretty=format:"- %s" $PREV_TAG..HEAD)
+          else
+            CHANGELOG=$(git log --pretty=format:"- %s" --max-count=20)
+          fi
+          
+          echo "changelog<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGELOG" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.get_tag.outputs.tag }}
+          release_name: Release ${{ steps.get_tag.outputs.tag }}
+          body: |
+            ## Changes in this release:
+            
+            ${{ steps.changelog.outputs.changelog }}
+            
+            ## Project Structure
+            - Home Assistant configuration and automations
+            - Matter integration setup
+            - DCS-8000LH open source camera project
+            - ESP32 smart speaker implementation
+            - USB remote TV control system
+            - Xiaomi L05G IR control customization
+            - Comprehensive documentation and working guides
+          draft: false
+          prerelease: false
+
+  issue-management:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Analyze project structure
+        id: analyze
+        run: |
+          echo "## Project Analysis" > analysis.md
+          echo "" >> analysis.md
+          echo "### Recent Changes" >> analysis.md
+          git log --oneline -10 >> analysis.md
+          echo "" >> analysis.md
+          echo "### Project Structure" >> analysis.md
+          find . -type f -name "*.md" -o -name "*.yml" -o -name "*.yaml" -o -name "*.py" -o -name "*.js" -o -name "*.json" | head -20 >> analysis.md
+
+      - name: Create or update project status issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const analysis = fs.readFileSync('analysis.md', 'utf8');
+            
+            // Look for existing project status issue
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'project-status',
+              state: 'open'
+            });
+            
+            const title = 'Project Status and Recent Updates';
+            const body = `# Project Status Report\n\n${analysis}\n\n---\n*This issue is automatically updated by GitHub Actions.*`;
+            
+            if (issues.data.length > 0) {
+              // Update existing issue
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issues.data[0].number,
+                body: body
+              });
+              console.log('Updated existing project status issue');
+            } else {
+              // Create new issue
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: title,
+                body: body,
+                labels: ['project-status', 'automated']
+              });
+              console.log('Created new project status issue');
+            }
+
+  dependency-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check for outdated dependencies
+        run: |
+          echo "## Dependency Analysis" > deps.md
+          echo "" >> deps.md
+          
+          # Check for package.json files
+          if find . -name "package.json" -type f | grep -q .; then
+            echo "### Node.js Dependencies" >> deps.md
+            find . -name "package.json" -exec echo "Found: {}" \; >> deps.md
+          fi
+          
+          # Check for requirements.txt files
+          if find . -name "requirements.txt" -type f | grep -q .; then
+            echo "### Python Dependencies" >> deps.md
+            find . -name "requirements.txt" -exec echo "Found: {}" \; >> deps.md
+          fi
+          
+          # Check for Docker files
+          if find . -name "Dockerfile" -type f | grep -q .; then
+            echo "### Docker Images" >> deps.md
+            find . -name "Dockerfile" -exec echo "Found: {}" \; >> deps.md
+          fi
+
+      - name: Create dependency issue if needed
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const deps = fs.readFileSync('deps.md', 'utf8');
+            
+            // Look for existing dependency issue
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'dependencies',
+              state: 'open'
+            });
+            
+            if (issues.data.length === 0) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: 'Dependency Analysis and Updates',
+                body: `# Dependency Analysis\n\n${deps}\n\n---\n*This issue is automatically created by GitHub Actions.*`,
+                labels: ['dependencies', 'automated']
+              });
+              console.log('Created dependency analysis issue');
+            }
+
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v2
+        if: always()
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+  documentation-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Generate project documentation
+        run: |
+          echo "# Project Documentation" > PROJECT_DOCS.md
+          echo "" >> PROJECT_DOCS.md
+          echo "## Overview" >> PROJECT_DOCS.md
+          echo "This repository contains a comprehensive collection of IoT and automation projects." >> PROJECT_DOCS.md
+          echo "" >> PROJECT_DOCS.md
+          echo "## Projects Included" >> PROJECT_DOCS.md
+          echo "" >> PROJECT_DOCS.md
+          
+          # List all project directories
+          find . -maxdepth 2 -type d -name "ideas" -o -name "homeassistant" -o -name "matter" -o -name "whats_working" | while read dir; do
+            echo "### $(basename "$dir")" >> PROJECT_DOCS.md
+            find "$dir" -maxdepth 1 -type d | tail -n +2 | while read subdir; do
+              echo "- $(basename "$subdir")" >> PROJECT_DOCS.md
+            done
+            echo "" >> PROJECT_DOCS.md
+          done
+          
+          echo "## Recent Updates" >> PROJECT_DOCS.md
+          echo "" >> PROJECT_DOCS.md
+          git log --oneline -10 >> PROJECT_DOCS.md
+
+      - name: Commit documentation updates
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add PROJECT_DOCS.md
+          git diff --staged --quiet || git commit -m "docs: Update project documentation [automated]"
+          git push origin main || echo "No changes to commit"

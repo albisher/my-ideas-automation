@@ -7,11 +7,11 @@
       {
         "extended_dict": {
           "last_step": "action/0",
-          "run_id": "1185bb5643ba48bf06c8344f367d8138",
+          "run_id": "38f35d8063ff13a201e4c78ae7732762",
           "state": "running",
           "script_execution": null,
           "timestamp": {
-            "start": "2025-10-05T10:01:41.192703+00:00",
+            "start": "2025-10-05T10:15:27.201968+00:00",
             "finish": null
           },
           "domain": "automation",
@@ -21,22 +21,22 @@
             "trigger/0": [
               {
                 "path": "trigger/0",
-                "timestamp": "2025-10-05T10:01:41.192720+00:00",
+                "timestamp": "2025-10-05T10:15:27.201986+00:00",
                 "changed_variables": {
                   "this": {
                     "entity_id": "automation.welcome_home",
                     "state": "on",
                     "attributes": {
-                      "last_triggered": "2025-10-05T05:25:10.536110+00:00",
+                      "last_triggered": "2025-10-05T10:05:44.117295+00:00",
                       "mode": "single",
                       "current": 0,
                       "friendly_name": "Welcome Home"
                     },
-                    "last_changed": "2025-10-05T10:01:40.463717+00:00",
-                    "last_reported": "2025-10-05T10:01:40.463717+00:00",
-                    "last_updated": "2025-10-05T10:01:40.463717+00:00",
+                    "last_changed": "2025-10-05T10:15:26.490932+00:00",
+                    "last_reported": "2025-10-05T10:15:26.490932+00:00",
+                    "last_updated": "2025-10-05T10:15:26.490932+00:00",
                     "context": {
-                      "id": "01K6SX3RBFBWR8S8CJHJ0Y0325",
+                      "id": "01K6SXWZ0TK9F8YJC30PSBC63Y",
                       "parent_id": null,
                       "user_id": null
                     }
@@ -55,10 +55,10 @@
             "action/0": [
               {
                 "path": "action/0",
-                "timestamp": "2025-10-05T10:01:41.192794+00:00",
+                "timestamp": "2025-10-05T10:15:27.202084+00:00",
                 "changed_variables": {
                   "context": {
-                    "id": "01K6SX3S281T44WFDZE9EZHYR6",
+                    "id": "01K6SXWZQ1SVHCQ3HCW30FBQT4",
                     "parent_id": null,
                     "user_id": null
                   }
@@ -100,18 +100,18 @@
           },
           "blueprint_inputs": null,
           "context": {
-            "id": "01K6SX3S281T44WFDZE9EZHYR6",
+            "id": "01K6SXWZQ1SVHCQ3HCW30FBQT4",
             "parent_id": null,
             "user_id": null
           }
         },
         "short_dict": {
           "last_step": "action/0",
-          "run_id": "1185bb5643ba48bf06c8344f367d8138",
+          "run_id": "38f35d8063ff13a201e4c78ae7732762",
           "state": "running",
           "script_execution": null,
           "timestamp": {
-            "start": "2025-10-05T10:01:41.192703+00:00",
+            "start": "2025-10-05T10:15:27.201968+00:00",
             "finish": null
           },
           "domain": "automation",
@@ -124,12 +124,12 @@
       {
         "extended_dict": {
           "last_step": "sequence/0",
-          "run_id": "f230a03db0b7fdf4dc3e37971fc220bf",
+          "run_id": "2968d2484f30d0cc30e70b127b2b5824",
           "state": "stopped",
           "script_execution": "error",
           "timestamp": {
-            "start": "2025-10-05T10:02:25.070776+00:00",
-            "finish": "2025-10-05T10:02:25.072728+00:00"
+            "start": "2025-10-05T10:17:29.084403+00:00",
+            "finish": "2025-10-05T10:17:29.086639+00:00"
           },
           "domain": "script",
           "item_id": "xiaomi_ir_volume_down",
@@ -138,28 +138,28 @@
             "sequence/0": [
               {
                 "path": "sequence/0",
-                "timestamp": "2025-10-05T10:02:25.071534+00:00",
+                "timestamp": "2025-10-05T10:17:29.085524+00:00",
                 "changed_variables": {
                   "this": {
                     "entity_id": "script.xiaomi_ir_volume_down",
                     "state": "off",
                     "attributes": {
-                      "last_triggered": "2025-10-05T10:01:18.644048+00:00",
+                      "last_triggered": "2025-10-05T10:06:13.889341+00:00",
                       "mode": "single",
                       "current": 0,
                       "friendly_name": "Xiaomi IR Volume Down"
                     },
-                    "last_changed": "2025-10-05T10:01:40.397420+00:00",
-                    "last_reported": "2025-10-05T10:01:40.397420+00:00",
-                    "last_updated": "2025-10-05T10:01:40.397420+00:00",
+                    "last_changed": "2025-10-05T10:15:26.399558+00:00",
+                    "last_reported": "2025-10-05T10:15:26.399558+00:00",
+                    "last_updated": "2025-10-05T10:15:26.399558+00:00",
                     "context": {
-                      "id": "01K6SX3R9DXJGWFJ8YWJ78C0JX",
+                      "id": "01K6SXWYXZ06SABGXN04KV2SRZ",
                       "parent_id": null,
                       "user_id": null
                     }
                   },
                   "context": {
-                    "id": "01K6SX53XE39MDP6C7MR14JZGN",
+                    "id": "01K6SY0PQVTS8HQTVZVN90D155",
                     "parent_id": null,
                     "user_id": "c99ce852354a4aec8881eaeec2e37a27"
                   }
@@ -192,19 +192,19 @@
           },
           "blueprint_inputs": null,
           "context": {
-            "id": "01K6SX53XE39MDP6C7MR14JZGN",
+            "id": "01K6SY0PQVTS8HQTVZVN90D155",
             "parent_id": null,
             "user_id": "c99ce852354a4aec8881eaeec2e37a27"
           }
         },
         "short_dict": {
           "last_step": "sequence/0",
-          "run_id": "f230a03db0b7fdf4dc3e37971fc220bf",
+          "run_id": "2968d2484f30d0cc30e70b127b2b5824",
           "state": "stopped",
           "script_execution": "error",
           "timestamp": {
-            "start": "2025-10-05T10:02:25.070776+00:00",
-            "finish": "2025-10-05T10:02:25.072728+00:00"
+            "start": "2025-10-05T10:17:29.084403+00:00",
+            "finish": "2025-10-05T10:17:29.086639+00:00"
           },
           "domain": "script",
           "item_id": "xiaomi_ir_volume_down",
@@ -214,12 +214,12 @@
       {
         "extended_dict": {
           "last_step": "sequence/0",
-          "run_id": "9a2835b5c0648ea5626760020a232317",
+          "run_id": "95ded5abb691ffdacb6edeb36e5821fb",
           "state": "stopped",
           "script_execution": "error",
           "timestamp": {
-            "start": "2025-10-05T10:02:38.023911+00:00",
-            "finish": "2025-10-05T10:02:38.026073+00:00"
+            "start": "2025-10-05T10:17:32.740925+00:00",
+            "finish": "2025-10-05T10:17:32.742647+00:00"
           },
           "domain": "script",
           "item_id": "xiaomi_ir_volume_down",
@@ -228,28 +228,28 @@
             "sequence/0": [
               {
                 "path": "sequence/0",
-                "timestamp": "2025-10-05T10:02:38.024542+00:00",
+                "timestamp": "2025-10-05T10:17:32.741533+00:00",
                 "changed_variables": {
                   "this": {
                     "entity_id": "script.xiaomi_ir_volume_down",
                     "state": "off",
                     "attributes": {
-                      "last_triggered": "2025-10-05T10:02:25.071002+00:00",
+                      "last_triggered": "2025-10-05T10:17:29.084728+00:00",
                       "mode": "single",
                       "current": 0,
                       "friendly_name": "Xiaomi IR Volume Down"
                     },
-                    "last_changed": "2025-10-05T10:02:25.072594+00:00",
-                    "last_reported": "2025-10-05T10:02:25.072594+00:00",
-                    "last_updated": "2025-10-05T10:02:25.072594+00:00",
+                    "last_changed": "2025-10-05T10:17:29.086512+00:00",
+                    "last_reported": "2025-10-05T10:17:29.086512+00:00",
+                    "last_updated": "2025-10-05T10:17:29.086512+00:00",
                     "context": {
-                      "id": "01K6SX53XE39MDP6C7MR14JZGN",
+                      "id": "01K6SY0PQVTS8HQTVZVN90D155",
                       "parent_id": null,
                       "user_id": "c99ce852354a4aec8881eaeec2e37a27"
                     }
                   },
                   "context": {
-                    "id": "01K6SX5GJ7PRDWBHQ5EQSEMZC3",
+                    "id": "01K6SY0TA4PFDTPNBZFC3M5VPM",
                     "parent_id": null,
                     "user_id": "c99ce852354a4aec8881eaeec2e37a27"
                   }
@@ -282,22 +282,384 @@
           },
           "blueprint_inputs": null,
           "context": {
-            "id": "01K6SX5GJ7PRDWBHQ5EQSEMZC3",
+            "id": "01K6SY0TA4PFDTPNBZFC3M5VPM",
             "parent_id": null,
             "user_id": "c99ce852354a4aec8881eaeec2e37a27"
           }
         },
         "short_dict": {
           "last_step": "sequence/0",
-          "run_id": "9a2835b5c0648ea5626760020a232317",
+          "run_id": "95ded5abb691ffdacb6edeb36e5821fb",
           "state": "stopped",
           "script_execution": "error",
           "timestamp": {
-            "start": "2025-10-05T10:02:38.023911+00:00",
-            "finish": "2025-10-05T10:02:38.026073+00:00"
+            "start": "2025-10-05T10:17:32.740925+00:00",
+            "finish": "2025-10-05T10:17:32.742647+00:00"
           },
           "domain": "script",
           "item_id": "xiaomi_ir_volume_down",
+          "error": "Action python_script.xiaomi_ir_send_command not found"
+        }
+      },
+      {
+        "extended_dict": {
+          "last_step": "sequence/0",
+          "run_id": "05ed2a9ec3adab744192e0e01c741e8d",
+          "state": "stopped",
+          "script_execution": "error",
+          "timestamp": {
+            "start": "2025-10-05T10:18:13.791712+00:00",
+            "finish": "2025-10-05T10:18:13.794115+00:00"
+          },
+          "domain": "script",
+          "item_id": "xiaomi_ir_volume_down",
+          "error": "Action python_script.xiaomi_ir_send_command not found",
+          "trace": {
+            "sequence/0": [
+              {
+                "path": "sequence/0",
+                "timestamp": "2025-10-05T10:18:13.792471+00:00",
+                "changed_variables": {
+                  "this": {
+                    "entity_id": "script.xiaomi_ir_volume_down",
+                    "state": "off",
+                    "attributes": {
+                      "last_triggered": "2025-10-05T10:17:32.741187+00:00",
+                      "mode": "single",
+                      "current": 0,
+                      "friendly_name": "Xiaomi IR Volume Down"
+                    },
+                    "last_changed": "2025-10-05T10:17:32.742521+00:00",
+                    "last_reported": "2025-10-05T10:17:32.742521+00:00",
+                    "last_updated": "2025-10-05T10:17:32.742521+00:00",
+                    "context": {
+                      "id": "01K6SY0TA4PFDTPNBZFC3M5VPM",
+                      "parent_id": null,
+                      "user_id": "c99ce852354a4aec8881eaeec2e37a27"
+                    }
+                  },
+                  "context": {
+                    "id": "01K6SY22CZDJBZC1T4CF4ZBKAY",
+                    "parent_id": null,
+                    "user_id": "c99ce852354a4aec8881eaeec2e37a27"
+                  }
+                },
+                "error": "Action python_script.xiaomi_ir_send_command not found",
+                "result": {
+                  "params": {
+                    "domain": "python_script",
+                    "service": "xiaomi_ir_send_command",
+                    "service_data": {
+                      "command": "hisense_tv_volume_down"
+                    },
+                    "target": {}
+                  },
+                  "running_script": true
+                }
+              }
+            ]
+          },
+          "config": {
+            "alias": "Xiaomi IR Volume Down",
+            "sequence": [
+              {
+                "data": {
+                  "command": "hisense_tv_volume_down"
+                },
+                "action": "python_script.xiaomi_ir_send_command"
+              }
+            ]
+          },
+          "blueprint_inputs": null,
+          "context": {
+            "id": "01K6SY22CZDJBZC1T4CF4ZBKAY",
+            "parent_id": null,
+            "user_id": "c99ce852354a4aec8881eaeec2e37a27"
+          }
+        },
+        "short_dict": {
+          "last_step": "sequence/0",
+          "run_id": "05ed2a9ec3adab744192e0e01c741e8d",
+          "state": "stopped",
+          "script_execution": "error",
+          "timestamp": {
+            "start": "2025-10-05T10:18:13.791712+00:00",
+            "finish": "2025-10-05T10:18:13.794115+00:00"
+          },
+          "domain": "script",
+          "item_id": "xiaomi_ir_volume_down",
+          "error": "Action python_script.xiaomi_ir_send_command not found"
+        }
+      },
+      {
+        "extended_dict": {
+          "last_step": "sequence/0",
+          "run_id": "8810d84a6e80a4e26ef2f37f80055b63",
+          "state": "stopped",
+          "script_execution": "error",
+          "timestamp": {
+            "start": "2025-10-05T10:18:51.545640+00:00",
+            "finish": "2025-10-05T10:18:51.547582+00:00"
+          },
+          "domain": "script",
+          "item_id": "xiaomi_ir_volume_down",
+          "error": "Action python_script.xiaomi_ir_send_command not found",
+          "trace": {
+            "sequence/0": [
+              {
+                "path": "sequence/0",
+                "timestamp": "2025-10-05T10:18:51.546412+00:00",
+                "changed_variables": {
+                  "this": {
+                    "entity_id": "script.xiaomi_ir_volume_down",
+                    "state": "off",
+                    "attributes": {
+                      "last_triggered": "2025-10-05T10:18:13.791985+00:00",
+                      "mode": "single",
+                      "current": 0,
+                      "friendly_name": "Xiaomi IR Volume Down"
+                    },
+                    "last_changed": "2025-10-05T10:18:13.793946+00:00",
+                    "last_reported": "2025-10-05T10:18:13.793946+00:00",
+                    "last_updated": "2025-10-05T10:18:13.793946+00:00",
+                    "context": {
+                      "id": "01K6SY22CZDJBZC1T4CF4ZBKAY",
+                      "parent_id": null,
+                      "user_id": "c99ce852354a4aec8881eaeec2e37a27"
+                    }
+                  },
+                  "context": {
+                    "id": "01K6SY378SH5QQV30GY805TBWA",
+                    "parent_id": null,
+                    "user_id": "c99ce852354a4aec8881eaeec2e37a27"
+                  }
+                },
+                "error": "Action python_script.xiaomi_ir_send_command not found",
+                "result": {
+                  "params": {
+                    "domain": "python_script",
+                    "service": "xiaomi_ir_send_command",
+                    "service_data": {
+                      "command": "hisense_tv_volume_down"
+                    },
+                    "target": {}
+                  },
+                  "running_script": true
+                }
+              }
+            ]
+          },
+          "config": {
+            "alias": "Xiaomi IR Volume Down",
+            "sequence": [
+              {
+                "data": {
+                  "command": "hisense_tv_volume_down"
+                },
+                "action": "python_script.xiaomi_ir_send_command"
+              }
+            ]
+          },
+          "blueprint_inputs": null,
+          "context": {
+            "id": "01K6SY378SH5QQV30GY805TBWA",
+            "parent_id": null,
+            "user_id": "c99ce852354a4aec8881eaeec2e37a27"
+          }
+        },
+        "short_dict": {
+          "last_step": "sequence/0",
+          "run_id": "8810d84a6e80a4e26ef2f37f80055b63",
+          "state": "stopped",
+          "script_execution": "error",
+          "timestamp": {
+            "start": "2025-10-05T10:18:51.545640+00:00",
+            "finish": "2025-10-05T10:18:51.547582+00:00"
+          },
+          "domain": "script",
+          "item_id": "xiaomi_ir_volume_down",
+          "error": "Action python_script.xiaomi_ir_send_command not found"
+        }
+      }
+    ],
+    "script.xiaomi_ir_menu": [
+      {
+        "extended_dict": {
+          "last_step": "sequence/0",
+          "run_id": "8321c0055a48cfd14c616471199ccc45",
+          "state": "stopped",
+          "script_execution": "error",
+          "timestamp": {
+            "start": "2025-10-05T10:18:17.007791+00:00",
+            "finish": "2025-10-05T10:18:17.009435+00:00"
+          },
+          "domain": "script",
+          "item_id": "xiaomi_ir_menu",
+          "error": "Action python_script.xiaomi_ir_send_command not found",
+          "trace": {
+            "sequence/0": [
+              {
+                "path": "sequence/0",
+                "timestamp": "2025-10-05T10:18:17.008480+00:00",
+                "changed_variables": {
+                  "this": {
+                    "entity_id": "script.xiaomi_ir_menu",
+                    "state": "off",
+                    "attributes": {
+                      "last_triggered": null,
+                      "mode": "single",
+                      "current": 0,
+                      "friendly_name": "Xiaomi IR Menu"
+                    },
+                    "last_changed": "2025-10-05T10:15:26.399685+00:00",
+                    "last_reported": "2025-10-05T10:15:26.399685+00:00",
+                    "last_updated": "2025-10-05T10:15:26.399685+00:00",
+                    "context": {
+                      "id": "01K6SXWYXZR3P8TSB0KRS0WT4N",
+                      "parent_id": null,
+                      "user_id": null
+                    }
+                  },
+                  "context": {
+                    "id": "01K6SY25HFHQKJRBX93X5DENXQ",
+                    "parent_id": null,
+                    "user_id": "c99ce852354a4aec8881eaeec2e37a27"
+                  }
+                },
+                "error": "Action python_script.xiaomi_ir_send_command not found",
+                "result": {
+                  "params": {
+                    "domain": "python_script",
+                    "service": "xiaomi_ir_send_command",
+                    "service_data": {
+                      "command": "hisense_tv_menu"
+                    },
+                    "target": {}
+                  },
+                  "running_script": true
+                }
+              }
+            ]
+          },
+          "config": {
+            "alias": "Xiaomi IR Menu",
+            "sequence": [
+              {
+                "data": {
+                  "command": "hisense_tv_menu"
+                },
+                "action": "python_script.xiaomi_ir_send_command"
+              }
+            ]
+          },
+          "blueprint_inputs": null,
+          "context": {
+            "id": "01K6SY25HFHQKJRBX93X5DENXQ",
+            "parent_id": null,
+            "user_id": "c99ce852354a4aec8881eaeec2e37a27"
+          }
+        },
+        "short_dict": {
+          "last_step": "sequence/0",
+          "run_id": "8321c0055a48cfd14c616471199ccc45",
+          "state": "stopped",
+          "script_execution": "error",
+          "timestamp": {
+            "start": "2025-10-05T10:18:17.007791+00:00",
+            "finish": "2025-10-05T10:18:17.009435+00:00"
+          },
+          "domain": "script",
+          "item_id": "xiaomi_ir_menu",
+          "error": "Action python_script.xiaomi_ir_send_command not found"
+        }
+      },
+      {
+        "extended_dict": {
+          "last_step": "sequence/0",
+          "run_id": "0495bc3c3180a6ab8fa532f45528f73c",
+          "state": "stopped",
+          "script_execution": "error",
+          "timestamp": {
+            "start": "2025-10-05T10:18:57.439599+00:00",
+            "finish": "2025-10-05T10:18:57.441547+00:00"
+          },
+          "domain": "script",
+          "item_id": "xiaomi_ir_menu",
+          "error": "Action python_script.xiaomi_ir_send_command not found",
+          "trace": {
+            "sequence/0": [
+              {
+                "path": "sequence/0",
+                "timestamp": "2025-10-05T10:18:57.440144+00:00",
+                "changed_variables": {
+                  "this": {
+                    "entity_id": "script.xiaomi_ir_menu",
+                    "state": "off",
+                    "attributes": {
+                      "last_triggered": "2025-10-05T10:18:17.007987+00:00",
+                      "mode": "single",
+                      "current": 0,
+                      "friendly_name": "Xiaomi IR Menu"
+                    },
+                    "last_changed": "2025-10-05T10:18:17.009310+00:00",
+                    "last_reported": "2025-10-05T10:18:17.009310+00:00",
+                    "last_updated": "2025-10-05T10:18:17.009310+00:00",
+                    "context": {
+                      "id": "01K6SY25HFHQKJRBX93X5DENXQ",
+                      "parent_id": null,
+                      "user_id": "c99ce852354a4aec8881eaeec2e37a27"
+                    }
+                  },
+                  "context": {
+                    "id": "01K6SY3D0ZY87398GPA8KWHMYN",
+                    "parent_id": null,
+                    "user_id": "c99ce852354a4aec8881eaeec2e37a27"
+                  }
+                },
+                "error": "Action python_script.xiaomi_ir_send_command not found",
+                "result": {
+                  "params": {
+                    "domain": "python_script",
+                    "service": "xiaomi_ir_send_command",
+                    "service_data": {
+                      "command": "hisense_tv_menu"
+                    },
+                    "target": {}
+                  },
+                  "running_script": true
+                }
+              }
+            ]
+          },
+          "config": {
+            "alias": "Xiaomi IR Menu",
+            "sequence": [
+              {
+                "data": {
+                  "command": "hisense_tv_menu"
+                },
+                "action": "python_script.xiaomi_ir_send_command"
+              }
+            ]
+          },
+          "blueprint_inputs": null,
+          "context": {
+            "id": "01K6SY3D0ZY87398GPA8KWHMYN",
+            "parent_id": null,
+            "user_id": "c99ce852354a4aec8881eaeec2e37a27"
+          }
+        },
+        "short_dict": {
+          "last_step": "sequence/0",
+          "run_id": "0495bc3c3180a6ab8fa532f45528f73c",
+          "state": "stopped",
+          "script_execution": "error",
+          "timestamp": {
+            "start": "2025-10-05T10:18:57.439599+00:00",
+            "finish": "2025-10-05T10:18:57.441547+00:00"
+          },
+          "domain": "script",
+          "item_id": "xiaomi_ir_menu",
           "error": "Action python_script.xiaomi_ir_send_command not found"
         }
       }
